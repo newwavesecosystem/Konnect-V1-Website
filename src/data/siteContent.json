@@ -1,0 +1,2909 @@
+{
+  "home": {
+    "route": "home",
+    "documentTitle": "Konn3ct — Connect on your terms.",
+    "hero": {
+      "eyebrow": "Connection Freedom by Design",
+      "title": "Connect on your terms.",
+      "description": "Meet, gather, teach, work, host events and create value through one human-centred communications platform designed for real people, real devices and real networks.",
+      "extra": [
+        "Konn3ct adapts before connection breaks.",
+        "Caption and translate the conversation your way."
+      ],
+      "actions": [
+        "Start free",
+        "Contact sales"
+      ],
+      "proof": []
+    },
+    "sections": [
+      {
+        "id": "freedoms",
+        "eyebrow": "The Konn3ct difference",
+        "title": "Six freedoms. One connected experience.",
+        "intro": "Konn3ct is designed around the outcome people need not around a catalogue of technology features.",
+        "body": [
+          "Join from the device, browser, location and network available to you with fewer unnecessary barriers.",
+          "Speak, listen, share, chat, ask, vote, react and contribute according to your role.",
+          "Move from everyday meetings to webinars, conferences and large digital gatherings without changing ecosystems."
+        ],
+        "cards": [
+          {
+            "title": "Freedom to Connect",
+            "description": "Join from the device, browser, location and network available to you with fewer unnecessary barriers.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Freedom to Participate",
+            "description": "Speak, listen, share, chat, ask, vote, react and contribute according to your role.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Freedom to Gather",
+            "description": "Move from everyday meetings to webinars, conferences and large digital gatherings without changing ecosystems.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Freedom to Communicate Your Way",
+            "description": "Use audio, video, messaging, captions, replay, mobile and AI-assisted communication in the way that works for you.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Freedom to Control",
+            "description": "Protect identity, privacy, roles, moderation, retention and organisational policies without making the experience hostile.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Freedom to Create Value",
+            "description": "Turn connection into learning, productivity, paid events, replay, donations, workflows and measurable outcomes.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "product",
+        "eyebrow": "One platform, many ways to connect",
+        "title": "From the room to the audience and beyond.",
+        "intro": "Choose the mode that fits the moment. Konn3ct keeps participation, governance and continuity connected across the lifecycle.",
+        "body": [
+          "Clear controls, stable layouts, host authority and resilient connection behaviour keep everyday collaboration calm and understandable.",
+          "Separate the audience, speakers and organisers while keeping the experience accessible, interactive and governed.",
+          "Create registration, admission, tickets, sessions, speakers, sponsors and live participation in one customer journey."
+        ],
+        "cards": [],
+        "tabs": [
+          {
+            "label": "Meetings",
+            "title": "Meetings that stay focused on people.",
+            "eyebrow": "",
+            "description": "Clear controls, stable layouts, host authority and resilient connection behaviour keep everyday collaboration calm and understandable.",
+            "checks": [
+              "Grid, speaker, stage, spotlight and pin views",
+              "Multiple screen sharing and eCinema",
+              "Chat, Q&A, reactions, polls and hand raise",
+              "Recording, captions and device switching"
+            ]
+          },
+          {
+            "label": "Webinars",
+            "title": "Designed for one-to-many without losing control.",
+            "eyebrow": "",
+            "description": "Separate the audience, speakers and organisers while keeping the experience accessible, interactive and governed.",
+            "checks": [
+              "Stage and backstage roles",
+              "Audience Q&A and moderated participation",
+              "Speaker management and broadcast controls",
+              "Registration, reminders and analytics"
+            ]
+          },
+          {
+            "label": "Events",
+            "title": "Turn a gathering into a complete digital event.",
+            "eyebrow": "",
+            "description": "Create registration, admission, tickets, sessions, speakers, sponsors and live participation in one customer journey.",
+            "checks": [
+              "Free and paid registration",
+              "Agenda, speakers and event pages",
+              "Event ticket and access control",
+              "Donation and monetisation options"
+            ]
+          },
+          {
+            "label": "Replay",
+            "title": "Keep the value alive after the live session.",
+            "eyebrow": "",
+            "description": "Recordings, transcripts, summaries and replay access help organisations turn one live moment into an asset people can revisit.",
+            "checks": [
+              "Secure replay library",
+              "Paid and entitlement-controlled access",
+              "Transcript and chapter navigation",
+              "Shareable post-event outcomes"
+            ]
+          },
+          {
+            "label": "AI & language",
+            "title": "Let AI assist without taking authority away.",
+            "eyebrow": "",
+            "description": "Use captions, summaries, actions and language assistance while keeping human approval, privacy choices and policy visible.",
+            "checks": [
+              "Live captions and transcript",
+              "Meeting summary and action extraction",
+              "Language and translation assistance",
+              "Explicit AI privacy controls"
+            ]
+          },
+          {
+            "label": "Any device",
+            "title": "Move across devices without changing the experience.",
+            "eyebrow": "",
+            "description": "Mobile, tablet and web are first-class product surfaces, with responsive controls and recovery behaviours designed for each context.",
+            "checks": [
+              "Responsive web and desktop",
+              "Mobile-first meeting controls",
+              "Background and reconnect recovery",
+              "Low-bandwidth and audio-first modes"
+            ]
+          }
+        ],
+        "faqs": [],
+        "actions": [
+          "Meetings",
+          "Webinars",
+          "Events"
+        ]
+      },
+      {
+        "id": "reliability",
+        "eyebrow": "Connection that understands real life",
+        "title": "When the network changes, the experience should adapt.",
+        "intro": "Konn3ct treats degraded connectivity and recovery as designed product states not as surprise technical failures.",
+        "body": [
+          "Video quality has been reduced automatically. You remain connected and can switch to Audio Only at any time."
+        ],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Keep adaptive",
+          "Audio only"
+        ]
+      },
+      {
+        "id": "solutions",
+        "eyebrow": "Made relevant to every audience",
+        "title": "One Konn3ct. Different reasons to connect.",
+        "intro": "The master experience stays consistent while messaging, control, workflow and value adapt to each organisation.",
+        "body": [
+          "Governed communication, large meetings, sovereign deployment options and trusted administration.",
+          "Everyday collaboration, webinars, training, customer engagement and enterprise control.",
+          "Classes, lectures, webinars, training programmes, recordings and replay for distributed learners."
+        ],
+        "cards": [
+          {
+            "title": "Government & public institutions",
+            "description": "Governed communication, large meetings, sovereign deployment options and trusted administration.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Corporates & SMEs",
+            "description": "Everyday collaboration, webinars, training, customer engagement and enterprise control.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Universities & training",
+            "description": "Classes, lectures, webinars, training programmes, recordings and replay for distributed learners.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Associations & memberships",
+            "description": "Member meetings, professional learning, conferences, committees and continuing engagement.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Churches & religious organisations",
+            "description": "Services, teaching, prayer programmes, leadership meetings, conferences and diaspora participation.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Events & communities",
+            "description": "Registration, ticketing, live sessions, audience interaction, replay and community continuity.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Explore solution →"
+        ]
+      },
+      {
+        "id": "language",
+        "eyebrow": "Language Freedom",
+        "title": "Language should not decide who can participate.",
+        "intro": "Konn3ct's Language Freedom direction helps people follow conversations in the language they understand best while keeping the original speaker and human context visible.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "English",
+          "Hausa",
+          "Yorùbá"
+        ]
+      },
+      {
+        "id": "trust",
+        "eyebrow": "Freedom needs trust",
+        "title": "Control without making connection difficult.",
+        "intro": "TrustLock™ is the user-facing expression of Konn3ct’s security, identity, role, privacy and policy controls.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "mobile",
+        "eyebrow": "Mobile is a first-class experience",
+        "title": "Your connection should move with you.",
+        "intro": "Join, host, chat, participate, receive reminders and recover from interruptions through a mobile experience designed around the realities of everyday use.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "pricing",
+        "eyebrow": "Freedom to start. Freedom to grow.",
+        "title": "Enter easily. Expand when the value grows.",
+        "intro": "A simple commercial path for individuals, teams and organisations. Final launch entitlements and local pricing can be configured by country.",
+        "body": [
+          "For people discovering Konn3ct and everyday connection.",
+          "Freedom to start.",
+          "For professionals, teams and creators who need more capability."
+        ],
+        "cards": [
+          {
+            "title": "Free",
+            "description": "For people discovering Konn3ct and everyday connection.",
+            "meta": [
+              "Freedom to start."
+            ],
+            "checks": [
+              "Core meetings",
+              "Chat and participation",
+              "Mobile and web access",
+              "Basic meeting history"
+            ]
+          },
+          {
+            "title": "Paid",
+            "description": "For professionals, teams and creators who need more capability.",
+            "meta": [
+              "Freedom to do more."
+            ],
+            "checks": [
+              "Longer and richer sessions",
+              "Recording and replay",
+              "AI meeting assistance",
+              "Advanced host controls"
+            ]
+          },
+          {
+            "title": "Enterprise",
+            "description": "For institutions that need scale, governance and deployment control.",
+            "meta": [
+              "Freedom to scale, govern and control."
+            ],
+            "checks": [
+              "Organisation administration",
+              "SSO, policy and audit controls",
+              "Large meeting / event options",
+              "Deployment and support options"
+            ]
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Monthly",
+          "Annual save",
+          "Start free"
+        ]
+      },
+      {
+        "id": "faq",
+        "eyebrow": "Questions",
+        "title": "What people usually want to know.",
+        "intro": "Clear answers, without hiding product limits or control choices.",
+        "body": [
+          "Connection Freedom is the product doctrine behind Konn3ct: remove unnecessary barriers to joining, participating, gathering, communicating, controlling and creating value while preserving trust, privacy and legitimate human authority.",
+          "No. Meetings are a core experience, but Konn3ct is designed across webinars, events, recording and replay, AI and language assistance, monetisation, organisation administration and mobile participation.",
+          "Konn3ct’s target experience includes network monitoring, lower-bandwidth media behaviour, Audio Only fallback and reconnect/recovery states so that the product can protect the conversation when conditions deteriorate."
+        ],
+        "cards": [],
+        "tabs": [],
+        "faqs": [
+          {
+            "q": "What is Connection Freedom?",
+            "a": "Connection Freedom is the product doctrine behind Konn3ct: remove unnecessary barriers to joining, participating, gathering, communicating, controlling and creating value while preserving trust, privacy and legitimate human authority."
+          },
+          {
+            "q": "Is Konn3ct only a meeting platform?",
+            "a": "No. Meetings are a core experience, but Konn3ct is designed across webinars, events, recording and replay, AI and language assistance, monetisation, organisation administration and mobile participation."
+          },
+          {
+            "q": "What happens on poor networks?",
+            "a": "Konn3ct’s target experience includes network monitoring, lower-bandwidth media behaviour, Audio Only fallback and reconnect/recovery states so that the product can protect the conversation when conditions deteriorate."
+          },
+          {
+            "q": "How does Konn3ct use AI?",
+            "a": "AI is designed as an assistive layer for capabilities such as captions, summaries, actions, support and language assistance. Human approval, customer policy, privacy choices and accountability remain visible."
+          },
+          {
+            "q": "Can organisations control how Konn3ct is used?",
+            "a": "Yes. The product direction includes role-based access, host controls, waiting rooms, room locks, recording and AI policies, retention, auditability and enterprise/sovereign deployment options."
+          }
+        ],
+        "actions": [
+          "What is Connection Freedom? +",
+          "Is Konn3ct only a meeting platform? +",
+          "What happens on poor networks? +"
+        ]
+      },
+      {
+        "id": "your-people-are-ready-to-connect-differently",
+        "eyebrow": "",
+        "title": "Your people are ready to connect differently.",
+        "intro": "Start with the freedom to connect. Grow into the freedom to gather, govern and create value.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Start free",
+          "Talk to Konn3ct"
+        ]
+      }
+    ],
+    "form": {
+      "fields": [],
+      "submit": "Join meeting"
+    }
+  },
+  "government": {
+    "route": "government",
+    "documentTitle": "Konn3ct for Government & Public Institutions",
+    "hero": {
+      "eyebrow": "Konn3ct for Government Connection Freedom by Design",
+      "title": "Public service should connect everyone.",
+      "description": "A secure, resilient communication platform for government briefings, inter-agency collaboration, public consultations, training, webinars and large-scale civic engagement designed for real devices, real networks and institutional control.",
+      "extra": [
+        "Video reduced automatically. Audio remains stable.",
+        "Roles, recording and participant permissions controlled."
+      ],
+      "actions": [
+        "Request a government demo",
+        "Explore public-sector capabilities"
+      ],
+      "proof": [
+        "Protected by TrustLock™ Low-bandwidth aware Language Freedom",
+        "Protected by TrustLock™",
+        "Low-bandwidth aware",
+        "Language Freedom"
+      ]
+    },
+    "sections": [
+      {
+        "id": "why",
+        "eyebrow": "Public-sector mission",
+        "title": "From internal coordination to national engagement.",
+        "intro": "Konn3ct gives public institutions a coherent communication layer for the full lifecycle of government work not merely another video-call screen.",
+        "body": [],
+        "cards": [
+          {
+            "title": "One governed experience from invitation to institutional memory.",
+            "description": "",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "freedoms",
+        "eyebrow": "Connection Freedom doctrine",
+        "title": "Every capability removes a barrier to public connection.",
+        "intro": "For government, Connection Freedom means making public communication more inclusive, resilient, governed and useful across institutions, locations, languages and network conditions.",
+        "body": [
+          "Join from the office, field, home, mission or community, with the experience adapting to device and network reality.",
+          "Q&A, polls, reactions, hand raising, moderated contributions and accessible meeting modes move citizens beyond passive attendance.",
+          "Meetings, webinars, conferences, hearings and large events support different public missions without forcing one interaction model."
+        ],
+        "cards": [
+          {
+            "title": "Freedom to Connect",
+            "description": "Join from the office, field, home, mission or community, with the experience adapting to device and network reality.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Freedom to Participate",
+            "description": "Q&A, polls, reactions, hand raising, moderated contributions and accessible meeting modes move citizens beyond passive attendance.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Freedom to Gather",
+            "description": "Meetings, webinars, conferences, hearings and large events support different public missions without forcing one interaction model.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Freedom to Communicate Your Way",
+            "description": "Language, captions, text, voice, video and accessibility choices help public institutions communicate with people as they are.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Freedom to Control",
+            "description": "Hosts and institutions retain control over roles, access, recording, policies, moderation and the use of AI-assisted capabilities.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Freedom to Create Value",
+            "description": "Recordings, replay, transcripts, training content and meeting intelligence turn live public activity into reusable institutional knowledge.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "capabilities",
+        "eyebrow": "Public-sector capabilities",
+        "title": "Designed around the work government actually does.",
+        "intro": "Move between internal coordination, public engagement, training, large events, AI-assisted communication and institutional governance without fragmenting the experience.",
+        "body": [
+          "Support leadership sessions, inter-agency coordination, committees and remote teams with responsive layouts, host controls and network-aware behaviour.",
+          "Run large-scale engagement with moderated questions, speaker roles, controlled participation, live polling and replay-ready recordings.",
+          "The Konn3ct Edge experience is designed to combine captions, transcripts and AI-assisted translation with human control so public communication can reach more people."
+        ],
+        "cards": [],
+        "tabs": [
+          {
+            "label": "Meetings",
+            "title": "Meetings that remain usable under real public-sector conditions.",
+            "eyebrow": "Secure coordination",
+            "description": "Support leadership sessions, inter-agency coordination, committees and remote teams with responsive layouts, host controls and network-aware behaviour.",
+            "checks": [
+              "Waiting room & role controls",
+              "Grid, stage, speaker & spotlight",
+              "Screen sharing & presentations",
+              "Chat, Q&A, polls & reactions",
+              "Device switching",
+              "Automatic reconnect support"
+            ]
+          },
+          {
+            "label": "Town halls",
+            "title": "Town halls, hearings and briefings without losing institutional control.",
+            "eyebrow": "Public engagement",
+            "description": "Run large-scale engagement with moderated questions, speaker roles, controlled participation, live polling and replay-ready recordings.",
+            "checks": [
+              "Panelist & audience roles",
+              "Moderated public Q&A",
+              "Multiple polls",
+              "Large audience modes",
+              "Registration workflows",
+              "Recording & replay"
+            ]
+          },
+          {
+            "label": "AI & language",
+            "title": "Communicate beyond one language or one interface.",
+            "eyebrow": "Language Freedom",
+            "description": "The Konn3ct Edge experience is designed to combine captions, transcripts and AI-assisted translation with human control so public communication can reach more people.",
+            "checks": [
+              "Live caption experiences",
+              "Transcript workflows",
+              "Translation-ready interface",
+              "English + local language paths",
+              "Human-governed AI",
+              "Accessible participation"
+            ]
+          },
+          {
+            "label": "Training & replay",
+            "title": "Turn live training into reusable institutional knowledge.",
+            "eyebrow": "Capacity building",
+            "description": "Deliver civil-service training, onboarding, policy briefings and professional development then retain controlled access to recordings, transcripts and replay.",
+            "checks": [
+              "Live training sessions",
+              "Attendance & engagement",
+              "Recorded knowledge library",
+              "Replay access controls",
+              "AI-assisted summaries",
+              "Searchable institutional memory"
+            ]
+          },
+          {
+            "label": "Administration",
+            "title": "Govern users, organisations, meetings and policies from one control plane.",
+            "eyebrow": "Institutional administration",
+            "description": "Support departmental ownership, delegated administration, policy consistency and operational visibility without making every meeting a central IT task.",
+            "checks": [
+              "Organisation & department structure",
+              "Role-based permissions",
+              "Meeting policy templates",
+              "Recording controls",
+              "Usage & adoption analytics",
+              "Auditability"
+            ]
+          },
+          {
+            "label": "TrustLock™",
+            "title": "Security should be visible as control, not hidden as jargon.",
+            "eyebrow": "",
+            "description": "TrustLock™ is the product experience for governed access, recording, host policy, human oversight and transparent institutional control.",
+            "checks": [
+              "Host & moderator controls",
+              "Access policies",
+              "Recording permissions",
+              "Audit trail concepts",
+              "AI with human governance",
+              "Institution-specific policy paths"
+            ]
+          }
+        ],
+        "faqs": [],
+        "actions": [
+          "Meetings",
+          "Town halls",
+          "AI & language"
+        ]
+      },
+      {
+        "id": "use-cases",
+        "eyebrow": "Government use cases",
+        "title": "One platform across the public-service mission.",
+        "intro": "Different government interactions need different participation models but they should still inherit the same institutional trust, accessibility and operating standards.",
+        "body": [
+          "Controlled, high-focus sessions for leadership, cabinet-level coordination, boards, committees and strategic reviews.",
+          "Bring ministries, departments, agencies and public authorities into shared working sessions without geography becoming a barrier.",
+          "Support citizen questions, stakeholder feedback, live polls and moderated participation at public scale."
+        ],
+        "cards": [
+          {
+            "title": "Executive & leadership briefings",
+            "description": "Controlled, high-focus sessions for leadership, cabinet-level coordination, boards, committees and strategic reviews.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Inter-agency coordination",
+            "description": "Bring ministries, departments, agencies and public authorities into shared working sessions without geography becoming a barrier.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Town halls & public consultation",
+            "description": "Support citizen questions, stakeholder feedback, live polls and moderated participation at public scale.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Civil-service training",
+            "description": "Deliver onboarding, policy learning, professional development and nationwide training with replay and knowledge retention.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Public hearings & regulatory sessions",
+            "description": "Structure speakers, submissions, public observation, moderated Q&A and institutional records around a governed event.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Emergency & field coordination",
+            "description": "Maintain communication across constrained networks and distributed teams when dependable coordination matters most.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Diplomatic missions & distributed offices",
+            "description": "Coordinate headquarters, embassies, missions and remote public offices through consistent, branded institutional experiences.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Policy briefings & knowledge replay",
+            "description": "Capture authorised sessions, transcripts and summaries so institutional knowledge remains available after the live interaction.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "public-service-cannot-assume-perfect-bandwidth",
+        "eyebrow": "Connection resilience",
+        "title": "Public service cannot assume perfect bandwidth.",
+        "intro": "Konn3ct Edge is designed to protect participation when networks deteriorate reducing video demand, prioritising audio, supporting audio-first modes and helping users recover without unnecessary disruption.",
+        "body": [
+          "Video quality can be reduced automatically so you remain part of the meeting. Switch to Audio Only whenever you choose."
+        ],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "trust",
+        "eyebrow": "TrustLock™ + human governance",
+        "title": "Government remains in control of the communication environment.",
+        "intro": "The Konn3ct product architecture treats governance as a user experience: the right people can see, understand and control what the system is doing.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "deployment",
+        "eyebrow": "Deployment architecture",
+        "title": "Choose the operating model that fits the institution.",
+        "intro": "Konn3ct can be positioned across different public-sector deployment needs, from managed service to dedicated and sovereign-oriented environments, subject to final technical and compliance requirements.",
+        "body": [
+          "A managed Konn3ct experience for institutions that want fast adoption without operating the communications infrastructure themselves.",
+          "A dedicated deployment path designed for institutions requiring stronger organisational separation, branding and policy control.",
+          "An architecture path for large public-sector or national programmes requiring deeper control over infrastructure, data location and institutional operating model."
+        ],
+        "cards": [
+          {
+            "title": "Konn3ct Cloud",
+            "description": "A managed Konn3ct experience for institutions that want fast adoption without operating the communications infrastructure themselves.",
+            "meta": [],
+            "checks": [
+              "Central platform updates",
+              "Organisation administration",
+              "Government-branded tenant options",
+              "Operational support model"
+            ]
+          },
+          {
+            "title": "Dedicated Government Environment",
+            "description": "A dedicated deployment path designed for institutions requiring stronger organisational separation, branding and policy control.",
+            "meta": [],
+            "checks": [
+              "Dedicated environment options",
+              "Institution-specific policies",
+              "Controlled integrations",
+              "Enhanced administrative governance"
+            ]
+          },
+          {
+            "title": "National / Sovereign Deployment",
+            "description": "An architecture path for large public-sector or national programmes requiring deeper control over infrastructure, data location and institutional operating model.",
+            "meta": [],
+            "checks": [
+              "Custom infrastructure architecture",
+              "National identity & integration pathways",
+              "White-label / sovereign experience options",
+              "Programme-specific governance design"
+            ]
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "the-meeting-is-only-one-moment-in-the-relationship",
+        "eyebrow": "End-to-end public-sector lifecycle",
+        "title": "The meeting is only one moment in the relationship.",
+        "intro": "Konn3ct is designed around the entire institutional lifecycle from invitation and policy to participation, recovery, replay and knowledge.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "cta",
+        "eyebrow": "Government engagement",
+        "title": "Design a Konn3ct environment around your public mission.",
+        "intro": "Discuss your institution, users, deployment requirements, public engagement needs and governance model with the Konn3ct team.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Request government demo",
+          "Discuss sovereign deployment"
+        ]
+      }
+    ],
+    "form": {
+      "fields": [
+        {
+          "label": "Name",
+          "name": "name",
+          "type": "text",
+          "placeholder": "Your name"
+        },
+        {
+          "label": "Role",
+          "name": "title",
+          "type": "text",
+          "placeholder": "e.g. Director, ICT"
+        },
+        {
+          "label": "Institution",
+          "name": "institution",
+          "type": "text",
+          "placeholder": "Ministry / Agency / Authority"
+        },
+        {
+          "label": "Work email",
+          "name": "email",
+          "type": "email",
+          "placeholder": "name@institution.gov"
+        },
+        {
+          "label": "Primary need",
+          "name": "need",
+          "type": "select",
+          "placeholder": "",
+          "options": [
+            "Internal meetings & collaboration",
+            "Public town halls & consultations",
+            "Training & capacity building",
+            "Large webinars / national events",
+            "Dedicated government environment",
+            "Sovereign / national deployment"
+          ]
+        },
+        {
+          "label": "Context",
+          "name": "message",
+          "type": "textarea",
+          "placeholder": "Tell us about your users, scale, deployment or governance requirements."
+        }
+      ],
+      "submit": "Prepare request"
+    }
+  },
+  "associations": {
+    "route": "associations",
+    "documentTitle": "Konn3ct for Professional Associations & Membership Organisations",
+    "hero": {
+      "eyebrow": "",
+      "title": "Turn membership into momentum.",
+      "description": "Connect every member, power every chapter, run memorable AGMs and conferences, deliver CPD, and create value all year round on one Connection Freedom platform built for member-led organisations.",
+      "extra": [
+        "One national room, chapter participation, moderated questions and live member polls."
+      ],
+      "actions": [
+        "Book an association demo →",
+        "See the member lifecycle"
+      ],
+      "proof": [
+        "Chapters & committees AGMs, polls & conferences CPD, replay & monetisation",
+        "Chapters & committees",
+        "AGMs, polls & conferences",
+        "CPD, replay & monetisation"
+      ]
+    },
+    "sections": [
+      {
+        "id": "your-association-should-not-go-quiet-between-annua",
+        "eyebrow": "The membership challenge",
+        "title": "Your association should not go quiet between annual conferences.",
+        "intro": "Members expect more than notices and one major event a year. Konn3ct turns meetings, learning, chapters, events and member participation into a connected year-round experience.",
+        "body": [
+          "Keep members connected through chapter meetings, committees, webinars, updates, Q&A and on-demand content.",
+          "Bring meetings, AGMs, webinars, conferences, replay and participation into a coherent branded member experience.",
+          "Create a common collaboration layer while preserving local chapter roles, meeting spaces and operating autonomy."
+        ],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "freedom",
+        "eyebrow": "Connection Freedom for associations",
+        "title": "Six freedoms. One stronger member community.",
+        "intro": "Every major Konn3ct capability exists to remove a restriction that prevents members from connecting, contributing, learning or creating value.",
+        "body": [
+          "Members, guests, speakers and chapters can reach the association without unnecessary device, geography or network barriers.",
+          "Members do more than watch: they ask, vote, react, present, contribute to polls and take part in professional dialogue.",
+          "Move naturally from a six-person committee to chapter forums, national AGMs and high-capacity conferences."
+        ],
+        "cards": [
+          {
+            "title": "Connect Freedom",
+            "description": "Members, guests, speakers and chapters can reach the association without unnecessary device, geography or network barriers.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Participate Freedom",
+            "description": "Members do more than watch: they ask, vote, react, present, contribute to polls and take part in professional dialogue.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Gather Freedom",
+            "description": "Move naturally from a six-person committee to chapter forums, national AGMs and high-capacity conferences.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Communicate Your Way",
+            "description": "Captions, language options, chat, audio, video and multiple participation modes help members engage in the way that works for them.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Control Freedom",
+            "description": "The association controls roles, moderation, recordings, policies, access and how AI supports rather than overrides people.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Create Value Freedom",
+            "description": "Turn expertise, conferences, professional learning, recordings and member knowledge into repeatable value and sustainable income.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "lifecycle",
+        "eyebrow": "One continuous member journey",
+        "title": "From first connection to lifelong professional value.",
+        "intro": "Konn3ct is designed around the lifecycle of the member, not around isolated video calls.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "capabilities",
+        "eyebrow": "Association operating layer",
+        "title": "Everything your member community needs to gather, learn and grow.",
+        "intro": "Switch between the key capability areas to see how Konn3ct supports both daily association operations and major flagship moments.",
+        "body": [
+          "Give national, regional, branch and specialist groups a consistent Konn3ct experience without forcing every interaction into one central room.",
+          "Bring leadership, members and chapters into one structured gathering with moderated questions, polls and transparent participation.",
+          "Host keynote sessions, webinars, member forums and large hybrid events with branded access, engagement and replay."
+        ],
+        "cards": [],
+        "tabs": [
+          {
+            "label": "Chapters & Committees",
+            "title": "Keep every chapter and committee connected.",
+            "eyebrow": "Gather Freedom",
+            "description": "Give national, regional, branch and specialist groups a consistent Konn3ct experience without forcing every interaction into one central room.",
+            "checks": [
+              "Chapter and committee meetings ✓ Recurring meeting spaces ✓ Role-based hosts and moderators ✓ Screen sharing and presentations ✓ Chat, Q&A and reactions ✓ Recording and replay",
+              "Chapter and committee meetings",
+              "Recurring meeting spaces",
+              "Role-based hosts and moderators",
+              "Screen sharing and presentations",
+              "Chat, Q&A and reactions",
+              "Recording and replay"
+            ]
+          },
+          {
+            "label": "AGM & Member Voice",
+            "title": "Make the AGM a participation experience, not a broadcast.",
+            "eyebrow": "Participate Freedom",
+            "description": "Bring leadership, members and chapters into one structured gathering with moderated questions, polls and transparent participation.",
+            "checks": [
+              "Large member assemblies",
+              "Live moderated Q&A",
+              "Multiple polls and resolutions",
+              "Raise hand and speaker queue",
+              "Presentation and screen-share modes",
+              "Meeting recording and evidence"
+            ]
+          },
+          {
+            "label": "Conferences & Webinars",
+            "title": "Run conferences that continue creating value after closing day.",
+            "eyebrow": "Gather Freedom",
+            "description": "Host keynote sessions, webinars, member forums and large hybrid events with branded access, engagement and replay.",
+            "checks": [
+              "Webinar and event modes ✓ High-capacity participation ✓ Speaker and panel layouts ✓ Questions, polls and reactions ✓ Ticketed/premium experiences ✓ Post-event replay library",
+              "Webinar and event modes",
+              "High-capacity participation",
+              "Speaker and panel layouts",
+              "Questions, polls and reactions",
+              "Ticketed/premium experiences",
+              "Post-event replay library"
+            ]
+          },
+          {
+            "label": "CPD & Learning",
+            "title": "Turn professional knowledge into continuous development.",
+            "eyebrow": "Create Value Freedom",
+            "description": "Use live masterclasses, webinars and recorded content to keep professional development available beyond geography and event dates.",
+            "checks": [
+              "Live CPD masterclasses ✓ Expert webinars ✓ Attendance and participation data ✓ Replay and learning library ✓ Mobile-friendly learning ✓ Captions and language support",
+              "Live CPD masterclasses",
+              "Expert webinars",
+              "Attendance and participation data",
+              "Replay and learning library",
+              "Mobile-friendly learning",
+              "Captions and language support"
+            ]
+          },
+          {
+            "label": "Revenue & Replay",
+            "title": "Make expertise and events work harder for the association.",
+            "eyebrow": "Create Value Freedom",
+            "description": "Create additional value from premium conferences, sponsored sessions, paid webinars, replay and professional content.",
+            "checks": [
+              "Paid event registration",
+              "Premium webinar access",
+              "Replay storefront opportunities",
+              "Sponsor visibility surfaces",
+              "Attendance and conversion analytics",
+              "CRM/payment integration paths"
+            ]
+          },
+          {
+            "label": "Admin & Governance",
+            "title": "Put the association in control of its digital rooms.",
+            "eyebrow": "Control Freedom",
+            "description": "Govern how members, chapters, staff and guests participate, while keeping sensitive recordings, roles and policies under organisational control.",
+            "checks": [
+              "Admin and moderator roles ✓ Meeting feature controls ✓ Recording permissions ✓ Audit and activity records ✓ Human-governed AI controls ✓ TrustLock™ principles",
+              "Admin and moderator roles",
+              "Meeting feature controls",
+              "Recording permissions",
+              "Audit and activity records",
+              "Human-governed AI controls",
+              "TrustLock™ principles"
+            ]
+          }
+        ],
+        "faqs": [],
+        "actions": [
+          "Chapters & Committees",
+          "AGM & Member Voice",
+          "Conferences & Webinars"
+        ]
+      },
+      {
+        "id": "from-six-person-committees-to-flagship-national-ev",
+        "eyebrow": "Designed for association work",
+        "title": "From six-person committees to flagship national events.",
+        "intro": "Konn3ct scales across the everyday and the extraordinary moments of a member organisation.",
+        "body": [
+          "Run councils, boards, committees, technical groups and working sessions with reliable participation and controlled recording.",
+          "Give regional chapters a consistent collaboration space while preserving their local identity, leadership and meeting rhythm.",
+          "Combine leadership presentation, moderated questions, polls, member contributions and evidence in one structured experience."
+        ],
+        "cards": [
+          {
+            "title": "Executive & committee meetings",
+            "description": "Run councils, boards, committees, technical groups and working sessions with reliable participation and controlled recording.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Chapter & branch collaboration",
+            "description": "Give regional chapters a consistent collaboration space while preserving their local identity, leadership and meeting rhythm.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "AGMs & member assemblies",
+            "description": "Combine leadership presentation, moderated questions, polls, member contributions and evidence in one structured experience.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Conferences & webinars",
+            "description": "Deliver high-impact keynotes, panels, masterclasses and professional updates to members wherever they are.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "CPD & professional learning",
+            "description": "Bring continuing education, expert knowledge and replay closer to members including mobile and lower-bandwidth users.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Industry roundtables",
+            "description": "Bring regulators, experts, members and partners together for structured dialogue, consultation and stakeholder engagement.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Mentoring & communities",
+            "description": "Create specialist groups, emerging professional forums, mentoring circles and member communities around shared interests.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Replay & knowledge library",
+            "description": "Keep valuable conference sessions, training and member knowledge available beyond the live date and time.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "cpd",
+        "eyebrow": "Professional development",
+        "title": "Make CPD feel like a member benefit, not an administrative burden.",
+        "intro": "Build a stronger learning relationship with members through live expert sessions, replay, participation data and a consistent branded experience.",
+        "body": [
+          "Live expert briefing with Q&A, captions and post-session replay."
+        ],
+        "cards": [
+          {
+            "title": "AI, Ethics & the Future of Professional Practice",
+            "description": "Live expert briefing with Q&A, captions and post-session replay.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "your-content-should-keep-creating-value-after-the-",
+        "eyebrow": "Create Value Freedom",
+        "title": "Your content should keep creating value after the applause.",
+        "intro": "Konn3ct helps associations extend the economic and professional value of events, expertise and community without turning the member experience into a marketplace.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "because-your-members-do-not-all-have-the-same-devi",
+        "eyebrow": "Connection that respects reality",
+        "title": "Because your members do not all have the same device, network or language.",
+        "intro": "The association experience should not privilege only members with perfect broadband and new laptops. Konn3ct is designed around graceful adaptation, mobile access and inclusive communication.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "governance",
+        "eyebrow": "TrustLock™ + human governance",
+        "title": "Member trust should be designed into the platform.",
+        "intro": "Associations often hold sensitive professional discussions, governance proceedings and valuable member knowledge. Konn3ct puts organisational control at the centre of those experiences.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "audiences",
+        "eyebrow": "Built for member-led organisations",
+        "title": "One platform. Different association models.",
+        "intro": "The operating model can be tailored to the structure, geography and commercial model of each organisation.",
+        "body": [
+          "CPD, governance meetings, member assemblies, expert briefings and professional knowledge programmes.",
+          "Sector forums, policy dialogue, member meetings, industry conferences, sponsorship and stakeholder engagement.",
+          "Business networking, member events, executive briefings, regional chapter collaboration and partner programmes."
+        ],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "demo",
+        "eyebrow": "See Konn3ct for your association",
+        "title": "Build a member community that stays connected all year.",
+        "intro": "Tell us how your association operates and we’ll show how Konn3ct can support your chapters, meetings, CPD, conferences and member participation.",
+        "body": [
+          "This prototype form can be connected to Konn3ct / Odoo CRM in production.",
+          "No information is transmitted by this standalone prototype."
+        ],
+        "cards": [
+          {
+            "title": "Request an association demo",
+            "description": "Tell us how your association operates and we’ll show how Konn3ct can support your chapters, meetings, CPD, conferences and member participation.",
+            "meta": [
+              "This prototype form can be connected to Konn3ct / Odoo CRM in production.",
+              "No information is transmitted by this standalone prototype."
+            ],
+            "checks": [
+              "Association-specific product walkthrough ✓ Map current tools to one member journey ✓ Discuss rollout, branding and integration options",
+              "Association-specific product walkthrough",
+              "Map current tools to one member journey",
+              "Discuss rollout, branding and integration options"
+            ]
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Request my demo →"
+        ]
+      }
+    ],
+    "form": {
+      "fields": [
+        {
+          "label": "Your name",
+          "name": "name",
+          "type": "text",
+          "placeholder": "Full name"
+        },
+        {
+          "label": "Role",
+          "name": "role",
+          "type": "text",
+          "placeholder": "Secretary, CEO, Membership Lead…"
+        },
+        {
+          "label": "Association / organisation",
+          "name": "org",
+          "type": "text",
+          "placeholder": "Organisation name"
+        },
+        {
+          "label": "Approx. membership",
+          "name": "members",
+          "type": "select",
+          "placeholder": "",
+          "options": [
+            "Under 1,000",
+            "1,000–5,000",
+            "5,000–20,000",
+            "20,000–100,000",
+            "100,000+"
+          ]
+        },
+        {
+          "label": "Work email",
+          "name": "email",
+          "type": "email",
+          "placeholder": "you@association.org"
+        },
+        {
+          "label": "Phone",
+          "name": "phone",
+          "type": "text",
+          "placeholder": "+234…"
+        },
+        {
+          "label": "What would you like to improve?",
+          "name": "interest",
+          "type": "textarea",
+          "placeholder": "AGM participation, chapters, CPD, conferences, member engagement, replay…"
+        }
+      ],
+      "submit": "Request my demo →"
+    }
+  },
+  "education": {
+    "route": "education",
+    "documentTitle": "Konn3ct for Universities, Schools & Training Organisations",
+    "hero": {
+      "eyebrow": "",
+      "title": "Learning without limits.",
+      "description": "Connect classrooms, campuses, faculty, students and learners wherever they are. Run live lectures, virtual classrooms, webinars, open days, training programmes and large academic events with resilient access, language support, replay and institutional control.",
+      "extra": [
+        "Lecture stream, lecturer presentation, moderated questions, captions and live class poll."
+      ],
+      "actions": [
+        "Book an education demo →",
+        "See the learning lifecycle"
+      ],
+      "proof": [
+        "Virtual classrooms & lectures Low-bandwidth & mobile ready Recordings, replay & training revenue",
+        "Virtual classrooms & lectures",
+        "Low-bandwidth & mobile ready",
+        "Recordings, replay & training revenue"
+      ]
+    },
+    "sections": [
+      {
+        "id": "a-learner-s-opportunity-should-not-depend-on-locat",
+        "eyebrow": "The education challenge",
+        "title": "A learner's opportunity should not depend on location, bandwidth or the size of a classroom.",
+        "intro": "Konn3ct creates one connected learning experience across live teaching, academic collaboration, events, replay and administration designed for the real devices and networks people use every day.",
+        "body": [
+          "Students and learners may face weak networks, limited devices, long travel distances or timetable barriers. Konn3ct keeps connection resilient and flexible.",
+          "Bring lectures, webinars, meetings, Q&A, recordings and replay into a coherent institution-branded experience.",
+          "Use Q&A, polls, reactions, screen sharing, speaker queues and collaborative sessions to make participation visible."
+        ],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "freedom",
+        "eyebrow": "Connection Freedom for education",
+        "title": "Six freedoms. One more inclusive learning experience.",
+        "intro": "Every major Konn3ct capability removes a restriction that can prevent a learner, educator or institution from connecting, participating and creating value.",
+        "body": [
+          "Students, lecturers, teachers, trainers and guests can join from campus, home or the field without unnecessary device or geography barriers.",
+          "Learners can ask, answer, vote, react, present and contribute rather than simply watch a remote lecture.",
+          "Move from tutorials and staff meetings to open days, graduations, conferences and high-capacity academic events."
+        ],
+        "cards": [
+          {
+            "title": "Connect Freedom",
+            "description": "Students, lecturers, teachers, trainers and guests can join from campus, home or the field without unnecessary device or geography barriers.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Participate Freedom",
+            "description": "Learners can ask, answer, vote, react, present and contribute rather than simply watch a remote lecture.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Gather Freedom",
+            "description": "Move from tutorials and staff meetings to open days, graduations, conferences and high-capacity academic events.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Communicate Your Way",
+            "description": "Captions, language support, chat, audio-only, video and multiple participation modes widen access to learning.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Control Freedom",
+            "description": "Institutions control roles, recordings, access, moderation, retention and how AI assists teaching and administration.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Create Value Freedom",
+            "description": "Turn expertise, short courses, executive education, masterclasses and recorded learning into outcomes and sustainable revenue.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "lifecycle",
+        "eyebrow": "One continuous learning journey",
+        "title": "From discovery to lifelong learning.",
+        "intro": "Konn3ct supports the learner lifecycle before, during and after the live class and the institution behind it.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "capabilities",
+        "eyebrow": "Education operating layer",
+        "title": "Everything needed to teach, engage, gather and govern.",
+        "intro": "Switch between key capability areas to see how Konn3ct supports the academic day, institutional operations and large-scale learning experiences.",
+        "body": [
+          "Run recurring classes, live lectures, tutorials, faculty sessions and distance-learning programmes with familiar controls and resilient access.",
+          "Give learners structured ways to ask questions, respond to polls, present work, raise hands and participate in tutorials.",
+          "Host admissions open days, research conferences, inaugural lectures, graduations, town halls and public-facing academic programmes."
+        ],
+        "cards": [],
+        "tabs": [
+          {
+            "label": "Classes & Lectures",
+            "title": "Bring the classroom to every learner.",
+            "eyebrow": "Connect + Gather Freedom",
+            "description": "Run recurring classes, live lectures, tutorials, faculty sessions and distance-learning programmes with familiar controls and resilient access.",
+            "checks": [
+              "Recurring class rooms ✓ Lecturer screen sharing ✓ Grid, stage and spotlight layouts ✓ Mobile and browser participation ✓ Low-bandwidth adaptation ✓ Recording and replay",
+              "Recurring class rooms",
+              "Lecturer screen sharing",
+              "Grid, stage and spotlight layouts",
+              "Mobile and browser participation",
+              "Low-bandwidth adaptation",
+              "Recording and replay"
+            ]
+          },
+          {
+            "label": "Student Participation",
+            "title": "Make remote learning active, visible and human.",
+            "eyebrow": "Participate Freedom",
+            "description": "Give learners structured ways to ask questions, respond to polls, present work, raise hands and participate in tutorials.",
+            "checks": [
+              "Moderated Q&A ✓ Multiple live polls ✓ Raise hand and speaker queue ✓ Student presentation controls ✓ Chat and reactions ✓ Attendance and participation signals",
+              "Moderated Q&A",
+              "Multiple live polls",
+              "Raise hand and speaker queue",
+              "Student presentation controls",
+              "Chat and reactions",
+              "Attendance and participation signals"
+            ]
+          },
+          {
+            "label": "Academic Events",
+            "title": "From faculty seminars to university-wide events.",
+            "eyebrow": "Gather Freedom",
+            "description": "Host admissions open days, research conferences, inaugural lectures, graduations, town halls and public-facing academic programmes.",
+            "checks": [
+              "Webinar and event modes ✓ High-capacity participation ✓ Speaker and panel layouts ✓ Questions, polls and reactions ✓ Branded registration experiences ✓ Post-event replay",
+              "Webinar and event modes",
+              "High-capacity participation",
+              "Speaker and panel layouts",
+              "Questions, polls and reactions",
+              "Branded registration experiences",
+              "Post-event replay"
+            ]
+          },
+          {
+            "label": "Training & Replay",
+            "title": "Turn live teaching into a durable learning asset.",
+            "eyebrow": "Create Value Freedom",
+            "description": "Extend learning beyond timetable and geography with recordings, replay libraries, executive education and paid training programmes.",
+            "checks": [
+              "Recorded lectures and masterclasses",
+              "Replay learning library",
+              "Professional and executive training",
+              "Paid programme access",
+              "Mobile-friendly replay",
+              "Usage and completion analytics"
+            ]
+          },
+          {
+            "label": "AI & Language",
+            "title": "Use AI to widen understanding without surrendering human control.",
+            "eyebrow": "Communicate Your Way",
+            "description": "Support captions, language-aware experiences, searchable meeting intelligence and summaries that lecturers and institutions remain responsible for reviewing.",
+            "checks": [
+              "Live captions ✓ Language-aware experiences ✓ Meeting and lecture summaries ✓ Searchable transcripts ✓ Human review workflows ✓ Accessibility support",
+              "Live captions",
+              "Language-aware experiences",
+              "Meeting and lecture summaries",
+              "Searchable transcripts",
+              "Human review workflows",
+              "Accessibility support"
+            ]
+          },
+          {
+            "label": "Admin & Governance",
+            "title": "Give the institution control of its digital learning environment.",
+            "eyebrow": "Control Freedom",
+            "description": "Govern staff, student, guest and administrator access while controlling recordings, policies, feature permissions and AI use.",
+            "checks": [
+              "Admin, lecturer and moderator roles ✓ Meeting feature controls ✓ Recording permissions ✓ Audit and activity records ✓ Human-governed AI controls ✓ TrustLock™ principles",
+              "Admin, lecturer and moderator roles",
+              "Meeting feature controls",
+              "Recording permissions",
+              "Audit and activity records",
+              "Human-governed AI controls",
+              "TrustLock™ principles"
+            ]
+          }
+        ],
+        "faqs": [],
+        "actions": [
+          "Classes & Lectures",
+          "Student Participation",
+          "Academic Events"
+        ]
+      },
+      {
+        "id": "from-one-tutorial-group-to-a-whole-institution",
+        "eyebrow": "Designed for education work",
+        "title": "From one tutorial group to a whole institution.",
+        "intro": "Konn3ct scales across teaching, administration, public engagement and professional learning.",
+        "body": [
+          "Teach recurring classes, tutorials and seminars with presentations, participation and replay.",
+          "Reach prospective students and families through interactive, high-capacity information sessions.",
+          "Host research seminars, conferences, inaugural lectures, panels and institutional events."
+        ],
+        "cards": [
+          {
+            "title": "Live lectures & classrooms",
+            "description": "Teach recurring classes, tutorials and seminars with presentations, participation and replay.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Admissions & open days",
+            "description": "Reach prospective students and families through interactive, high-capacity information sessions.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Academic conferences",
+            "description": "Host research seminars, conferences, inaugural lectures, panels and institutional events.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Faculty & administration",
+            "description": "Support senate, faculty, departmental, parent, staff and cross-campus collaboration.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Distance learning & replay",
+            "description": "Keep lessons available to learners who cannot attend at the same time or on the same network quality.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Professional training",
+            "description": "Run executive education, certification, vocational training and premium short courses.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "learning",
+        "eyebrow": "Learning continuity",
+        "title": "The class can end. The learning does not have to.",
+        "intro": "Recordings, replay and AI-assisted learning intelligence can turn a one-time live session into a reusable institutional asset with access controlled by the institution.",
+        "body": [
+          "Executive Education · 8 modules",
+          "58 min · captions available",
+          "Workshop · 2 hours"
+        ],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "education-can-extend-beyond-enrolment",
+        "eyebrow": "Create Value Freedom",
+        "title": "Education can extend beyond enrolment.",
+        "intro": "Universities and training organisations can use Konn3ct to expand executive education, professional development, public masterclasses and on-demand learning without creating a separate engagement stack.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "do-not-make-connectivity-problems-become-learning-",
+        "eyebrow": "Designed for real networks",
+        "title": "Do not make connectivity problems become learning problems.",
+        "intro": "Konn3ct is designed to adapt when conditions change, preserving participation before visual perfection. That matters for commuter students, rural learners, field programmes and mobile-first users.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "governance",
+        "eyebrow": "TrustLock™ + human governance",
+        "title": "Institutional trust should be designed into digital learning.",
+        "intro": "Education involves minors, student records, examinations, research discussions, staff meetings and valuable intellectual content. Konn3ct puts human accountability and institutional control at the centre.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "audiences",
+        "eyebrow": "Built for learning organisations",
+        "title": "One platform. Different education models.",
+        "intro": "Konn3ct can be configured around the institution's learners, programmes, geography, governance model and commercial strategy.",
+        "body": [
+          "Lectures, senate and faculty meetings, research events, open days, distance learning and executive education.",
+          "Virtual classes, teacher collaboration, parent meetings, school assemblies, staff development and events.",
+          "Live instruction, demonstrations, cohorts, assessments support, certification events and paid professional programmes."
+        ],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "demo",
+        "eyebrow": "See Konn3ct for your institution",
+        "title": "Build a learning experience that reaches beyond the classroom.",
+        "intro": "Tell us how your institution teaches and engages learners, and we'll show how Konn3ct can support live learning, academic events, replay, language access and governance.",
+        "body": [
+          "This prototype form can be connected to Konn3ct / Odoo CRM in production.",
+          "No information is transmitted by this standalone prototype."
+        ],
+        "cards": [
+          {
+            "title": "Request an education demo",
+            "description": "Tell us how your institution teaches and engages learners, and we'll show how Konn3ct can support live learning, academic events, replay, language access and governance.",
+            "meta": [
+              "This prototype form can be connected to Konn3ct / Odoo CRM in production.",
+              "No information is transmitted by this standalone prototype."
+            ],
+            "checks": [
+              "Education-specific product walkthrough ✓ Map current tools to one learning journey ✓ Discuss branding, rollout and integration options",
+              "Education-specific product walkthrough",
+              "Map current tools to one learning journey",
+              "Discuss branding, rollout and integration options"
+            ]
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Request my demo →"
+        ]
+      }
+    ],
+    "form": {
+      "fields": [
+        {
+          "label": "Your name",
+          "name": "name",
+          "type": "text",
+          "placeholder": "Full name"
+        },
+        {
+          "label": "Role",
+          "name": "role",
+          "type": "text",
+          "placeholder": "VC, Principal, Dean, Head of ICT, Training Lead…"
+        },
+        {
+          "label": "Institution / organisation",
+          "name": "org",
+          "type": "text",
+          "placeholder": "Institution name"
+        },
+        {
+          "label": "Approx. learners",
+          "name": "members",
+          "type": "select",
+          "placeholder": "",
+          "options": [
+            "Under 1,000",
+            "1,000–5,000",
+            "5,000–20,000",
+            "20,000–100,000",
+            "100,000+"
+          ]
+        },
+        {
+          "label": "Work email",
+          "name": "email",
+          "type": "email",
+          "placeholder": "you@institution.edu"
+        },
+        {
+          "label": "Phone",
+          "name": "phone",
+          "type": "text",
+          "placeholder": "+234…"
+        },
+        {
+          "label": "What would you like to improve?",
+          "name": "interest",
+          "type": "textarea",
+          "placeholder": "Virtual classes, distance learning, academic events, recordings, training, language access, governance…"
+        }
+      ],
+      "submit": "Request my demo →"
+    }
+  },
+  "faith": {
+    "route": "faith",
+    "documentTitle": "Konn3ct for Churches, Faith & Religious Organisations",
+    "hero": {
+      "eyebrow": "",
+      "title": "Bring every community closer beyond walls, distance and bandwidth.",
+      "description": "Konn3ct gives churches, ministries and religious organisations one trusted platform for worship and gatherings, fellowship, pastoral care, leadership, conferences, outreach, replay, giving and multilingual participation.",
+      "extra": [
+        "Members are joining across locations, devices and languages."
+      ],
+      "actions": [
+        "Book a faith-community demo →",
+        "Explore the experience"
+      ],
+      "proof": [
+        "Mobile & low-bandwidth aware TrustLock™ governance AI-powered, human-governed",
+        "Mobile & low-bandwidth aware",
+        "TrustLock™ governance",
+        "AI-powered, human-governed"
+      ]
+    },
+    "sections": [
+      {
+        "id": "freedom",
+        "eyebrow": "Connection Freedom for faith communities",
+        "title": "Faith communities need more than a video link.",
+        "intro": "Connection Freedom means giving people practical freedom to join, participate, gather, communicate, exercise appropriate control and create value without technology becoming the barrier.",
+        "body": [
+          "Let members, leaders, volunteers and guests join from where they are, using the devices and networks available to them.",
+          "Move people from passive viewing to meaningful participation through questions, polls, reactions, requests, small groups and moderated interaction.",
+          "Run intimate fellowship groups, leadership councils, worship gatherings, conventions and large faith events within one coherent experience."
+        ],
+        "cards": [
+          {
+            "title": "Connect Freedom",
+            "description": "Let members, leaders, volunteers and guests join from where they are, using the devices and networks available to them.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Participate Freedom",
+            "description": "Move people from passive viewing to meaningful participation through questions, polls, reactions, requests, small groups and moderated interaction.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Gather Freedom",
+            "description": "Run intimate fellowship groups, leadership councils, worship gatherings, conventions and large faith events within one coherent experience.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Communicate Your Way",
+            "description": "Use captions, language-aware experiences and multiple modes of interaction so the community is not limited by one language or one communication style.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Control Freedom",
+            "description": "Keep leadership accountable for privacy, recordings, moderation, member access, children’s programmes and sensitive pastoral interactions.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Create Value Freedom",
+            "description": "Support giving, conferences, training, media libraries and outreach programmes without fragmenting the member experience across multiple tools.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "lifecycle",
+        "eyebrow": "One connected community lifecycle",
+        "title": "From first invitation to lasting community.",
+        "intro": "Konn3ct connects the moments before, during and after a live gathering so engagement does not disappear when a session ends.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "capabilities",
+        "eyebrow": "Built around community life",
+        "title": "One platform. Many moments of faith and service.",
+        "intro": "Switch between the capabilities your organisation needs while keeping one familiar Konn3ct experience for leaders, members, volunteers and guests.",
+        "body": [
+          "Give leaders the flexibility to host recurring services, teachings, vigils, study groups, councils and large gatherings without forcing every format into the same rigid room.",
+          "Speaker view · captions · controlled recording",
+          "Moderated Q&A and member reflections"
+        ],
+        "cards": [],
+        "tabs": [
+          {
+            "label": "Worship & Gatherings",
+            "title": "From small fellowship to large worship gatherings.",
+            "eyebrow": "Gather Freedom",
+            "description": "Give leaders the flexibility to host recurring services, teachings, vigils, study groups, councils and large gatherings without forcing every format into the same rigid room.",
+            "checks": [
+              "Recurring services, teachings and prayer / reflection gatherings",
+              "Stage, speaker, grid, spotlight and presentation-focused layouts",
+              "Screen sharing, media presentation, Q&A, polls and reactions",
+              "Waiting rooms, role-based host controls and moderation",
+              "Low-bandwidth and audio-first fallbacks"
+            ]
+          },
+          {
+            "label": "Community & Pastoral Care",
+            "title": "Stay close to people between major gatherings.",
+            "eyebrow": "Participate + Control Freedom",
+            "description": "Use Konn3ct for leadership check-ins, counselling appointments, follow-up teams, small groups, mentoring and community-care conversations with privacy and appropriate access controls.",
+            "checks": [
+              "Private one-to-one and small-group sessions",
+              "Scheduled ministry, counselling and mentoring rooms",
+              "Group-based access for fellowship, youth and volunteer teams",
+              "Member requests and moderated follow-up workflows",
+              "Recording disabled or restricted for sensitive conversations"
+            ]
+          },
+          {
+            "label": "Conferences & Events",
+            "title": "Run conventions, crusades, congresses and conferences with a stronger digital front door.",
+            "eyebrow": "Gather Freedom at scale",
+            "description": "Host large events while managing speakers, attendees, registration, engagement, replay and post-event community from one coherent platform.",
+            "checks": [
+              "High-capacity webinars and large audience sessions",
+              "Speaker, moderator and attendee roles",
+              "Registration, ticketing and access controls where needed",
+              "Live Q&A, polls and moderated audience participation",
+              "Recording, replay and post-event content distribution"
+            ]
+          },
+          {
+            "label": "Media & Replay",
+            "title": "Turn live teaching into a lasting knowledge and media library.",
+            "eyebrow": "Communicate Your Way",
+            "description": "Record authorised sessions, publish replays, add captions and transcripts, and help members revisit messages and teachings when time or connectivity prevents live attendance.",
+            "checks": [
+              "Secure recording and replay access",
+              "Captions, transcripts and searchable session context",
+              "Human-reviewed AI summaries where appropriate",
+              "Public, members-only or programme-specific replay libraries",
+              "Mobile-friendly playback and low-bandwidth options"
+            ]
+          },
+          {
+            "label": "Giving & Value",
+            "title": "Let digital participation support real-world mission and community work.",
+            "eyebrow": "Create Value Freedom",
+            "description": "Where appropriate, organisations can connect giving, conference registration, training and replay access to the same member journey with clear governance and transparent records.",
+            "checks": [
+              "Donations and giving journeys through approved payment integrations",
+              "Paid conferences, training programmes and special events",
+              "Premium replay or learning libraries where appropriate",
+              "Transaction records and administrative reporting",
+              "Country-aware payment and settlement options as configured"
+            ]
+          },
+          {
+            "label": "Admin & Governance",
+            "title": "Give leaders control without making technology complicated.",
+            "eyebrow": "Control Freedom",
+            "description": "Configure roles, groups, event policies, recording, replay, moderation, giving and AI features at organisation level while maintaining accountability.",
+            "checks": [
+              "Role-based administration for leaders, media teams and moderators",
+              "Group and ministry-level access",
+              "Recording, replay and retention policies",
+              "Audit trails and security controls through TrustLock™",
+              "AI assistance governed by human approval and policy"
+            ]
+          }
+        ],
+        "faqs": [],
+        "actions": [
+          "Worship & Gatherings",
+          "Community & Pastoral Care",
+          "Conferences & Events"
+        ]
+      },
+      {
+        "id": "use-cases",
+        "eyebrow": "Everyday use cases",
+        "title": "Designed for the rhythm of a living community.",
+        "intro": "Konn3ct supports both highly visible gatherings and the quieter work that keeps communities connected during the week.",
+        "body": [
+          "Live services, teachings, prayer or reflection gatherings, midweek programmes and special observances.",
+          "House fellowships, study circles, youth groups, women’s/men’s groups, volunteer teams and ministry units.",
+          "Private counselling, mentoring, follow-up conversations and authorised care-team collaboration."
+        ],
+        "cards": [
+          {
+            "title": "Worship & teaching",
+            "description": "Live services, teachings, prayer or reflection gatherings, midweek programmes and special observances.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Fellowship & groups",
+            "description": "House fellowships, study circles, youth groups, women’s/men’s groups, volunteer teams and ministry units.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Pastoral & community care",
+            "description": "Private counselling, mentoring, follow-up conversations and authorised care-team collaboration.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Conferences & conventions",
+            "description": "Large gatherings, congresses, leadership summits, retreats, mission conferences and seminars.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Leadership councils",
+            "description": "Board, clergy, committee, diocesan, departmental and network leadership meetings with clear roles.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Media & replay",
+            "description": "Build an authorised library of teachings, messages, conferences and training for members and guests.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Multilingual communities",
+            "description": "Use captions and language-aware experiences to connect diverse congregations, regions and diaspora members.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Giving & outreach",
+            "description": "Connect authorised giving, event registration and outreach support to the wider community experience.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "media",
+        "eyebrow": "Community continuity",
+        "title": "The gathering can end. The connection can continue.",
+        "intro": "Authorised recordings, replay and AI-assisted media intelligence can turn a one-time gathering into a lasting community resource while leaders retain control over what is published and who can access it.",
+        "body": [
+          "52 min · captions available",
+          "6 sessions · leaders access",
+          "3 hours · replay available"
+        ],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "value",
+        "eyebrow": "Create Value Freedom",
+        "title": "Let digital connection strengthen mission, learning and outreach.",
+        "intro": "Konn3ct can support the economic and operational side of community programmes without turning the platform into a commercial distraction. Organisations choose which value features to use and how they are governed.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "distance-and-poor-connectivity-should-not-disconne",
+        "eyebrow": "Designed for real networks",
+        "title": "Distance and poor connectivity should not disconnect people from their community.",
+        "intro": "Konn3ct is designed to preserve participation before visual perfection especially important for rural communities, diaspora members, mobile-first users and people joining from constrained networks.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "trust",
+        "eyebrow": "TrustLock™ + human governance",
+        "title": "Trust matters even more when community conversations are personal.",
+        "intro": "Faith organisations handle private counselling, children and youth programmes, member information, leadership meetings, giving and valuable media. Konn3ct keeps human accountability and organisational control at the centre.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "designed-for-the-device-most-members-already-carry",
+        "eyebrow": "Community in your pocket",
+        "title": "Designed for the device most members already carry.",
+        "intro": "Mobile is not a reduced version of Konn3ct. It is a first-class way to join gatherings, listen on constrained networks, access replay, participate in groups and stay connected between events.",
+        "body": [
+          "Follow with captions in the language experience your community supports."
+        ],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "demo",
+        "eyebrow": "See Konn3ct for your community",
+        "title": "Build a stronger digital home for your faith community.",
+        "intro": "Tell us how your organisation gathers, serves and communicates. We’ll show you how Konn3ct can support your live gatherings, groups, media, leadership, giving and community continuity.",
+        "body": [
+          "Share a few details and the Konn3ct team can tailor the conversation."
+        ],
+        "cards": [
+          {
+            "title": "Book a faith-community demo",
+            "description": "Share a few details and the Konn3ct team can tailor the conversation.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Request demo →"
+        ]
+      }
+    ],
+    "form": {
+      "fields": [
+        {
+          "label": "Your name",
+          "name": "name",
+          "type": "text",
+          "placeholder": "Full name"
+        },
+        {
+          "label": "Role",
+          "name": "role",
+          "type": "text",
+          "placeholder": "e.g. Pastor, Imam, Administrator, Media Lead"
+        },
+        {
+          "label": "Organisation",
+          "name": "org",
+          "type": "text",
+          "placeholder": "Organisation name"
+        },
+        {
+          "label": "Organisation type",
+          "name": "type",
+          "type": "select",
+          "placeholder": "",
+          "options": [
+            "Church / Ministry",
+            "Mosque / Islamic Organisation",
+            "Religious Network / Diocese",
+            "Faith-based NGO",
+            "Mission Organisation",
+            "Religious Council",
+            "Other"
+          ]
+        },
+        {
+          "label": "Work email",
+          "name": "email",
+          "type": "email",
+          "placeholder": "name@organisation.org"
+        },
+        {
+          "label": "Community reach",
+          "name": "size",
+          "type": "select",
+          "placeholder": "",
+          "options": [
+            "Under 500",
+            "500 – 2,000",
+            "2,000 – 10,000",
+            "10,000 – 50,000",
+            "50,000+"
+          ]
+        },
+        {
+          "label": "What would you like Konn3ct to help you improve?",
+          "name": "interest",
+          "type": "textarea",
+          "placeholder": "Worship streaming, groups, conferences, multilingual participation, replay, giving, administration..."
+        }
+      ],
+      "submit": "Request demo →"
+    }
+  },
+  "corporates": {
+    "route": "corporates",
+    "documentTitle": "Konn3ct for Corporates & SMEs | Connect. Collaborate. Grow.",
+    "hero": {
+      "eyebrow": "Konn3ct for Corporates & SMEs",
+      "title": "Connect. Collaborate. Grow.",
+      "description": "Bring your teams, customers, partners and business communities together on one intelligent platform for meetings, collaboration, training, webinars, customer engagement and business growth.",
+      "extra": [],
+      "actions": [
+        "Book a Business Demo",
+        "Explore Business Capabilities"
+      ],
+      "proof": [
+        "✓ Built for modern teams ✓ Low-bandwidth ready ✓ AI-powered, human-governed ✓ Mobile & desktop"
+      ]
+    },
+    "sections": [
+      {
+        "id": "why",
+        "eyebrow": "Business communication, reimagined",
+        "title": "Your business should move as fast as your opportunities.",
+        "intro": "Konn3ct helps businesses reduce distance, communication friction and participation barriers so people can work, sell, learn, support customers and make decisions wherever they are.",
+        "body": [
+          "Connect offices, branches, remote staff, partners and customers without making location the deciding factor.",
+          "Run sales demos, onboarding, advisory sessions, account reviews, support interactions and customer events.",
+          "Capture recordings, transcripts, decisions, follow-ups and searchable organisational knowledge."
+        ],
+        "cards": [
+          {
+            "title": "Work across distance",
+            "description": "Connect offices, branches, remote staff, partners and customers without making location the deciding factor.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Engage customers better",
+            "description": "Run sales demos, onboarding, advisory sessions, account reviews, support interactions and customer events.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Turn meetings into knowledge",
+            "description": "Capture recordings, transcripts, decisions, follow-ups and searchable organisational knowledge.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Create new business value",
+            "description": "Monetise webinars, training, events, expert sessions and premium replay content where it fits your model.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "from-first-conversation-to-long-term-value",
+        "eyebrow": "The connected business lifecycle",
+        "title": "From first conversation to long-term value.",
+        "intro": "Konn3ct supports the business relationship before, during and after the meeting not just the video call itself.",
+        "body": [
+          "Sales calls, customer discovery, partner meetings, recruitment interviews and consultations.",
+          "Team meetings, executive reviews, project rooms, screen sharing, polls, Q&A and shared decisions.",
+          "Employee onboarding, product training, channel enablement, compliance learning and leadership sessions."
+        ],
+        "cards": [
+          {
+            "title": "Meet & Discover",
+            "description": "Sales calls, customer discovery, partner meetings, recruitment interviews and consultations.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Collaborate & Decide",
+            "description": "Team meetings, executive reviews, project rooms, screen sharing, polls, Q&A and shared decisions.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Train & Enable",
+            "description": "Employee onboarding, product training, channel enablement, compliance learning and leadership sessions.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Engage at Scale",
+            "description": "Webinars, town halls, product launches, customer communities and business events.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Replay & Reuse",
+            "description": "Recordings, searchable transcripts, knowledge libraries, paid replay and reusable learning content.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Grow & Create Value",
+            "description": "Convert participation into productivity, customer loyalty, revenue and stronger business relationships.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "capabilities",
+        "eyebrow": "Business capabilities",
+        "title": "One platform. Multiple business moments.",
+        "intro": "Choose the work your business needs to accomplish.",
+        "body": [],
+        "cards": [],
+        "tabs": [
+          {
+            "label": "Teams & Collaboration",
+            "title": "Teams & Collaboration",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          },
+          {
+            "label": "Sales & Customers",
+            "title": "Sales & Customers",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          },
+          {
+            "label": "Training & Enablement",
+            "title": "Training & Enablement",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          },
+          {
+            "label": "Webinars & Events",
+            "title": "Webinars & Events",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          },
+          {
+            "label": "AI & Productivity",
+            "title": "AI & Productivity",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          },
+          {
+            "label": "Admin & Governance",
+            "title": "Admin & Governance",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          }
+        ],
+        "faqs": [],
+        "actions": [
+          "Teams & Collaboration",
+          "Sales & Customers",
+          "Training & Enablement"
+        ]
+      },
+      {
+        "id": "freedom",
+        "eyebrow": "Connection Freedom for business",
+        "title": "Every feature should remove a barrier to business connection.",
+        "intro": "Konn3ct is designed around the freedom to connect, participate, gather, communicate your way, stay in control and create value.",
+        "body": [
+          "Join from the office, home, field or branch using the device and network available to you.",
+          "Speak, present, chat, vote, ask questions, react and contribute in the way that suits the moment.",
+          "Move from small team sessions to large webinars, town halls and business events."
+        ],
+        "cards": [
+          {
+            "title": "Connect Freedom",
+            "description": "Join from the office, home, field or branch using the device and network available to you.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Participate Freedom",
+            "description": "Speak, present, chat, vote, ask questions, react and contribute in the way that suits the moment.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Gather Freedom",
+            "description": "Move from small team sessions to large webinars, town halls and business events.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Communicate Your Way",
+            "description": "Use video, audio, chat, captions, replay and emerging language capabilities to widen participation.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Control Freedom",
+            "description": "Retain control over roles, participants, recordings, organisational policies and AI-assisted outputs.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Create Value Freedom",
+            "description": "Convert connection into productivity, learning, customer loyalty, stronger communities and revenue.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "work-should-not-stop-because-the-network-is-imperf",
+        "eyebrow": "Built for real business conditions",
+        "title": "Work should not stop because the network is imperfect.",
+        "intro": "Konn3ct is designed for the realities of modern work—mobile devices, distributed teams, variable bandwidth and people moving between networks.",
+        "body": [
+          "Graceful experience changes as bandwidth becomes constrained.",
+          "Prioritise the conversation when video is no longer practical.",
+          "Reconnect without making users restart the entire meeting journey."
+        ],
+        "cards": [
+          {
+            "title": "Adaptive connectivity",
+            "description": "Graceful experience changes as bandwidth becomes constrained.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Audio-first fallback",
+            "description": "Prioritise the conversation when video is no longer practical.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Fast recovery",
+            "description": "Reconnect without making users restart the entire meeting journey.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Mobile + desktop",
+            "description": "Purpose-built experiences for both mobile workers and desktop collaboration.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "trust",
+        "eyebrow": "TrustLock™",
+        "title": "Business communication needs control as much as convenience.",
+        "intro": "Konn3ct combines usable collaboration with organisational governance, role clarity and human oversight of AI-assisted experiences.",
+        "body": [
+          "Hosts, admins, presenters and participants.",
+          "Define when content can be captured and reused.",
+          "AI assists; people and organisations remain accountable."
+        ],
+        "cards": [
+          {
+            "title": "Role-based control",
+            "description": "Hosts, admins, presenters and participants.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Recording governance",
+            "description": "Define when content can be captured and reused.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Human-governed AI",
+            "description": "AI assists; people and organisations remain accountable.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Administrative visibility",
+            "description": "Support policy, review and accountable platform operation.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Discuss Enterprise Requirements"
+        ]
+      },
+      {
+        "id": "designed-to-create-measurable-value",
+        "eyebrow": "Business outcomes",
+        "title": "Designed to create measurable value.",
+        "intro": "The business case for better connection goes beyond meeting minutes.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "build-a-more-connected-business",
+        "eyebrow": "",
+        "title": "Build a more connected business.",
+        "intro": "Whether you are a growing SME or a distributed enterprise, Konn3ct can help you bring teams, customers, partners and business communities closer together.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Book a Business Demo"
+        ]
+      },
+      {
+        "id": "demo",
+        "eyebrow": "Business demo",
+        "title": "See how Konn3ct can fit your business.",
+        "intro": "Tell us a little about your organisation and the communication problems you want to solve.",
+        "body": [
+          "Team communication, customer meetings, training, webinars and simple business growth.",
+          "Organisation administration, governance, large events, distributed teams and controlled collaboration.",
+          "Sales, onboarding, support, education, account management and customer communities."
+        ],
+        "cards": [
+          {
+            "title": "For SMEs",
+            "description": "Team communication, customer meetings, training, webinars and simple business growth.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "For Enterprises",
+            "description": "Organisation administration, governance, large events, distributed teams and controlled collaboration.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "For customer-facing teams",
+            "description": "Sales, onboarding, support, education, account management and customer communities.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Request a Konn3ct business demo",
+            "description": "Demo form is ready for connection to Konn3ct / Odoo CRM lead capture.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Request Demo"
+        ]
+      }
+    ],
+    "form": {
+      "fields": [
+        {
+          "label": "Full name",
+          "name": "name",
+          "type": "text",
+          "placeholder": "Your name"
+        },
+        {
+          "label": "Role",
+          "name": "role",
+          "type": "text",
+          "placeholder": "e.g. CEO, HR Lead, IT Manager"
+        },
+        {
+          "label": "Company / organisation",
+          "name": "company",
+          "type": "text",
+          "placeholder": "Organisation name"
+        },
+        {
+          "label": "Business email",
+          "name": "email",
+          "type": "email",
+          "placeholder": "name@company.com"
+        },
+        {
+          "label": "Organisation size",
+          "name": "size",
+          "type": "select",
+          "placeholder": "",
+          "options": [
+            "1–20 people",
+            "21–100 people",
+            "101–500 people",
+            "501–2,000 people",
+            "2,000+ people"
+          ]
+        },
+        {
+          "label": "Primary need",
+          "name": "need",
+          "type": "select",
+          "placeholder": "",
+          "options": [
+            "Team meetings & collaboration",
+            "Sales & customer engagement",
+            "Training & enablement",
+            "Webinars & large events",
+            "Enterprise administration & governance",
+            "Multiple needs"
+          ]
+        },
+        {
+          "label": "What would you like Konn3ct to help you achieve?",
+          "name": "message",
+          "type": "textarea",
+          "placeholder": "Tell us about your current tools, challenges or objectives."
+        }
+      ],
+      "submit": "Request Demo"
+    }
+  },
+  "events-community": {
+    "route": "events-community",
+    "documentTitle": "Konn3ct for Events & Community Organisations | Gather. Engage. Grow.",
+    "hero": {
+      "eyebrow": "Konn3ct for Events & Community Organisations",
+      "title": "Gather. Engage. Grow.",
+      "description": "Create events and communities people can truly participate in before, during and after the live moment. From conferences and festivals to community forums, NGO programmes, clubs, networks and hybrid gatherings.",
+      "extra": [],
+      "actions": [
+        "Plan Your Event",
+        "Explore Capabilities"
+      ],
+      "proof": [
+        "✓ Hybrid & virtual events ✓ Community participation ✓ Low-bandwidth ready ✓ Replay & monetisation"
+      ]
+    },
+    "sections": [
+      {
+        "id": "why",
+        "eyebrow": "More than a livestream",
+        "title": "Turn every gathering into a connected community experience.",
+        "intro": "Konn3ct helps organisers remove the barriers of distance, venue size, bandwidth and one-way participation so more people can belong, contribute and stay connected.",
+        "body": [
+          "Include remote audiences, diaspora communities, field teams and participants who cannot attend physically.",
+          "Use Q&A, polls, chat, reactions, speaker interaction and breakout experiences to turn audiences into participants.",
+          "Extend connection through replay, follow-up sessions, recorded knowledge and recurring community gatherings."
+        ],
+        "cards": [
+          {
+            "title": "Reach beyond the venue",
+            "description": "Include remote audiences, diaspora communities, field teams and participants who cannot attend physically.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Make participation active",
+            "description": "Use Q&A, polls, chat, reactions, speaker interaction and breakout experiences to turn audiences into participants.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Keep the community alive",
+            "description": "Extend connection through replay, follow-up sessions, recorded knowledge and recurring community gatherings.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Create sustainable value",
+            "description": "Support ticketing, premium sessions, sponsorship, donations, paid replay and other community revenue models.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "before-live-after-connected",
+        "eyebrow": "The complete event lifecycle",
+        "title": "Before. Live. After. Connected.",
+        "intro": "A successful event starts before people join and continues long after the closing session.",
+        "body": [
+          "Campaign landing pages, participant registration, ticketing and controlled event access.",
+          "Bring people together in meetings, webinars, conferences, festivals, community forums or hybrid events.",
+          "Q&A, chat, polls, reactions, speaker questions, presentations and moderated interaction."
+        ],
+        "cards": [
+          {
+            "title": "Promote & Register",
+            "description": "Campaign landing pages, participant registration, ticketing and controlled event access.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Gather",
+            "description": "Bring people together in meetings, webinars, conferences, festivals, community forums or hybrid events.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Participate",
+            "description": "Q&A, chat, polls, reactions, speaker questions, presentations and moderated interaction.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Network & Belong",
+            "description": "Connect chapters, volunteers, speakers, members, partners and community participants beyond the main stage.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Replay & Continue",
+            "description": "Make recordings, summaries and approved content available for continued learning and engagement.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Monetise & Grow",
+            "description": "Use ticketing, donations, sponsorship, premium content and recurring programmes to sustain the community.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "capabilities",
+        "eyebrow": "Event & community capabilities",
+        "title": "One platform for the stage and the community around it.",
+        "intro": "Choose the type of experience you want to create.",
+        "body": [],
+        "cards": [],
+        "tabs": [
+          {
+            "label": "Events & Conferences",
+            "title": "Events & Conferences",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          },
+          {
+            "label": "Community Engagement",
+            "title": "Community Engagement",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          },
+          {
+            "label": "Networking & Participation",
+            "title": "Networking & Participation",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          },
+          {
+            "label": "Media & Replay",
+            "title": "Media & Replay",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          },
+          {
+            "label": "Ticketing & Value",
+            "title": "Ticketing & Value",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          },
+          {
+            "label": "Admin & Governance",
+            "title": "Admin & Governance",
+            "eyebrow": "",
+            "description": "",
+            "checks": []
+          }
+        ],
+        "faqs": [],
+        "actions": [
+          "Events & Conferences",
+          "Community Engagement",
+          "Networking & Participation"
+        ]
+      },
+      {
+        "id": "build-communities-not-just-audiences",
+        "eyebrow": "Beyond the main stage",
+        "title": "Build communities, not just audiences.",
+        "intro": "The event may last a day. The relationship can last for years. Konn3ct helps organisers connect speakers, members, volunteers, participants and partners into an ongoing network.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Plan a Community Experience"
+        ]
+      },
+      {
+        "id": "freedom",
+        "eyebrow": "Connection Freedom for events & communities",
+        "title": "Participation should not depend on location, bandwidth or being in the front row.",
+        "intro": "Konn3ct translates the Connection Freedom doctrine into practical choices for organisers and participants.",
+        "body": [
+          "Join from home, office, field location, another country or the physical venue using the device available.",
+          "Ask, vote, react, chat, speak, present and contribute rather than only watch.",
+          "Support everything from small community circles to large conferences, summits and hybrid events."
+        ],
+        "cards": [
+          {
+            "title": "Connect Freedom",
+            "description": "Join from home, office, field location, another country or the physical venue using the device available.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Participate Freedom",
+            "description": "Ask, vote, react, chat, speak, present and contribute rather than only watch.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Gather Freedom",
+            "description": "Support everything from small community circles to large conferences, summits and hybrid events.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Communicate Your Way",
+            "description": "Use video, audio, chat, captions, replay and language-support options as the situation requires.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Control Freedom",
+            "description": "Organisers retain authority over speakers, access, moderation, recordings, content and AI-assisted outputs.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Create Value Freedom",
+            "description": "Turn gatherings into knowledge, social impact, stronger communities, donations, sponsorship and sustainable revenue.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "great-events-should-remain-accessible-when-network",
+        "eyebrow": "Designed for real participation conditions",
+        "title": "Great events should remain accessible when networks are not perfect.",
+        "intro": "Konn3ct is built around resilient participation across mobile devices, changing networks and constrained bandwidth.",
+        "body": [
+          "The experience can degrade gracefully instead of failing abruptly.",
+          "Keep people connected to the conversation when video becomes impractical.",
+          "Recover from temporary network loss without making participants start again."
+        ],
+        "cards": [
+          {
+            "title": "Adaptive bandwidth",
+            "description": "The experience can degrade gracefully instead of failing abruptly.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Audio-first fallback",
+            "description": "Keep people connected to the conversation when video becomes impractical.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Fast reconnect",
+            "description": "Recover from temporary network loss without making participants start again.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Mobile + desktop",
+            "description": "Support participants wherever they are, across responsive mobile and desktop experiences.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "trust",
+        "eyebrow": "TrustLock™",
+        "title": "Open participation still needs responsible control.",
+        "intro": "Konn3ct combines inclusive access with organiser authority, moderation, role controls and human governance over sensitive or AI-assisted experiences.",
+        "body": [
+          "Manage chat, Q&A, speakers and disruptive participation.",
+          "Use registration, invitations, waiting rooms and ticket validation.",
+          "Choose what may be captured, replayed or restricted."
+        ],
+        "cards": [
+          {
+            "title": "Moderation",
+            "description": "Manage chat, Q&A, speakers and disruptive participation.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Access control",
+            "description": "Use registration, invitations, waiting rooms and ticket validation.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Recording governance",
+            "description": "Choose what may be captured, replayed or restricted.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Human-governed AI",
+            "description": "AI supports organisers; people retain review and decision authority.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Discuss Your Event Requirements"
+        ]
+      },
+      {
+        "id": "make-every-gathering-work-harder",
+        "eyebrow": "Community outcomes",
+        "title": "Make every gathering work harder.",
+        "intro": "",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": []
+      },
+      {
+        "id": "make-your-next-gathering-bigger-than-the-room",
+        "eyebrow": "",
+        "title": "Make your next gathering bigger than the room.",
+        "intro": "Bring your event, community, network or social-impact programme to life with a platform designed for participation before, during and after the live moment.",
+        "body": [],
+        "cards": [],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Plan Your Konn3ct Experience"
+        ]
+      },
+      {
+        "id": "demo",
+        "eyebrow": "Event & community demo",
+        "title": "Tell us what you want to gather people around.",
+        "intro": "Share the kind of event, audience or community you want to create and we will map the right Konn3ct experience.",
+        "body": [
+          "Conferences, festivals, summits, workshops, hybrid events, public programmes and commercial events.",
+          "Clubs, social groups, volunteer networks, movements, NGOs and recurring communities.",
+          "Stakeholder engagement, beneficiaries, funders, programme communities and public-interest campaigns."
+        ],
+        "cards": [
+          {
+            "title": "For Event Organisers",
+            "description": "Conferences, festivals, summits, workshops, hybrid events, public programmes and commercial events.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "For Community Organisations",
+            "description": "Clubs, social groups, volunteer networks, movements, NGOs and recurring communities.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "For Social Impact Programmes",
+            "description": "Stakeholder engagement, beneficiaries, funders, programme communities and public interest campaigns.",
+            "meta": [],
+            "checks": []
+          },
+          {
+            "title": "Request an events & community demo",
+            "description": "This prototype form is ready for connection to Konn3ct / Odoo CRM lead capture.",
+            "meta": [],
+            "checks": []
+          }
+        ],
+        "tabs": [],
+        "faqs": [],
+        "actions": [
+          "Request Demo"
+        ]
+      }
+    ],
+    "form": {
+      "fields": [
+        {
+          "label": "Full name",
+          "name": "name",
+          "type": "text",
+          "placeholder": "Your name"
+        },
+        {
+          "label": "Role",
+          "name": "role",
+          "type": "text",
+          "placeholder": "e.g. Event Director, Community Lead"
+        },
+        {
+          "label": "Organisation / community",
+          "name": "organisation",
+          "type": "text",
+          "placeholder": "Organisation or community name"
+        },
+        {
+          "label": "Email",
+          "name": "email",
+          "type": "email",
+          "placeholder": "name@organisation.org"
+        },
+        {
+          "label": "Expected audience",
+          "name": "audience",
+          "type": "select",
+          "placeholder": "",
+          "options": [
+            "Under 100",
+            "100–500",
+            "501–2,000",
+            "2,001–10,000",
+            "10,000+"
+          ]
+        },
+        {
+          "label": "Primary use case",
+          "name": "type",
+          "type": "select",
+          "placeholder": "",
+          "options": [
+            "Conference / summit",
+            "Festival / public event",
+            "NGO / social impact programme",
+            "Community / club meetings",
+            "Hybrid event",
+            "Paid event / training",
+            "Multiple needs"
+          ]
+        },
+        {
+          "label": "What would you like Konn3ct to help you create?",
+          "name": "message",
+          "type": "textarea",
+          "placeholder": "Tell us about the audience, event format, locations, ticketing, replay or community goals."
+        }
+      ],
+      "submit": "Request Demo"
+    }
+  }
+}

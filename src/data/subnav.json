@@ -1,0 +1,139 @@
+{
+  "home": [],
+  "government": [
+    {
+      "anchor": "why",
+      "label": "Why Konn3ct"
+    },
+    {
+      "anchor": "freedoms",
+      "label": "Connection Freedom"
+    },
+    {
+      "anchor": "capabilities",
+      "label": "Capabilities"
+    },
+    {
+      "anchor": "use-cases",
+      "label": "Use cases"
+    },
+    {
+      "anchor": "trust",
+      "label": "Trust"
+    },
+    {
+      "anchor": "deployment",
+      "label": "Deployment"
+    }
+  ],
+  "associations": [
+    {
+      "anchor": "freedom",
+      "label": "Connection Freedom"
+    },
+    {
+      "anchor": "capabilities",
+      "label": "Capabilities"
+    },
+    {
+      "anchor": "cpd",
+      "label": "CPD & Learning"
+    },
+    {
+      "anchor": "governance",
+      "label": "Governance"
+    },
+    {
+      "anchor": "audiences",
+      "label": "Who it's for"
+    }
+  ],
+  "education": [
+    {
+      "anchor": "freedom",
+      "label": "Connection Freedom"
+    },
+    {
+      "anchor": "capabilities",
+      "label": "Capabilities"
+    },
+    {
+      "anchor": "learning",
+      "label": "Learning"
+    },
+    {
+      "anchor": "governance",
+      "label": "Governance"
+    },
+    {
+      "anchor": "audiences",
+      "label": "Who it's for"
+    }
+  ],
+  "faith": [
+    {
+      "anchor": "freedom",
+      "label": "Connection Freedom"
+    },
+    {
+      "anchor": "capabilities",
+      "label": "Capabilities"
+    },
+    {
+      "anchor": "use-cases",
+      "label": "Use cases"
+    },
+    {
+      "anchor": "trust",
+      "label": "Trust"
+    },
+    {
+      "anchor": "value",
+      "label": "Giving &amp; value"
+    }
+  ],
+  "corporates": [
+    {
+      "anchor": "why",
+      "label": "Why Konn3ct"
+    },
+    {
+      "anchor": "capabilities",
+      "label": "Capabilities"
+    },
+    {
+      "anchor": "freedom",
+      "label": "Connection Freedom"
+    },
+    {
+      "anchor": "trust",
+      "label": "Trust"
+    },
+    {
+      "anchor": "demo",
+      "label": "Demo"
+    }
+  ],
+  "events-community": [
+    {
+      "anchor": "why",
+      "label": "Why Konn3ct"
+    },
+    {
+      "anchor": "capabilities",
+      "label": "Capabilities"
+    },
+    {
+      "anchor": "freedom",
+      "label": "Connection Freedom"
+    },
+    {
+      "anchor": "trust",
+      "label": "Trust"
+    },
+    {
+      "anchor": "demo",
+      "label": "Demo"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #333A45;
+  background: #ffffff;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #fff; }
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: #EAF1FF; color: #002882; }
+
+@layer components {
+  .container-k3 { @apply mx-auto w-full max-w-[1240px] px-5 md:px-8; }
+  .eyebrow { @apply inline-flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.14em] text-brand-blue; }
+  .eyebrow::before { content: ''; @apply h-0.5 w-6 rounded-full bg-brand-green; }
+  .section-title { @apply font-display text-3xl font-extrabold leading-[1.08] tracking-[-0.035em] text-brand-navy sm:text-4xl lg:text-[52px]; }
+  .section-copy { @apply max-w-3xl text-base leading-8 text-slate-600 lg:text-lg; }
+  .btn-primary { @apply inline-flex min-h-12 items-center justify-center rounded-xl bg-brand-blue px-5 text-sm font-extrabold text-white shadow-[0_10px_26px_rgba(0,40,130,.2)] transition hover:-translate-y-0.5 hover:bg-[#001f69] focus:outline-none focus:ring-4 focus:ring-brand-blue/15; }
+  .btn-secondary { @apply inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-200 bg-white px-5 text-sm font-extrabold text-brand-navy transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-brand-blue/10; }
+  .surface-card { @apply rounded-2xl border border-brand-line bg-white shadow-soft; }
+}
