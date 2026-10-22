@@ -61,3 +61,94 @@ export const routePaths = {
   corporates: "/corporates",
   "events-community": "/events-community",
 };
+
+/**
+ * MK-004 AC-01 & AC-02: Formal 8-Route Landing Page & Conversion Goal Inventory
+ */
+export const landingPageRegistry = {
+  home: {
+    routeKey: "home",
+    path: "/",
+    landing_page_id: "home",
+    conversion_goal_id: "platform-trial-or-sales",
+    primaryCtaLabel: "Start free",
+    secondaryCtaLabel: "Contact sales",
+    ownerTeam: "Konn3ct Growth & Partnerships",
+  },
+  government: {
+    routeKey: "government",
+    path: "/government",
+    landing_page_id: "government",
+    conversion_goal_id: "government-demo-request",
+    primaryCtaLabel: "Request a government demo",
+    secondaryCtaLabel: "Explore public-sector capabilities",
+    ownerTeam: "Konn3ct Growth & Partnerships",
+  },
+  associations: {
+    routeKey: "associations",
+    path: "/associations",
+    landing_page_id: "associations",
+    conversion_goal_id: "association-demo-request",
+    primaryCtaLabel: "Book an association demo →",
+    secondaryCtaLabel: "See the member lifecycle",
+    ownerTeam: "Konn3ct Growth & Partnerships",
+  },
+  education: {
+    routeKey: "education",
+    path: "/education",
+    landing_page_id: "education",
+    conversion_goal_id: "education-demo-request",
+    primaryCtaLabel: "Book an education demo →",
+    secondaryCtaLabel: "See the learning lifecycle",
+    ownerTeam: "Konn3ct Growth & Partnerships",
+  },
+  faith: {
+    routeKey: "faith",
+    path: "/faith",
+    landing_page_id: "faith",
+    conversion_goal_id: "faith-demo-request",
+    primaryCtaLabel: "Book a faith-community demo →",
+    secondaryCtaLabel: "Explore the experience",
+    ownerTeam: "Konn3ct Growth & Partnerships",
+  },
+  corporates: {
+    routeKey: "corporates",
+    path: "/corporates",
+    landing_page_id: "corporates",
+    conversion_goal_id: "corporate-demo-request",
+    primaryCtaLabel: "Book a Business Demo",
+    secondaryCtaLabel: "Explore Business Capabilities",
+    ownerTeam: "Konn3ct Growth & Partnerships",
+  },
+  "events-community": {
+    routeKey: "events-community",
+    path: "/events-community",
+    landing_page_id: "events-community",
+    conversion_goal_id: "events-community-demo-request",
+    primaryCtaLabel: "Plan Your Event",
+    secondaryCtaLabel: "Explore Capabilities",
+    ownerTeam: "Konn3ct Growth & Partnerships",
+  },
+  "contact-sales": {
+    routeKey: "contact-sales",
+    path: "/contact-sales",
+    landing_page_id: "contact-sales",
+    conversion_goal_id: "sales-enquiry",
+    primaryCtaLabel: "Contact sales",
+    secondaryCtaLabel: null,
+    ownerTeam: "Konn3ct Growth & Partnerships",
+  },
+};
+
+export function getRouteConversionMeta(routeKeyOrPath = "home") {
+  const normalized = String(routeKeyOrPath || "home").replace(/^\/+/, "") || "home";
+  return (
+    landingPageRegistry[normalized] || {
+      routeKey: normalized,
+      path: `/${normalized}`,
+      landing_page_id: normalized,
+      conversion_goal_id: `${normalized}-enquiry`,
+      ownerTeam: "Konn3ct Growth & Partnerships",
+    }
+  );
+}

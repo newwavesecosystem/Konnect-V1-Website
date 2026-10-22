@@ -1,6 +1,15 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { ArrowRight, CheckIcon, DeviceIcon, GlobeIcon, ShieldIcon, SparkIcon, UsersIcon, WifiIcon } from '../components/Icons'
+import {
+  captureUtmParameters,
+  createSubmissionAttemptId,
+  submitLead,
+  validateClientLeadForm,
+} from '../services/leads'
+import { trackConfirmedLead, trackPageView } from '../analytics/events'
+import { getExperimentAssignment } from '../experiments/abTest'
 
 const featureOptions = [
   'Meetings & team collaboration',
@@ -11,6 +20,14 @@ const featureOptions = [
   'Low-bandwidth & mobile resilience',
   'Recording, replay & knowledge',
   'Community, member & customer engagement',
+]
+
+const enquiryTypeOptions = [
+  { value: 'demo_request', label: 'Sales & Product Demo Request' },
+  { value: 'early_access', label: 'Early Access Registration' },
+  { value: 'waitlist', label: 'Join Konn3ct Waitlist' },
+  { value: 'partnership', label: 'Partnership & Ecosystem Enquiry' },
+  { value: 'general', label: 'General Contact & Enquiry' },
 ]
 
 const featureCards = [
@@ -47,19 +64,121 @@ const featureCards = [
 ]
 
 export default function ContactSales({ onToast }) {
-  const [submitted, setSubmitted] = useState(false)
+  const location = useLocation()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submissionResult, setSubmissionResult] = useState(null)
+  const [errorMessage, setErrorMessage] = useState('')
+  const [fieldErrors, setFieldErrors] = useState({})
   const [interest, setInterest] = useState(featureOptions[0])
-  const selectedFeature = useMemo(() => featureOptions.includes(interest) ? interest : featureOptions[0], [interest])
+  const [enquiryType, setEnquiryType] = useState('demo_request')
+  const [consentAccepted, setConsentAccepted] = useState(true)
+  const [marketingOptIn, setMarketingOptIn] = useState(false)
+  const attemptIdRef = useRef(createSubmissionAttemptId('contact-sales'))
+
+  const experiment = useMemo(
+    () => getExperimentAssignment('EXP-MK004-CTA-COPY', { landing_page_id: 'contact-sales' }),
+    []
+  )
+
+  const selectedFeature = useMemo(
+    () => (featureOptions.includes(interest) ? interest : featureOptions[0]),
+    [interest]
+  )
 
   useEffect(() => {
     document.title = 'Contact Sales | Konn3ct'
     window.scrollTo({ top: 0 })
-  }, [])
+    captureUtmParameters(location.search)
+    trackPageView({ route: 'contact-sales', page_path: '/contact-sales' })
 
-  const handleSubmit = (event) => {
+    const requestedType =
+      location.state?.enquiryType || new URLSearchParams(location.search).get('type')
+    if (requestedType && enquiryTypeOptions.some((o) => o.value === requestedType)) {
+      setEnquiryType(requestedType)
+    }
+  }, [location.search, location.state])
+
+  const handleFieldChange = () => {
+    // Generate a fresh attempt ID when the user modifies form inputs after a completed submission
+    if (submissionResult) {
+      setSubmissionResult(null)
+      attemptIdRef.current = createSubmissionAttemptId('contact-sales')
+    }
+    if (errorMessage) {
+      setErrorMessage('')
+    }
+  }
+
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    setSubmitted(true)
-    onToast?.(`Sales request captured: ${selectedFeature}`)
+    if (isSubmitting) return
+
+    const formEl = event.currentTarget
+    const formData = new FormData(formEl)
+    const payload = {
+      route: 'contact-sales',
+      landing_page_id: 'contact-sales',
+      conversion_goal_id: 'sales-enquiry',
+      page_path: location.pathname || '/contact-sales',
+      submission_reference: attemptIdRef.current,
+      enquiryType,
+      name: formData.get('name') || '',
+      company: formData.get('company') || '',
+      email: formData.get('email') || '',
+      phone: formData.get('phone') || '',
+      role: formData.get('role') || '',
+      organisationType: formData.get('organisationType') || 'Corporate / SME',
+      interest: selectedFeature,
+      scale: formData.get('scale') || 'Up to 100',
+      message: formData.get('message') || '',
+      website_url: formData.get('website_url') || '',
+      consentAccepted,
+      marketingOptIn,
+      experiment_id: experiment.experiment_id,
+      variant_id: experiment.variant_id,
+    }
+
+    const validation = validateClientLeadForm(payload, { requirePhone: true })
+    if (!validation.valid) {
+      setFieldErrors(validation.errors)
+      setErrorMessage(validation.firstError)
+      return
+    }
+
+    setFieldErrors({})
+    setErrorMessage('')
+    setIsSubmitting(true)
+
+    try {
+      const response = await submitLead(payload)
+
+      setSubmissionResult(response)
+
+      // MK-004 DEV-AT-08 & DEV-AT-09: Emit GA4 `generate_lead` ONLY after confirmed backend success
+      trackConfirmedLead(response, {
+        landing_page_id: 'contact-sales',
+        conversion_goal_id: 'sales-enquiry',
+        page_path: location.pathname || '/contact-sales',
+        enquiryType,
+        consentAccepted,
+        experiment_id: experiment.experiment_id,
+        variant_id: experiment.variant_id,
+      })
+
+      onToast?.(
+        response.deliveryStatus === 'crm_created'
+          ? `${response.classification} registered (${response.leadReference})`
+          : `${response.classification} queued (${response.leadReference})`
+      )
+    } catch (err) {
+      setFieldErrors(err.fieldErrors || {})
+      setErrorMessage(
+        err.message || 'Unable to submit your request right now. Please try again.'
+      )
+      onToast?.('Submission could not be completed. Please review the form message.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -90,29 +209,89 @@ export default function ContactSales({ onToast }) {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="rounded-[28px] border border-brand-line bg-white p-6 shadow-float sm:p-8 lg:p-9">
+            <form
+              onSubmit={handleSubmit}
+              onChange={handleFieldChange}
+              noValidate
+              aria-busy={isSubmitting}
+              className="rounded-[28px] border border-brand-line bg-white p-6 shadow-float sm:p-8 lg:p-9"
+            >
               <div className="mb-7 border-b border-brand-line pb-6">
                 <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-brand-green">Sales enquiry</p>
                 <h2 className="mt-2 font-display text-2xl font-extrabold text-brand-navy sm:text-3xl">Tell us about your organisation</h2>
                 <p className="mt-3 text-sm leading-6 text-slate-500">A few details help us route your request to the right Konn3ct team.</p>
               </div>
 
+              {/* Honeypot anti-spam trap (hidden from human users and screen readers) */}
+              <div className="sr-only" aria-hidden="true">
+                <label>
+                  Website URL
+                  <input type="text" name="website_url" tabIndex={-1} autoComplete="off" />
+                </label>
+              </div>
+
               <div className="grid gap-4 sm:grid-cols-2">
+                <label className="grid gap-2 sm:col-span-2">
+                  <span className="text-xs font-extrabold text-slate-700">Enquiry type</span>
+                  <select
+                    name="enquiryType"
+                    value={enquiryType}
+                    onChange={(e) => setEnquiryType(e.target.value)}
+                    className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
+                  >
+                    {enquiryTypeOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+
                 <label className="grid gap-2">
                   <span className="text-xs font-extrabold text-slate-700">Full name</span>
-                  <input required name="name" placeholder="Your full name" className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10" />
+                  <input
+                    required
+                    name="name"
+                    maxLength={120}
+                    aria-invalid={Boolean(fieldErrors.name)}
+                    placeholder="Your full name"
+                    className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
+                  />
                 </label>
                 <label className="grid gap-2">
                   <span className="text-xs font-extrabold text-slate-700">Organisation name</span>
-                  <input required name="company" placeholder="Company / institution" className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10" />
+                  <input
+                    required
+                    name="company"
+                    maxLength={160}
+                    aria-invalid={Boolean(fieldErrors.company)}
+                    placeholder="Company / institution"
+                    className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
+                  />
                 </label>
                 <label className="grid gap-2">
                   <span className="text-xs font-extrabold text-slate-700">Work email</span>
-                  <input required name="email" type="email" placeholder="name@organisation.com" className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10" />
+                  <input
+                    required
+                    name="email"
+                    type="email"
+                    maxLength={160}
+                    aria-invalid={Boolean(fieldErrors.email)}
+                    placeholder="name@organisation.com"
+                    className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
+                  />
                 </label>
                 <label className="grid gap-2">
                   <span className="text-xs font-extrabold text-slate-700">Phone number</span>
-                  <input required name="phone" type="tel" placeholder="+234 ..." className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10" />
+                  <input
+                    required
+                    name="phone"
+                    type="tel"
+                    maxLength={25}
+                    aria-invalid={Boolean(fieldErrors.phone)}
+                    placeholder="+234 ..."
+                    className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
+                  />
                 </label>
 
                 <label className="grid gap-2 sm:col-span-2">
@@ -149,18 +328,77 @@ export default function ContactSales({ onToast }) {
 
                 <label className="grid gap-2 sm:col-span-2">
                   <span className="text-xs font-extrabold text-slate-700">Tell us what you want Konn3ct to help you achieve</span>
-                  <textarea name="message" rows="5" placeholder="Share your current tools, audience, meeting or event needs, deployment requirements, governance concerns or network challenges." className="rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10" />
+                  <textarea
+                    name="message"
+                    rows="5"
+                    maxLength={2000}
+                    placeholder="Share your current tools, audience, meeting or event needs, deployment requirements, governance concerns or network challenges."
+                    className="rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
+                  />
                 </label>
               </div>
 
-              <button type="submit" className="btn-primary mt-6 w-full gap-2">
-                Contact sales <ArrowRight className="h-4 w-4" />
+              <div className="mt-5 space-y-2.5">
+                <label className="flex items-start gap-2.5 text-xs leading-5 text-slate-600">
+                  <input
+                    type="checkbox"
+                    name="consentAccepted"
+                    checked={consentAccepted}
+                    onChange={(e) => setConsentAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-brand-blue focus:ring-brand-blue"
+                  />
+                  <span>
+                    I agree that Konn3ct (Newwaves Ecosystem Limited) may process these details to register and respond to my enquiry in line with applicable data protection laws.
+                  </span>
+                </label>
+                <label className="flex items-start gap-2.5 text-xs leading-5 text-slate-500">
+                  <input
+                    type="checkbox"
+                    name="marketingOptIn"
+                    checked={marketingOptIn}
+                    onChange={(e) => setMarketingOptIn(e.target.checked)}
+                    className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-brand-blue focus:ring-brand-blue"
+                  />
+                  <span>
+                    Keep me informed about Konn3ct product updates, early-access releases and events (optional).
+                  </span>
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn-primary mt-6 w-full gap-2 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {isSubmitting ? 'Submitting to Konn3ct...' : 'Contact sales'}{' '}
+                <ArrowRight className="h-4 w-4" />
               </button>
-              <p className={`mt-3 text-xs leading-5 ${submitted ? 'font-bold text-brand-green' : 'text-slate-500'}`}>
-                {submitted
-                  ? 'Thank you. This prototype submission is ready to be connected to Konn3ct / Odoo CRM.'
-                  : 'By submitting this form, you agree that Konn3ct may use these details to respond to your sales enquiry.'}
-              </p>
+
+              {errorMessage && (
+                <div
+                  role="alert"
+                  aria-live="assertive"
+                  className="mt-3 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs font-semibold leading-5 text-red-700"
+                >
+                  {errorMessage}
+                </div>
+              )}
+
+              {submissionResult && !errorMessage && (
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="mt-3 rounded-xl border border-brand-green/30 bg-brand-greenTint px-3.5 py-2.5 text-xs font-bold leading-5 text-brand-green"
+                >
+                  {submissionResult.message}
+                </div>
+              )}
+
+              {!submissionResult && !errorMessage && (
+                <p className="mt-3 text-xs leading-5 text-slate-500">
+                  By submitting this form, you agree that Konn3ct may use these details to respond to your sales enquiry.
+                </p>
+              )}
             </form>
           </div>
         </section>

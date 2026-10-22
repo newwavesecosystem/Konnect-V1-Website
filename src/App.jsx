@@ -9,6 +9,8 @@ import siteContent from './data/siteContent.json'
 import subnav from './data/subnav.json'
 import { routePaths, solutionMeta, solutionOrder } from './data/metadata'
 import ContactSales from './pages/ContactSales'
+import { captureUtmParameters } from './services/leadService'
+import { trackPageView } from './analytics/events'
 
 const pathToRoute = Object.fromEntries(Object.entries(routePaths).map(([route, path]) => [path, route]))
 
@@ -19,13 +21,15 @@ function RoutePage({ route, onToast }) {
 
   useEffect(() => {
     document.title = page.documentTitle || 'Konn3ct'
+    captureUtmParameters(location.search)
+    trackPageView({ route, page_path: location.pathname })
     if (location.state?.anchor) {
       const anchor = location.state.anchor
       setTimeout(() => document.getElementById(anchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80)
     } else {
       window.scrollTo({ top: 0 })
     }
-  }, [route, page.documentTitle, location.state])
+  }, [route, page.documentTitle, location.state, location.search, location.pathname])
 
   const primaryAction = () => {
     const id = route === 'home' ? 'pricing' : (document.getElementById('demo') ? 'demo' : document.getElementById('cta') ? 'cta' : page.sections.at(-1)?.id)
@@ -127,7 +131,7 @@ export default function App() {
 //     } else {
 //       window.scrollTo({ top: 0 })
 //     }
-//   }, [route, page.documentTitle, location.state])
+//   }, [route, page.documentTitle, location.state, location.search, location.pathname])
 
 //   const primaryAction = () => {
 //     const id = route === 'home' ? 'pricing' : (document.getElementById('demo') ? 'demo' : document.getElementById('cta') ? 'cta' : page.sections.at(-1)?.id)
