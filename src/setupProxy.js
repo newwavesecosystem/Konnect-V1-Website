@@ -18,9 +18,7 @@ function loadEnvLocalIfPresent() {
     if (eqIndex <= 0) continue;
     const key = trimmed.slice(0, eqIndex).trim();
     const val = trimmed.slice(eqIndex + 1).trim();
-    if (!process.env[key]) {
-      process.env[key] = val;
-    }
+    process.env[key] = val;
   }
 }
 

@@ -5,7 +5,7 @@
 
 const fs = require('fs');
 const { callXmlRpc, OdooRpcError } = require('./xmlrpc');
-const { DEFAULT_SALES_TEAM_NAME, buildOdooLeadPayload } = require('./classification');
+const { DEFAULT_SALES_TEAM_NAME, buildOdooLeadPayload, buildChatterHtmlNote } = require('./classification');
 const logger = require('./logger');
 
 let cachedAuth = {
@@ -443,6 +443,34 @@ async function createCrmLead({
         );
       } catch (_) {
         // Non-fatal if write is restricted
+      }
+    }
+
+
+    // Post all remaining form fields, context, attribution & governance into the Odoo Chatter timeline
+    if (cfg.env.ODOO_POST_CHATTER_DOSSIER !== 'false') {
+      try {
+        const chatterHtml = buildChatterHtmlNote(normalized, classification, {
+          submissionId,
+          submittedAt,
+          repeatContext: combinedRepeatContext,
+        });
+        await executeKw(
+          cfg,
+          uid,
+          'crm.lead',
+          'message_post',
+          [[numericId]],
+          {
+            body: chatterHtml,
+            body_is_html: true,
+            message_type: 'comment',
+            subtype_xmlid: 'mail.mt_note',
+          },
+          { fetchImpl }
+        );
+      } catch (_) {
+        // Non-fatal if message_post is restricted
       }
     }
 

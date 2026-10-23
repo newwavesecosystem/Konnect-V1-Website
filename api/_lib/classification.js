@@ -399,6 +399,64 @@ function buildOdooLeadPayload(normalized, classification, metadata = {}) {
   return leadPayload;
 }
 
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/**
+ * Builds a structured HTML note for the Odoo 18 Chatter (`crm.lead` `message_post` with `body_is_html: true`)
+ * so all remaining website form fields, context, attribution, and governance details appear directly in the Chatter timeline.
+ */
+function buildChatterHtmlNote(normalized, classification, metadata = {}) {
+  const {
+    submissionId,
+    submittedAt = new Date().toISOString(),
+    repeatContext = null,
+  } = metadata;
+
+  const lines = [
+    '<div>',
+    '<p><strong>📋 Konn3ct Website Form Submission Details</strong></p>',
+    '<ul>',
+    `<li><strong>Full Name:</strong> ${escapeHtml(normalized.contactName || 'Not provided')}</li>`,
+    `<li><strong>Role / Job Title:</strong> ${escapeHtml(normalized.jobTitle || 'Not provided')}</li>`,
+    `<li><strong>Organisation / Institution:</strong> ${escapeHtml(normalized.organization || 'Not provided')}</li>`,
+    `<li><strong>Sector / Organisation Type:</strong> ${escapeHtml(normalized.organizationType || normalized.segmentLabel || 'Not provided')}</li>`,
+    `<li><strong>Expected Scale / Learners / Reach:</strong> ${escapeHtml(normalized.scale || 'Not specified')}</li>`,
+    `<li><strong>Primary Need / Use Case:</strong> ${escapeHtml(normalized.primaryNeed || 'General Konn3ct platform')}</li>`,
+    `<li><strong>Visitor Enquiry / What to Improve:</strong> ${escapeHtml(normalized.enquiryMessage || '(No additional message provided)')}</li>`,
+    '</ul>',
+    '<p><strong>🌐 Source, Attribution &amp; Governance (NDPA 2023)</strong></p>',
+    '<ul>',
+    `<li><strong>Enquiry Classification:</strong> ${escapeHtml(classification.label)} (${escapeHtml(classification.purpose)})</li>`,
+    `<li><strong>Source Page:</strong> ${escapeHtml(normalized.pagePath)} (Landing Page ID: <code>${escapeHtml(normalized.landingPageId)}</code> | Goal ID: <code>${escapeHtml(normalized.conversionGoalId)}</code>)</li>`,
+    `<li><strong>UTM Attribution:</strong> source=<code>${escapeHtml(normalized.utm.utm_source)}</code> | medium=<code>${escapeHtml(normalized.utm.utm_medium)}</code> | campaign=<code>${escapeHtml(normalized.utm.utm_campaign)}</code>${normalized.utm.utm_term ? ` | term=<code>${escapeHtml(normalized.utm.utm_term)}</code>` : ''}${normalized.utm.utm_content ? ` | content=<code>${escapeHtml(normalized.utm.utm_content)}</code>` : ''}</li>`,
+    ...(normalized.experimentId
+      ? [
+          `<li><strong>A/B Experiment:</strong> <code>${escapeHtml(normalized.experimentId)}</code> (Variant: <code>${escapeHtml(normalized.variantId || 'control')}</code>)</li>`,
+        ]
+      : []),
+    `<li><strong>Enquiry Processing Consent:</strong> ${normalized.consentAccepted ? 'Granted' : 'Not granted'} (${escapeHtml(normalized.consentTimestamp)})</li>`,
+    `<li><strong>Marketing Communications Opt-In:</strong> ${normalized.marketingOptIn ? 'Opted In' : 'Not Opted In'}</li>`,
+    `<li><strong>Submission Reference:</strong> <code>${escapeHtml(submissionId || 'N/A')}</code> (${escapeHtml(submittedAt)})</li>`,
+  ];
+
+  if (repeatContext && repeatContext.isRepeatEnquiry) {
+    lines.push(
+      `<li><strong>Repeat Enquiry History:</strong> ${escapeHtml(repeatContext.priorSubmissionCount)} prior submission(s) recorded (${escapeHtml((repeatContext.priorLeadIds || []).join(', ') || 'On file')})</li>`
+    );
+  }
+
+  lines.push('</ul>', '</div>');
+  return lines.join('');
+}
+
 module.exports = {
   DEFAULT_SALES_TEAM_NAME,
   CLASSIFICATION_RULES,
@@ -408,4 +466,5 @@ module.exports = {
   normalizeSubmissionFields,
   computeKonn3ctLeadScores,
   buildOdooLeadPayload,
+  buildChatterHtmlNote,
 };
