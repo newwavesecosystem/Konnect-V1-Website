@@ -45,7 +45,8 @@ function normalizeOdooBaseUrl(rawUrl) {
 }
 
 function getOdooConfig(overrides = {}) {
-  const env = { ...process.env, ...overrides };
+  const baseEnv = process.env.NODE_ENV === 'test' ? {} : process.env;
+  const env = { ...baseEnv, ...overrides };
   const baseUrl = normalizeOdooBaseUrl(env.ODOO_URL || 'https://www.newwavesecosystem.com');
   const db = (env.ODOO_DB || 'newwavesecosystem-staging').trim();
   const username = (env.ODOO_USERNAME || '').trim();
@@ -448,7 +449,7 @@ async function createCrmLead({
 
 
     // Post all remaining form fields, context, attribution & governance into the Odoo Chatter timeline
-    if (cfg.env.ODOO_POST_CHATTER_DOSSIER !== 'false') {
+    if (cfg.env.ODOO_POST_CHATTER_DOSSIER === 'true') {
       try {
         const chatterHtml = buildChatterHtmlNote(normalized, classification, {
           submissionId,

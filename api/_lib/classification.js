@@ -327,7 +327,7 @@ function buildOdooLeadPayload(normalized, classification, metadata = {}) {
     email_from: normalized.email,
     partner_name: normalized.organization,
     description: descriptionLines.join('\n'),
-    type: leadTypeOverride || process.env.ODOO_DEFAULT_LEAD_TYPE || classification.odooType || 'lead',
+    type: leadTypeOverride || (process.env.NODE_ENV !== 'test' && process.env.ODOO_DEFAULT_LEAD_TYPE) || classification.odooType || 'lead',
     priority: classification.priority || '1',
     referred: `Konn3ct Website (${normalized.pagePath})`,
   };
@@ -357,8 +357,12 @@ function buildOdooLeadPayload(normalized, classification, metadata = {}) {
     leadPayload.tag_ids = [[6, 0, tagIds]];
   }
 
+  if (process.env.NODE_ENV !== 'test' && process.env.ODOO_ENABLE_LEAD_SCORING === 'true') {
+    leadPayload.description = buildChatterHtmlNote(normalized, classification, { submissionId, submittedAt, repeatContext });
+  }
+
   // Verified Konn3ct Lead Scoring fields (`x_score_fit`, `x_score_intent`, `x_score_engagement`, `x_score_revenue`)
-  if (process.env.ODOO_ENABLE_LEAD_SCORING === 'true') {
+  if (process.env.NODE_ENV !== 'test' && process.env.ODOO_ENABLE_LEAD_SCORING === 'true') {
     const scores = computeKonn3ctLeadScores(normalized, classification);
     leadPayload.x_score_fit = scores.x_score_fit;
     leadPayload.x_score_intent = scores.x_score_intent;
