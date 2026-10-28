@@ -2,7 +2,7 @@ import React, { useMemo, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ArrowRight, CheckIcon, DeviceIcon, GlobeIcon, ShieldIcon, SparkIcon, UsersIcon, WifiIcon } from './Icons'
 import MediaPlaceholder from './MediaPlaceholder'
-import { getRouteConversionMeta, routePaths } from '../data/metadata'
+import { getRouteConversionMeta, REGISTER_URL, routePaths } from '../data/metadata'
 import {
   createSubmissionAttemptId,
   submitLead,
@@ -102,6 +102,16 @@ export function SplitSection({ section, index, route = 'home', onToast }) {
   const handleActionClick = (actionLabel, i) => {
     setSelectedIndex(i)
     const lowerLabel = String(actionLabel || '').toLowerCase()
+
+    if (lowerLabel === 'start free') {
+      trackCtaClick({
+        landing_page_id: route,
+        cta_label: actionLabel,
+        target_destination: REGISTER_URL,
+      })
+      window.location.href = REGISTER_URL
+      return
+    }
 
     // Commercial / Demo / Requirements CTAs navigate to the on-page demo form or /contact-sales
     if (
@@ -204,6 +214,15 @@ export function TabbedSection({ section }) {
 export function PricingSection({ section, route = 'home' }) {
   const navigate = useNavigate()
   const handlePlanSelect = (index, label) => {
+    if (index === 0 || String(label || '').toLowerCase() === 'start free') {
+      trackCtaClick({
+        landing_page_id: route,
+        cta_label: label,
+        target_destination: REGISTER_URL,
+      })
+      window.location.href = REGISTER_URL
+      return
+    }
     const enquiryType = index === 0 ? 'early_access' : 'demo_request'
     trackCtaClick({
       landing_page_id: route,
@@ -517,11 +536,21 @@ export default function SectionRenderer({ section, index, isLast, form, route, o
   if (lower.includes('pricing')) return <PricingSection section={section} route={route} />
   if (isLast || lower.includes('ready-to-connect') || lower.startsWith('build-') || lower.includes('make-your-next')) {
     const handleCtaAction = () => {
+      const ctaLabel = section.actions?.[0] || 'Get started'
+      if (String(ctaLabel).toLowerCase() === 'start free') {
+        trackCtaClick({
+          landing_page_id: route,
+          cta_label: ctaLabel,
+          target_destination: REGISTER_URL,
+        })
+        window.location.href = REGISTER_URL
+        return
+      }
       const demoEl = document.getElementById('demo') || document.getElementById('cta')
       if (route !== 'home' && demoEl && demoEl.id !== section.id) {
         trackCtaClick({
           landing_page_id: route,
-          cta_label: section.actions?.[0] || 'Get started',
+          cta_label: ctaLabel,
           target_destination: `#${demoEl.id}`,
         })
         demoEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -529,7 +558,7 @@ export default function SectionRenderer({ section, index, isLast, form, route, o
       }
       trackCtaClick({
         landing_page_id: route,
-        cta_label: section.actions?.[0] || 'Get started',
+        cta_label: ctaLabel,
         target_destination: '/contact-sales',
       })
       navigate('/contact-sales', {

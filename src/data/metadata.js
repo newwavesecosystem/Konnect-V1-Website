@@ -62,6 +62,12 @@ export const routePaths = {
   "events-community": "/events-community",
 };
 
+export const REGISTER_URL =
+  process.env.REACT_APP_REGISTER_URL || "https://dashboard.konn3ct.ng/register";
+
+export const LOGIN_URL =
+  process.env.REACT_APP_LOGIN_URL || "https://dashboard.konn3ct.ng/login";
+
 /**
  * MK-004 AC-01 & AC-02: Formal 8-Route Landing Page & Conversion Goal Inventory
  */

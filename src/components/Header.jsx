@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Brand from './Brand'
 import { ChevronDown, CloseIcon, MenuIcon } from './Icons'
-import { routePaths, solutionMeta, solutionOrder } from '../data/metadata'
+import { LOGIN_URL, REGISTER_URL, routePaths, solutionMeta, solutionOrder } from '../data/metadata'
 
 function navToAnchor(navigate, location, anchor) {
   if (location.pathname !== '/') {
@@ -92,8 +92,8 @@ export default function Header({ onToast }) {
           </nav>
 
           <div className="flex-1" />
-          <button onClick={() => onToast('Login can be connected to the Konn3ct application sign-in.')} className="hidden px-2 py-2 text-[13px] font-extrabold text-brand-navy lg:block">Log in</button>
-          <button onClick={() => navToAnchor(navigate, location, 'pricing')} className="btn-primary min-h-[42px] px-4">Start free</button>
+          <a href={LOGIN_URL} className="hidden px-2 py-2 text-[13px] font-extrabold text-brand-navy lg:block">Log in</a>
+          <a href={REGISTER_URL} className="btn-primary min-h-[42px] px-4">Start free</a>
           <button onClick={() => setMobileOpen(v => !v)} className="grid h-10 w-10 place-items-center rounded-xl border border-brand-line text-brand-navy lg:hidden" aria-label="Open menu">
             {mobileOpen ? <CloseIcon /> : <MenuIcon />}
           </button>

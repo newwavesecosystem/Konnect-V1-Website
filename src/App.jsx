@@ -7,7 +7,7 @@ import SectionRenderer from './components/Sections'
 import Footer from './components/Footer'
 import siteContent from './data/siteContent.json'
 import subnav from './data/subnav.json'
-import { routePaths, solutionMeta, solutionOrder } from './data/metadata'
+import { REGISTER_URL, routePaths, solutionMeta, solutionOrder } from './data/metadata'
 import ContactSales from './pages/ContactSales'
 import { captureUtmParameters } from './services/leadService'
 import { trackPageView } from './analytics/events'
@@ -32,7 +32,11 @@ function RoutePage({ route, onToast }) {
   }, [route, page.documentTitle, location.state, location.search, location.pathname])
 
   const primaryAction = () => {
-    const id = route === 'home' ? 'pricing' : (document.getElementById('demo') ? 'demo' : document.getElementById('cta') ? 'cta' : page.sections.at(-1)?.id)
+    if (route === 'home') {
+      window.location.href = REGISTER_URL
+      return
+    }
+    const id = document.getElementById('demo') ? 'demo' : document.getElementById('cta') ? 'cta' : page.sections.at(-1)?.id
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
