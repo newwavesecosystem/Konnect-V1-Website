@@ -243,7 +243,7 @@ async function submitViaStaticHostOdooBridge(requestBody, { signal, fetchImpl = 
     priority: cls.priority,
     referred: `Konn3ct Website (${requestBody.page_path || `/${route}`})`,
     team_id: 11,
-    user_id: 35,
+    user_id: 61,
     tag_ids: [[6, 0, [cls.tagId]]],
     x_score_fit: Math.min(25, fit),
     x_score_intent: Math.min(25, intent),

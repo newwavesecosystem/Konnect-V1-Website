@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import konn3ctLogo from '../assets/konn3ct-logo.png'
-import { LOGIN_URL, REGISTER_URL, proposalSolutions, routePaths } from '../data/metadata'
+import { EVENTS_URL, LOGIN_URL, REGISTER_URL, proposalSolutions, routePaths } from '../data/metadata'
 
 function navToAnchor(navigate, location, anchor) {
   if (location.pathname !== '/') {
@@ -47,10 +47,13 @@ export default function Header() {
               Solutions
             </a>
             <a href="/#plans" onClick={(e) => handleAnchorClick(e, 'plans')}>
-              Plans
+              Pricing
             </a>
             <a href="/#trust" onClick={(e) => handleAnchorClick(e, 'trust')}>
               Trust
+            </a>
+            <a href={EVENTS_URL}>
+              Events
             </a>
           </nav>
 
@@ -77,6 +80,18 @@ export default function Header() {
           className={`mobile-nav ${mobileOpen ? 'open' : ''}`}
           aria-label="Mobile navigation"
         >
+          <a href="/#experience" onClick={(e) => handleAnchorClick(e, 'experience')}>
+            Experience
+          </a>
+          <a href="/#plans" onClick={(e) => handleAnchorClick(e, 'plans')}>
+            Pricing
+          </a>
+          <a href="/#trust" onClick={(e) => handleAnchorClick(e, 'trust')}>
+            Trust
+          </a>
+          <a href={EVENTS_URL} onClick={() => setMobileOpen(false)}>
+            Events
+          </a>
           {proposalSolutions.map(([routeKey, label]) => (
             <Link key={routeKey} to={routePaths[routeKey]} onClick={() => setMobileOpen(false)}>
               {label}

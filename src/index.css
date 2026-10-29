@@ -25,32 +25,35 @@ body {
   background: #fff;
   color: #0a1b3d;
   font-family: Inter, Arial, sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.65;
 }
 
 h1, h2, h3, h4 {
   font-family: Sora, Arial, sans-serif;
-  line-height: 1.16;
+  line-height: 1.12;
   letter-spacing: -1.2px;
   margin: 0;
 }
 
 h1 {
-  font-size: clamp(40px, 5.1vw, 66px);
-  font-weight: 600;
-  letter-spacing: -3px;
+  font-size: clamp(44px, 5.8vw, 74px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -2.8px;
 }
 
 h2 {
-  font-size: clamp(29px, 3.4vw, 44px);
-  font-weight: 600;
+  font-size: clamp(32px, 4.2vw, 52px);
+  font-weight: 700;
+  line-height: 1.08;
   letter-spacing: -1.8px;
 }
 
 h3 {
-  font-size: 21px;
-  font-weight: 600;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
   letter-spacing: -0.7px;
 }
 
@@ -111,7 +114,7 @@ img {
 }
 
 .wrap {
-  width: min(1200px, 88%);
+  width: min(1240px, 90%);
   margin: auto;
 }
 
@@ -133,29 +136,30 @@ img {
 }
 
 .logo {
-  width: 142px;
+  width: 148px;
   display: block;
   line-height: 1;
 }
 
 .logo img {
   display: block;
-  width: 142px;
+  width: 148px;
 }
 
 .nav-links {
   display: flex;
-  gap: 22px;
+  gap: 24px;
   align-items: center;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13.5px;
+  font-weight: 700;
 }
 
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 15px;
-  font-size: 12px;
+  gap: 16px;
+  font-size: 13.5px;
+  font-weight: 700;
 }
 
 .menu-toggle {
@@ -173,11 +177,11 @@ img {
   gap: 12px;
   background: #002882;
   border: 1px solid #002882;
-  border-radius: 7px;
+  border-radius: 8px;
   color: #fff;
-  padding: 14px 20px;
-  font-weight: 600;
-  font-size: 12px;
+  padding: 15px 24px;
+  font-weight: 700;
+  font-size: 14px;
   line-height: 1.4;
   transition: background 0.2s, transform 0.2s;
 }
@@ -210,13 +214,13 @@ img {
 }
 
 .button.small {
-  font-size: 11px;
-  padding: 11px 15px;
+  font-size: 13px;
+  padding: 11px 16px;
 }
 
 .text-link {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
   color: #002882;
   text-decoration: underline;
   text-underline-offset: 5px;
@@ -226,8 +230,8 @@ img {
 }
 
 .eyebrow {
-  font-size: 10px;
-  font-weight: 700;
+  font-size: 11.5px;
+  font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #227451;
@@ -249,20 +253,20 @@ img {
   position: relative;
   overflow: hidden;
   background: linear-gradient(125deg, #fff 30%, #f2f7ff);
-  padding: 70px 0 55px;
+  padding: 72px 0 60px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1.03fr;
-  gap: 45px;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 48px;
   align-items: center;
 }
 
 .hero p {
-  font-size: 15px;
-  line-height: 1.85;
-  max-width: 480px;
+  font-size: 19px;
+  line-height: 1.75;
+  max-width: 600px;
 }
 
 .hero h1 em {
@@ -272,25 +276,26 @@ img {
 
 .hero-actions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin: 28px 0 12px;
+  margin: 28px 0 14px;
 }
 
 .reassurance {
-  font-size: 10px;
-  color: #6c7584;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #566174;
   display: flex;
-  gap: 16px;
+  gap: 18px;
   flex-wrap: wrap;
-  margin: 12px 0;
+  margin: 14px 0;
 }
 
 .reassurance span:before {
   content: '✓';
-  margin-right: 5px;
+  margin-right: 6px;
   color: #227451;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .hero .text-link {
@@ -304,7 +309,7 @@ img {
 }
 
 .concept-label {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   color: #7b8799;
@@ -329,16 +334,16 @@ img {
   justify-content: space-between;
   align-items: center;
   color: #e4ecf9;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .meeting-head strong {
   font-family: Sora, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .meeting-head span {
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 1px;
   color: #abbdd8;
 }
@@ -384,12 +389,12 @@ img {
   position: absolute;
   bottom: 9px;
   left: 9px;
-  font-weight: 400;
-  font-size: 8px;
+  font-weight: 500;
+  font-size: 10px;
   background: #0a1b3dbb;
   color: #fff;
   border-radius: 4px;
-  padding: 2px 7px;
+  padding: 3px 8px;
 }
 
 .person .host {
@@ -398,9 +403,10 @@ img {
   left: 8px;
   background: #fff;
   color: #227451;
-  font-size: 7px;
+  font-size: 9px;
+  font-weight: 700;
   border-radius: 3px;
-  padding: 2px 5px;
+  padding: 2px 6px;
 }
 
 .meeting-bottom {
@@ -411,14 +417,14 @@ img {
 }
 
 .meeting-bottom span {
-  width: 29px;
-  height: 29px;
+  width: 31px;
+  height: 31px;
   background: #ffffff18;
   color: #fff;
   border-radius: 7px;
   display: grid;
   place-items: center;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .meeting-bottom .end {
@@ -432,13 +438,13 @@ img {
   border: 1px solid #e5eaf3;
   border-radius: 9px;
   padding: 12px 16px;
-  font-size: 10px;
+  font-size: 12px;
   z-index: 2;
 }
 
 .floating strong {
   display: block;
-  font-size: 12px;
+  font-size: 13.5px;
   margin-bottom: 3px;
 }
 
@@ -453,14 +459,16 @@ img {
 }
 
 .check-dot {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   background: #e7f6ed;
   color: #227451;
   border-radius: 50%;
   display: inline-grid;
   place-items: center;
   margin-right: 8px;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .segment-strip {
@@ -478,8 +486,8 @@ img {
 }
 
 .segment-strip a {
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 12.5px;
+  font-weight: 700;
 }
 
 .segment-strip a:after {
@@ -489,7 +497,7 @@ img {
 }
 
 .section {
-  padding: 78px 0;
+  padding: 84px 0;
 }
 
 .section.soft {
@@ -518,33 +526,34 @@ img {
   align-items: flex-end;
   justify-content: space-between;
   gap: 30px;
-  margin-bottom: 35px;
+  margin-bottom: 40px;
 }
 
 .section-head > div {
-  max-width: 610px;
+  max-width: 680px;
 }
 
 .section-head > p {
-  max-width: 285px;
-  font-size: 12px;
+  max-width: 360px;
+  font-size: 15px;
+  line-height: 1.7;
   margin: 0;
 }
 
 .section-head h2 {
-  max-width: 650px;
+  max-width: 720px;
 }
 
 .grid3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 24px;
 }
 
 .grid2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
+  gap: 40px;
 }
 
 .benefit {
@@ -553,27 +562,28 @@ img {
 }
 
 .benefit .num {
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 2px;
   color: #227451;
   display: block;
-  margin-bottom: 23px;
+  margin-bottom: 20px;
 }
 
 .benefit h3 {
-  font-size: 19px;
+  font-size: 21px;
 }
 
 .benefit p {
-  font-size: 12px;
-  line-height: 1.9;
-  max-width: 330px;
+  font-size: 15px;
+  line-height: 1.75;
+  max-width: 360px;
 }
 
 .benefit a {
-  font-size: 11px;
+  font-size: 13px;
   color: #002882;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .freedoms {
@@ -589,23 +599,25 @@ img {
 }
 
 .freedom span {
-  font-size: 11px;
+  font-size: 13px;
+  font-weight: 700;
   color: #227451;
 }
 
 .freedom h3 {
-  font-size: 17px;
+  font-size: 20px;
   margin-top: 12px;
 }
 
 .freedom p {
-  font-size: 12px;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .brand-line {
   padding: 20px 0;
   border-top: 1px solid #e5eaf3;
-  font-size: 11px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -621,24 +633,25 @@ img {
 
 .pillars {
   display: flex;
-  gap: 15px;
+  gap: 18px;
 }
 
 .pillars b {
-  font-size: 10px;
+  font-size: 12px;
   color: #227451;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .workflow {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 0.85fr 1.15fr;
   gap: 60px;
   align-items: center;
 }
 
 .workflow-copy p {
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 1.75;
 }
 
 .steps {
@@ -649,25 +662,27 @@ img {
 
 .step {
   display: flex;
-  gap: 15px;
-  padding: 17px 0;
+  gap: 16px;
+  padding: 18px 0;
   border-top: 1px solid #ffffff25;
 }
 
 .step > span {
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 700;
   color: #8fd0ab;
   padding-top: 2px;
 }
 
 .step b {
   display: block;
-  font-size: 13px;
+  font-size: 16px;
 }
 
 .step p {
-  font-size: 11px;
-  margin: 5px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 6px 0 0;
 }
 
 .white-steps .step {
@@ -681,31 +696,32 @@ img {
 .workboard {
   background: #fff;
   color: #0a1b3d;
-  border-radius: 11px;
-  padding: 25px;
+  border-radius: 12px;
+  padding: 28px;
   box-shadow: 0 15px 50px #0002;
 }
 
 .board-label {
-  font-size: 9px;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #79869b;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .workboard h3 {
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .board-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
   border-top: 1px solid #e5eaf3;
   padding: 16px 0;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .board-row:last-child {
@@ -714,13 +730,13 @@ img {
 
 .board-row strong {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .board-row small {
   display: block;
   color: #748095;
-  font-size: 10px;
+  font-size: 12px;
   margin-top: 4px;
 }
 
@@ -728,9 +744,9 @@ img {
   background: #e7f6ed;
   color: #227451;
   border-radius: 5px;
-  font-size: 8px;
-  padding: 4px 7px;
-  font-weight: 600;
+  font-size: 10px;
+  padding: 5px 9px;
+  font-weight: 700;
   white-space: nowrap;
 }
 
@@ -757,12 +773,13 @@ img {
 }
 
 .avatar-stack span {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: #dce7f6;
   border: 2px solid #fff;
-  font-size: 9px;
+  font-size: 10px;
+  font-weight: 700;
   display: grid;
   place-items: center;
   margin-left: -5px;
@@ -771,19 +788,20 @@ img {
 
 .tabs {
   display: flex;
-  gap: 5px;
+  gap: 6px;
   flex-wrap: wrap;
-  margin-bottom: 26px;
+  margin-bottom: 28px;
   border-bottom: 1px solid #d9e1ef;
-  padding-bottom: 10px;
+  padding-bottom: 12px;
 }
 
 .tabs button {
   border: 0;
-  border-radius: 6px;
+  border-radius: 7px;
   background: transparent;
-  padding: 10px 15px;
-  font-size: 11px;
+  padding: 11px 18px;
+  font-size: 13px;
+  font-weight: 700;
   color: #68758c;
 }
 
@@ -797,11 +815,16 @@ img {
   grid-template-columns: 1fr 1fr;
   gap: 45px;
   align-items: center;
-  min-height: 215px;
+  min-height: 230px;
+}
+
+.tab-panel h3 {
+  font-size: 28px;
 }
 
 .tab-panel p {
-  font-size: 13px;
+  font-size: 15px;
+  line-height: 1.75;
 }
 
 .check-list {
@@ -813,7 +836,8 @@ img {
 }
 
 .check-list li {
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 1.65;
   display: flex;
   gap: 10px;
 }
@@ -821,24 +845,24 @@ img {
 .check-list li:before {
   content: '✓';
   color: #227451;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .feature-card {
   border: 1px solid #d9e1ef;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #f7f9fc;
-  padding: 25px;
+  padding: 26px;
 }
 
 .feature-card h4 {
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .feature-card .mini-row {
-  padding: 13px 0;
+  padding: 14px 0;
   border-bottom: 1px solid #e2e8f1;
-  font-size: 11px;
+  font-size: 13.5px;
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -850,22 +874,24 @@ img {
 
 .feature-card .mini-row span {
   color: #227451;
-  font-size: 10px;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .assurance {
-  padding: 30px;
+  padding: 32px;
   background: #f7f9fc;
   border: 1px solid #e2e8f1;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .assurance h3 {
-  font-size: 21px;
+  font-size: 24px;
 }
 
 .assurance p {
-  font-size: 12px;
+  font-size: 14.5px;
+  line-height: 1.75;
 }
 
 .assurance a, .assurance button.text-link {
@@ -874,37 +900,37 @@ img {
 }
 
 .trust-seal {
-  height: 52px;
-  width: 52px;
+  height: 54px;
+  width: 54px;
   display: grid;
   place-items: center;
   border-radius: 13px;
   background: #e7f6ed;
   color: #227451;
-  font-size: 26px;
+  font-size: 28px;
   margin-bottom: 24px;
 }
 
 .callout {
   border-left: 3px solid #227451;
-  padding: 14px 18px;
+  padding: 15px 18px;
   background: #e7f6ed;
-  font-size: 11px;
+  font-size: 13px;
   color: #355844;
-  line-height: 1.8;
+  line-height: 1.75;
   margin-top: 25px;
 }
 
 .plans {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 20px;
 }
 
 .plan {
-  padding: 28px;
+  padding: 30px;
   border: 1px solid #d9e1ef;
-  border-radius: 10px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -925,8 +951,8 @@ img {
 }
 
 .plan .kicker {
-  font-size: 9px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #227451;
@@ -937,31 +963,32 @@ img {
 }
 
 .plan h3 {
-  font-size: 21px;
+  font-size: 24px;
   margin: 14px 0 0;
 }
 
 .plan .price {
   font-family: Sora, Arial, sans-serif;
-  font-size: 33px;
+  font-size: 36px;
   margin: 20px 0 0;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -1px;
 }
 
 .plan .price span {
   font-family: Inter, Arial, sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0;
 }
 
 .plan p {
-  font-size: 12px;
+  font-size: 14.5px;
+  line-height: 1.7;
 }
 
 .plan small {
-  font-size: 10px;
+  font-size: 12px;
   color: #788298;
 }
 
@@ -974,22 +1001,22 @@ img {
 }
 
 .fine {
-  font-size: 10px;
+  font-size: 12px;
   color: #7c8799;
-  line-height: 1.8;
+  line-height: 1.75;
   margin-top: 17px;
 }
 
 .solution-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 18px;
 }
 
 .solution-card {
-  padding: 25px;
+  padding: 26px;
   border: 1px solid #e2e8f1;
-  border-radius: 9px;
+  border-radius: 11px;
   background: #fff;
   transition: border-color 0.2s, transform 0.2s;
   display: block;
@@ -1002,44 +1029,47 @@ img {
 }
 
 .solution-card .symbol {
-  font-size: 25px;
+  font-size: 28px;
   color: #227451;
   display: block;
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 }
 
 .solution-card h3 {
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .solution-card p {
-  font-size: 11px;
-  line-height: 1.8;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .solution-card .arrow {
   display: block;
   text-align: right;
   color: #002882;
+  font-size: 16px;
 }
 
 .proof-slot {
-  padding: 28px;
+  padding: 30px;
   border: 1px dashed #c7d4e5;
-  border-radius: 10px;
+  border-radius: 12px;
   background: linear-gradient(120deg, #f7f9fc, #edf5f1);
 }
 
 .proof-slot p {
-  font-size: 12px;
+  font-size: 14.5px;
+  line-height: 1.75;
 }
 
 .proof-slot h3 {
-  font-size: 20px;
+  font-size: 23px;
 }
 
 .proof-slot .evidence-title {
-  font-size: 9px;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #227451;
@@ -1047,18 +1077,18 @@ img {
 }
 
 .faq {
-  max-width: 850px;
+  max-width: 860px;
   margin: auto;
 }
 
 .faq details {
-  padding: 21px 0;
+  padding: 22px 0;
   border-top: 1px solid #d9e1ef;
 }
 
 .faq summary {
-  font-weight: 600;
-  font-size: 13px;
+  font-weight: 700;
+  font-size: 16px;
   cursor: pointer;
   list-style: none;
   display: flex;
@@ -1072,7 +1102,7 @@ img {
 
 .faq summary:after {
   content: '+';
-  font-size: 20px;
+  font-size: 22px;
   color: #227451;
 }
 
@@ -1081,48 +1111,50 @@ img {
 }
 
 .faq details p {
-  font-size: 12px;
-  max-width: 740px;
+  font-size: 14.5px;
+  line-height: 1.75;
+  max-width: 760px;
 }
 
 .request-grid {
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
+  grid-template-columns: 0.88fr 1.12fr;
   gap: 60px;
   align-items: start;
 }
 
 .request-grid h2 {
-  font-size: 37px;
+  font-size: clamp(32px, 3.8vw, 44px);
 }
 
 .request-grid p {
-  font-size: 13px;
+  font-size: 15.5px;
+  line-height: 1.75;
 }
 
 .request-panel {
   border: 1px solid #e2e8f1;
-  border-radius: 12px;
+  border-radius: 14px;
   background: #fff;
-  padding: 30px;
+  padding: 32px;
   box-shadow: 0 12px 35px #0a1b3d08;
 }
 
 .request-panel h3 {
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 22px;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 17px;
+  gap: 18px;
 }
 
 label {
   display: block;
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 12.5px;
+  font-weight: 700;
   color: #35425a;
 }
 
@@ -1132,10 +1164,10 @@ label input, label select, label textarea {
   margin-top: 7px;
   background: #fff;
   border: 1px solid #d9e1ef;
-  border-radius: 6px;
-  padding: 12px;
+  border-radius: 8px;
+  padding: 13px 14px;
   color: #0a1b3d;
-  font-size: 12px;
+  font-size: 14px;
   min-width: 0;
 }
 
@@ -1145,7 +1177,7 @@ label input::placeholder, label textarea::placeholder {
 
 textarea {
   resize: vertical;
-  min-height: 90px;
+  min-height: 100px;
 }
 
 .full {
@@ -1159,25 +1191,25 @@ textarea {
 
 .consent {
   display: flex;
-  gap: 8px;
+  gap: 9px;
   align-items: flex-start;
-  font-size: 10px;
+  font-size: 12.5px;
   font-weight: 400;
   line-height: 1.7;
   margin: 20px 0;
 }
 
 .consent input {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
-  margin: 2px 0 0;
+  margin: 3px 0 0;
 }
 
 .privacy-note {
-  font-size: 10px;
+  font-size: 12px;
   color: #788398;
-  line-height: 1.8;
+  line-height: 1.75;
   margin: 16px 0;
 }
 
@@ -1198,16 +1230,16 @@ textarea {
   border-radius: 8px;
   background: #e7f6ed;
   color: #225c42;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .form-message strong {
   display: block;
-  font-size: 18px;
+  font-size: 19px;
 }
 
 .form-message p {
-  font-size: 11px;
+  font-size: 13px;
   color: #476754;
 }
 
@@ -1220,13 +1252,14 @@ textarea {
 .sector-list li {
   display: flex;
   gap: 12px;
-  padding: 12px 0;
-  font-size: 11px;
+  padding: 13px 0;
+  font-size: 14px;
   border-top: 1px solid #d9e1ef;
 }
 
 .sector-list li span {
   color: #227451;
+  font-weight: 700;
 }
 
 .segment-switch {
@@ -1237,15 +1270,16 @@ textarea {
 }
 
 .segment-switch a {
-  font-size: 10px;
-  padding: 9px 14px;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 10px 15px;
   border: 1px solid #d9e1ef;
-  border-radius: 6px;
+  border-radius: 7px;
   background: white;
 }
 
 .cta-band {
-  padding: 65px 0;
+  padding: 70px 0;
   background: #e7f6ed;
 }
 
@@ -1257,41 +1291,43 @@ textarea {
 }
 
 .cta-band h2 {
-  font-size: 35px;
-  max-width: 650px;
+  font-size: clamp(32px, 3.8vw, 42px);
+  max-width: 680px;
 }
 
 .cta-band p {
-  font-size: 12px;
+  font-size: 15.5px;
   margin-bottom: 0;
 }
 
 .footer {
   background: #07162f;
   color: #fff;
-  padding: 45px 0 20px;
+  padding: 52px 0 24px;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr;
-  gap: 30px;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 34px;
 }
 
 .footer img {
-  width: 145px;
+  width: 148px;
   filter: brightness(0) invert(1);
 }
 
 .footer p {
-  font-size: 10px;
-  max-width: 260px;
+  font-size: 13.5px;
+  line-height: 1.75;
+  max-width: 300px;
   color: #9cacc6;
 }
 
 .footer h4 {
-  font-family: Inter, Arial, sans-serif;
-  font-size: 11px;
+  font-family: Sora, Inter, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
   letter-spacing: 0;
   margin: 5px 0 15px;
 }
@@ -1299,8 +1335,8 @@ textarea {
 .footer a {
   display: block;
   color: #a9b8cf;
-  font-size: 10px;
-  margin: 9px 0;
+  font-size: 13px;
+  margin: 10px 0;
 }
 
 .footer .copyright {
@@ -1308,47 +1344,48 @@ textarea {
   justify-content: space-between;
   gap: 15px;
   border-top: 1px solid #ffffff20;
-  margin-top: 30px;
-  padding-top: 20px;
-  font-size: 9px;
+  margin-top: 34px;
+  padding-top: 22px;
+  font-size: 11.5px;
   color: #8c9db8;
   flex-wrap: wrap;
 }
 
 .foot-note {
-  font-size: 9px;
+  font-size: 11.5px;
   letter-spacing: 0.4px;
 }
 
 .deployment-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 20px;
 }
 
 .deployment {
   border: 1px solid #d9e1ef;
-  padding: 26px;
-  border-radius: 9px;
+  padding: 28px;
+  border-radius: 11px;
   background: #fff;
 }
 
 .deployment h3 {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .deployment p {
-  font-size: 12px;
+  font-size: 14.5px;
+  line-height: 1.7;
 }
 
 .deployment small {
-  font-size: 10px;
+  font-size: 12px;
   color: #7c8799;
 }
 
 .session-preview {
   background: #fff;
-  padding: 25px;
+  padding: 26px;
   border: 1px solid #e3e8f2;
   border-radius: 13px;
   box-shadow: 0 18px 50px #0a1b3d15;
@@ -1356,7 +1393,7 @@ textarea {
 }
 
 .session-preview h3 {
-  font-size: 23px;
+  font-size: 24px;
 }
 
 .session-banner {
@@ -1382,12 +1419,12 @@ textarea {
 
 .session-banner p {
   color: #d6e1f8;
-  font-size: 10px;
+  font-size: 12.5px;
   margin: 12px 0 0;
 }
 
 .session-banner .tiny {
-  font-size: 9px;
+  font-size: 10.5px;
   color: #b9d8d0;
   letter-spacing: 1px;
   margin-bottom: 17px;
@@ -1400,7 +1437,7 @@ textarea {
 }
 
 .schedule .board-row {
-  padding: 12px 0;
+  padding: 13px 0;
 }
 
 .audio-wave {
@@ -1434,7 +1471,7 @@ textarea {
   justify-content: space-between;
   padding: 16px 20px;
   border-bottom: 1px solid #e2e8f1;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .lesson-canvas {
@@ -1444,8 +1481,8 @@ textarea {
 }
 
 .lesson-canvas h3 {
-  font-size: 25px;
-  max-width: 300px;
+  font-size: 26px;
+  max-width: 320px;
 }
 
 .lesson-canvas .formula {
@@ -1457,7 +1494,7 @@ textarea {
 
 .formula span {
   font-family: Sora, Arial, sans-serif;
-  font-size: 18px;
+  font-size: 19px;
   border: 1px solid #b9cbed;
   background: #fff;
   padding: 12px 16px;
@@ -1468,7 +1505,7 @@ textarea {
   padding: 16px 20px;
   display: flex;
   justify-content: space-between;
-  font-size: 10px;
+  font-size: 12px;
   align-items: center;
 }
 
@@ -1496,12 +1533,12 @@ textarea {
 }
 
 .timeline-line strong {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .timeline-line small {
   display: block;
-  font-size: 10px;
+  font-size: 12px;
   color: #788398;
 }
 
@@ -1534,19 +1571,20 @@ textarea {
   border: 1px solid #d9e1ef;
   padding: 35px;
   border-radius: 15px;
-  max-width: 520px;
+  max-width: 540px;
   width: 100%;
   color: #0a1b3d;
   box-shadow: 0 25px 90px #0004;
 }
 
 .k3-modal h2 {
-  font-size: 29px;
+  font-size: 32px;
   margin-top: 18px;
 }
 
 .k3-modal p {
-  font-size: 13px;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .modal-close {
@@ -1556,15 +1594,16 @@ textarea {
   border: 0;
   background: #f1f4f8;
   border-radius: 50%;
-  width: 29px;
-  height: 29px;
+  width: 32px;
+  height: 32px;
   font-size: 20px;
   display: grid;
   place-items: center;
 }
 
 .modal-label {
-  font-size: 9px;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #227451;
@@ -1579,21 +1618,23 @@ textarea {
 .dialog-options button, .dialog-options a {
   text-align: left;
   border: 1px solid #d9e1ef;
-  border-radius: 7px;
+  border-radius: 8px;
   padding: 16px;
   background: #fff;
   color: #0a1b3d;
-  font-size: 12px;
+  font-size: 14px;
   display: block;
 }
 
 .dialog-options button strong, .dialog-options a strong {
   display: block;
+  font-size: 14.5px;
 }
 
 .dialog-options small {
   display: block;
   color: #7a8597;
+  font-size: 12.5px;
   margin-top: 4px;
 }
 
@@ -1614,6 +1655,203 @@ textarea {
   background: #227451;
 }
 
+.k3-modal.pricing-modal {
+  max-width: 1220px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 38px 36px;
+}
+
+.pricing-modal-head {
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+.pricing-modal-head p {
+  margin: 10px 0 0;
+  font-size: 15.5px;
+}
+
+.pricing-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.pricing-tier-card {
+  padding: 26px;
+}
+
+.pricing-tier-card .price {
+  font-size: 28px;
+  margin-top: 14px;
+}
+
+.pricing-tier-sub {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #566174;
+}
+
+.pricing-tier-card.highlight .pricing-tier-sub {
+  color: #c5d2ec;
+}
+
+.pricing-tier-list {
+  margin: 20px 0 24px;
+  gap: 9px;
+}
+
+.pricing-tier-list li {
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.pricing-tier-list li.is-excluded {
+  color: #8c96a5;
+}
+
+.pricing-tier-list li.is-excluded:before {
+  content: '—';
+  color: #8c96a5;
+}
+
+.pricing-addons-box {
+  margin-top: 28px;
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid #cce3d4;
+  background: #eef7f1;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.pricing-addons-box h3 {
+  font-size: 23px;
+}
+
+.pricing-addons-box p {
+  font-size: 14.5px;
+  margin: 8px 0 0;
+}
+
+.pricing-addons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  gap: 12px;
+}
+
+.pricing-addon-pill {
+  background: #fff;
+  border: 1px solid #d9e1ef;
+  border-radius: 9px;
+  padding: 14px 16px;
+}
+
+.pricing-addon-pill strong {
+  display: block;
+  font-family: Sora, Arial, sans-serif;
+  font-size: 14px;
+  color: #0a1b3d;
+}
+
+.pricing-addon-pill span {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #227451;
+}
+
+.pricing-matrix-section {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid #d9e1ef;
+}
+
+.pricing-matrix-section h3 {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.pricing-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #d9e1ef;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.pricing-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  text-align: left;
+}
+
+.pricing-matrix-table th,
+.pricing-matrix-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid #e5eaf3;
+}
+
+.pricing-matrix-table thead th {
+  font-family: Sora, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  background: #f7f9fc;
+  color: #0a1b3d;
+}
+
+.pricing-matrix-table thead th.is-popular {
+  background: #002882;
+  color: #fff;
+}
+
+.pricing-matrix-table tbody th {
+  font-weight: 700;
+  color: #0a1b3d;
+  background: #fcfdff;
+  white-space: nowrap;
+}
+
+.pricing-matrix-table tbody td {
+  color: #566174;
+}
+
+.pricing-matrix-table tbody td.is-popular {
+  background: #f4f8ff;
+  color: #002882;
+  font-weight: 600;
+}
+
+.pricing-matrix-table tbody tr:last-child th,
+.pricing-matrix-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+@media (max-width: 960px) {
+  .pricing-modal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pricing-addons-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .k3-modal.pricing-modal {
+    padding: 24px 18px;
+  }
+  .pricing-modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .skip {
   position: absolute;
   left: -9999px;
@@ -1628,7 +1866,8 @@ textarea {
 }
 
 .request-panel .micro-label {
-  font-size: 9px;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 1px;
   color: #227451;
   text-transform: uppercase;
@@ -1636,18 +1875,19 @@ textarea {
 }
 
 .contact-hero {
-  padding: 65px 0 35px;
+  padding: 68px 0 38px;
   background: linear-gradient(140deg, #f4f8ff, #fff);
 }
 
 .contact-hero h1 {
-  font-size: 51px;
-  max-width: 790px;
+  font-size: clamp(42px, 5.2vw, 64px);
+  max-width: 820px;
 }
 
 .contact-hero p {
-  max-width: 660px;
-  font-size: 14px;
+  max-width: 680px;
+  font-size: 18px;
+  line-height: 1.75;
 }
 
 .contact-help {
@@ -1657,12 +1897,12 @@ textarea {
 }
 
 .note-inline {
-  font-size: 10px;
+  font-size: 12px;
   color: #8a692d;
   background: #fff7e6;
   border: 1px solid #f0e2be;
-  padding: 10px 13px;
-  border-radius: 6px;
+  padding: 12px 15px;
+  border-radius: 7px;
   margin-top: 20px;
 }
 
@@ -1671,8 +1911,9 @@ textarea {
 }
 
 .section .subline {
-  font-size: 13px;
-  max-width: 650px;
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 680px;
   margin-top: 20px;
 }
 
@@ -1696,133 +1937,134 @@ textarea {
 
 @media (max-width: 900px) {
   .wrap {
-    width: 89%;
+    width: 90%;
   }
   .nav-links {
-    gap: 15px;
-    font-size: 10px;
+    gap: 16px;
+    font-size: 12.5px;
   }
   .nav-actions {
     gap: 10px;
   }
   .nav-inner {
-    height: 72px;
+    height: 74px;
   }
   .logo, .logo img {
-    width: 124px;
+    width: 132px;
   }
   .hero-grid {
-    gap: 25px;
+    gap: 28px;
   }
   .hero {
-    padding-top: 50px;
+    padding-top: 52px;
   }
   h1 {
-    font-size: 48px;
+    font-size: 52px;
     letter-spacing: -2.3px;
   }
   .button {
-    padding: 13px 16px;
-    font-size: 11px;
-  }
-  .hero p {
+    padding: 14px 18px;
     font-size: 13px;
   }
+  .hero p {
+    font-size: 16.5px;
+  }
   .hero .floating {
-    padding: 9px 12px;
+    padding: 10px 13px;
   }
   .workflow {
     gap: 35px;
   }
   .request-grid {
-    gap: 30px;
+    gap: 32px;
   }
   .section {
-    padding: 60px 0;
+    padding: 64px 0;
   }
   .request-grid h2 {
-    font-size: 32px;
+    font-size: 36px;
   }
   .plan {
-    padding: 23px;
+    padding: 25px;
   }
   .section-head > p {
-    max-width: 245px;
+    max-width: 280px;
   }
   .hero-visual .concept-label {
-    font-size: 8px;
+    font-size: 10px;
   }
   .solution-cards {
-    gap: 12px;
+    gap: 14px;
   }
 }
 
 @media (max-width: 680px) {
   body {
-    font-size: 14px;
+    font-size: 15px;
   }
   .wrap {
-    width: 88%;
+    width: 90%;
   }
   .nav-inner {
-    height: 67px;
+    height: 68px;
   }
   .nav-links, .nav-actions > .login {
     display: none;
   }
   .nav-actions .button {
-    font-size: 10px;
-    padding: 10px 12px;
+    font-size: 12px;
+    padding: 10px 14px;
   }
   .menu-toggle {
     display: block;
-    font-size: 15px;
+    font-size: 16px;
   }
   .nav-actions {
-    gap: 6px;
+    gap: 8px;
   }
   .logo, .logo img {
-    width: 116px;
+    width: 122px;
   }
   .mobile-nav.open {
     display: grid;
     border-top: 1px solid #e5eaf3;
-    padding: 10px 6%;
+    padding: 12px 6%;
     gap: 0;
     background: #fff;
   }
   .mobile-nav a {
-    padding: 11px 0;
+    padding: 13px 0;
     border-bottom: 1px solid #edf1f7;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 600;
   }
   .hero {
-    padding: 40px 0 40px;
+    padding: 44px 0 42px;
   }
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 32px;
   }
   h1 {
-    font-size: 43px;
-    line-height: 1.08;
-    letter-spacing: -2.3px;
+    font-size: 44px;
+    line-height: 1.06;
+    letter-spacing: -2.2px;
   }
   .hero p {
-    font-size: 13px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.75;
   }
   .eyebrow {
-    font-size: 8px;
-    letter-spacing: 1.5px;
+    font-size: 10.5px;
+    letter-spacing: 1.6px;
     margin-bottom: 19px;
   }
   .hero-actions {
-    margin-top: 23px;
+    margin-top: 24px;
   }
   .button, .hero .button {
-    font-size: 12px;
-    padding: 13px 15px;
+    font-size: 13.5px;
+    padding: 14px 18px;
   }
   .hero-visual {
     padding: 9px 5px 20px;
@@ -1834,16 +2076,16 @@ textarea {
     right: -3px;
   }
   .floating {
-    font-size: 8px;
+    font-size: 10.5px;
   }
   .floating strong {
-    font-size: 10px;
+    font-size: 12px;
   }
   .meeting {
     border-width: 5px;
   }
   .concept-label {
-    font-size: 8px;
+    font-size: 10px;
   }
   .segment-strip .wrap {
     display: grid;
@@ -1852,13 +2094,13 @@ textarea {
     padding: 20px 0;
   }
   .segment-strip a {
-    font-size: 9px;
+    font-size: 11px;
   }
   .segment-strip a:after {
     margin-left: 5px;
   }
   .brand-line {
-    font-size: 9px;
+    font-size: 11.5px;
     padding: 20px 0;
     display: block;
   }
@@ -1866,29 +2108,29 @@ textarea {
     margin-top: 12px;
   }
   .pillars b {
-    font-size: 9px;
+    font-size: 11px;
   }
   .section {
-    padding: 48px 0;
+    padding: 52px 0;
   }
   .section-head {
     display: block;
-    margin-bottom: 27px;
+    margin-bottom: 28px;
   }
   .section-head > p {
     max-width: none;
-    margin-top: 20px;
-    font-size: 12px;
+    margin-top: 18px;
+    font-size: 14.5px;
   }
   .section-head h2, h2 {
-    font-size: 31px;
+    font-size: 34px;
     letter-spacing: -1.4px;
   }
   .grid3, .grid2, .workflow, .request-grid, .plans, .tab-panel, .deployment-grid {
     grid-template-columns: 1fr;
   }
   .grid3 {
-    gap: 15px;
+    gap: 18px;
   }
   .benefit {
     padding-top: 20px;
@@ -1907,21 +2149,21 @@ textarea {
     margin-right: 10px;
   }
   .freedom h3 {
-    font-size: 14px;
+    font-size: 17px;
     letter-spacing: -0.5px;
   }
   .freedom p {
-    font-size: 11px;
-    line-height: 1.8;
+    font-size: 13.5px;
+    line-height: 1.7;
   }
   .workflow {
-    gap: 25px;
+    gap: 28px;
   }
   .workflow-copy h2 {
-    font-size: 31px;
+    font-size: 34px;
   }
   .workboard {
-    padding: 20px;
+    padding: 22px;
   }
   .tabs {
     flex-wrap: nowrap;
@@ -1930,72 +2172,72 @@ textarea {
   }
   .tabs button {
     white-space: nowrap;
-    font-size: 10px;
-    padding: 9px 12px;
+    font-size: 12px;
+    padding: 10px 14px;
   }
   .tab-panel {
-    gap: 20px;
+    gap: 22px;
     min-height: 0;
   }
   .tab-panel h3 {
-    font-size: 23px;
+    font-size: 24px;
   }
   .feature-card {
-    padding: 20px;
+    padding: 22px;
   }
   .solution-cards {
     grid-template-columns: 1fr 1fr;
-    gap: 11px;
+    gap: 12px;
   }
   .solution-card {
-    padding: 18px;
+    padding: 20px;
   }
   .solution-card h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .solution-card p {
-    font-size: 10px;
+    font-size: 12.5px;
   }
   .solution-card .symbol {
-    font-size: 21px;
-    margin-bottom: 19px;
+    font-size: 24px;
+    margin-bottom: 18px;
   }
   .plan {
-    padding: 25px;
+    padding: 26px;
   }
   .plans {
     gap: 16px;
   }
   .request-grid h2 {
-    font-size: 32px;
+    font-size: 34px;
   }
   .request-panel {
-    padding: 22px;
+    padding: 24px;
   }
   .form-grid {
     grid-template-columns: 1fr;
-    gap: 15px;
+    gap: 16px;
   }
   .form-grid .full {
     grid-column: auto;
   }
   .request-panel label {
-    font-size: 10px;
+    font-size: 12px;
   }
   label input, label select, label textarea {
     font-size: 16px;
   }
   .request-grid {
-    gap: 20px;
+    gap: 24px;
   }
   .cta-band {
-    padding: 45px 0;
+    padding: 48px 0;
   }
   .cta-band .wrap {
     display: block;
   }
   .cta-band h2 {
-    font-size: 30px;
+    font-size: 32px;
   }
   .cta-band .button {
     margin-top: 25px;
@@ -2008,40 +2250,40 @@ textarea {
     grid-column: 1 / -1;
   }
   .footer {
-    padding-top: 35px;
+    padding-top: 38px;
   }
   .footer .copyright {
-    font-size: 8px;
+    font-size: 11px;
   }
   .contact-hero {
-    padding-top: 40px;
+    padding-top: 44px;
   }
   .contact-hero h1 {
-    font-size: 40px;
+    font-size: 42px;
     letter-spacing: -2px;
   }
   .contact-hero p {
-    font-size: 13px;
+    font-size: 16px;
   }
   .lesson-canvas {
     min-height: 180px;
   }
   .session-preview {
-    padding: 18px;
+    padding: 20px;
   }
   .session-banner {
     padding: 20px;
   }
   .section .subline {
-    font-size: 12px;
+    font-size: 14.5px;
   }
 }
 
 @layer components {
-  .container-k3 { @apply mx-auto w-full max-w-[1200px] px-5 md:px-8; }
-  .section-title { @apply font-display text-3xl font-extrabold leading-[1.08] tracking-[-0.035em] text-brand-navy sm:text-4xl lg:text-[44px]; }
+  .container-k3 { @apply mx-auto w-full max-w-[1240px] px-5 md:px-8; }
+  .section-title { @apply font-display text-3xl font-extrabold leading-[1.08] tracking-[-0.035em] text-brand-navy sm:text-4xl lg:text-[52px]; }
   .section-copy { @apply max-w-3xl text-base leading-8 text-slate-600 lg:text-lg; }
-  .btn-primary { @apply inline-flex min-h-12 items-center justify-center rounded-lg bg-brand-blue px-5 text-xs font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#001f69] focus:outline-none; }
-  .btn-secondary { @apply inline-flex min-h-12 items-center justify-center rounded-lg border border-[#d9e1ef] bg-white px-5 text-xs font-semibold text-brand-blue transition hover:-translate-y-0.5 hover:border-brand-blue hover:bg-[#f6f9ff] focus:outline-none; }
-  .surface-card { @apply rounded-xl border border-brand-line bg-white shadow-soft; }
+  .btn-primary { @apply inline-flex min-h-12 items-center justify-center rounded-xl bg-brand-blue px-5 text-sm font-extrabold text-white transition hover:-translate-y-0.5 hover:bg-[#001f69] focus:outline-none; }
+  .btn-secondary { @apply inline-flex min-h-12 items-center justify-center rounded-xl border border-[#d9e1ef] bg-white px-5 text-sm font-extrabold text-brand-blue transition hover:-translate-y-0.5 hover:border-brand-blue hover:bg-[#f6f9ff] focus:outline-none; }
+  .surface-card { @apply rounded-2xl border border-brand-line bg-white shadow-soft; }
 }

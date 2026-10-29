@@ -281,4 +281,25 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
       unmount();
     }
   });
+
+  test('7. Clicking Choose a plan opens the full Konn3ct Pricing popup overlay', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    const choosePlanBtn = screen.getByRole('button', { name: /Choose a plan/i });
+    fireEvent.click(choosePlanBtn);
+
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toBeInTheDocument();
+    expect(dialog).toHaveTextContent(/Choose the plan that fits how you connect/i);
+    expect(dialog).toHaveTextContent(/NGN 2,500\/mo/i);
+    expect(dialog).toHaveTextContent(/NGN 10,000\/mo/i);
+    expect(dialog).toHaveTextContent(/NGN 200,000\/yr/i);
+    expect(dialog).toHaveTextContent(/Custom Pricing/i);
+    expect(dialog).toHaveTextContent(/EventPro Addons/i);
+    expect(dialog).toHaveTextContent(/Full Plan Comparison/i);
+  });
 });

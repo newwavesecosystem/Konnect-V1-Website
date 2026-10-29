@@ -295,7 +295,7 @@ export function CapabilitiesSection({ id = 'capabilities', route, routeKey, data
                   <span>0{j + 1}</span>
                 </div>
               ))}
-              <p className="fine" style={{ fontSize: '10px' }}>
+              <p className="fine">
                 Scope-approved categories. Final availability and entitlements require release
                 confirmation.
               </p>
@@ -596,7 +596,7 @@ export function PricingSection({ section, route = 'home', onAction }) {
           <article className="plan highlight">
             <span className="kicker">Prefer to begin now?</span>
             <h3>Buy a plan</h3>
-            <div className="price" style={{ fontSize: '24px' }}>
+            <div className="price" style={{ fontSize: '28px' }}>
               Your next step
             </div>
             <p>Go directly to the approved plan and payment journey.</p>
@@ -617,7 +617,7 @@ export function PricingSection({ section, route = 'home', onAction }) {
           <article className="plan">
             <span className="kicker">For organisations</span>
             <h3>Discuss your needs</h3>
-            <div className="price" style={{ fontSize: '24px' }}>
+            <div className="price" style={{ fontSize: '28px' }}>
               Built around you
             </div>
             <p>Assess an organisation package and deployment requirements.</p>

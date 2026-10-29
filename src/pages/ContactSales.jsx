@@ -239,7 +239,7 @@ export default function ContactSales({ onToast, onAction }) {
               </ul>
 
               <div className="contact-help">
-                <h3 style={{ fontSize: '19px' }}>Ready to start on your own?</h3>
+                <h3 style={{ fontSize: '21px' }}>Ready to start on your own?</h3>
                 <p>Trials and purchases have their own journeys.</p>
                 <div className="hero-actions">
                   <a className="button small" href={REGISTER_URL}>
@@ -257,7 +257,7 @@ export default function ContactSales({ onToast, onAction }) {
 
               <div className="proof-slot" style={{ marginTop: '30px' }}>
                 <div className="evidence-title">Service design placement</div>
-                <h3 style={{ fontSize: '18px' }}>Keep human help close.</h3>
+                <h3 style={{ fontSize: '20px' }}>Keep human help close.</h3>
                 <p>
                   Insert the verified, staffed WhatsApp/support route and accurate response
                   expectation here before implementation.
