@@ -97,7 +97,10 @@ export function createSubmissionAttemptId(route = 'form') {
 /**
  * Client-side validation matching backend rules before network transmission.
  */
-export function validateClientLeadForm(fields = {}, { requirePhone = false } = {}) {
+export function validateClientLeadForm(
+  fields = {},
+  { requirePhone = false, requireCompany = true } = {}
+) {
   const errors = {};
   const name = String(fields.name || '').trim();
   const email = String(fields.email || '').trim();
@@ -112,9 +115,9 @@ export function validateClientLeadForm(fields = {}, { requirePhone = false } = {
     errors.name = 'Full name must not exceed 120 characters.';
   }
 
-  if (!company || company.length < 2) {
+  if (requireCompany && (!company || company.length < 2)) {
     errors.company = 'Please enter your organisation or company name.';
-  } else if (company.length > 160) {
+  } else if (company && company.length > 160) {
     errors.company = 'Organisation name must not exceed 160 characters.';
   }
 

@@ -11,13 +11,12 @@
  */
 
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import App from '../App';
 import ContactSales from '../pages/ContactSales';
 import { DemoSection } from '../components/Sections';
-import siteContent from '../data/siteContent.json';
 
 beforeEach(() => {
   window.scrollTo = jest.fn();
@@ -46,20 +45,20 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
       </MemoryRouter>
     );
 
-    fireEvent.change(screen.getByPlaceholderText(/Your full name/i), {
+    fireEvent.change(screen.getByLabelText(/What would you like to do/i), {
+      target: { value: 'Book a product demo' },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/^Full name$/i), {
       target: { value: 'Oluwaseun Adeyemi' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/Company \/ institution/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Organisation name/i), {
       target: { value: 'Newwaves Partner Org' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/name@organisation\.com/i), {
+    fireEvent.change(screen.getByPlaceholderText(/you@example\.com/i), {
       target: { value: 'seun@partner.org' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/\+234/i), {
-      target: { value: '+234 803 111 2222' },
-    });
 
-    const submitBtn = screen.getAllByRole('button', { name: /Contact sales/i })[0];
+    const submitBtn = screen.getByRole('button', { name: /Request a conversation/i });
     fireEvent.click(submitBtn);
 
     // Verify loading state and double-submit prevention while request is in flight
@@ -97,20 +96,20 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
       </MemoryRouter>
     );
 
-    fireEvent.change(screen.getByPlaceholderText(/Your full name/i), {
+    fireEvent.change(screen.getByLabelText(/What would you like to do/i), {
+      target: { value: 'Book a product demo' },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/^Full name$/i), {
       target: { value: 'Bola Tinubu' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/Company \/ institution/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Organisation name/i), {
       target: { value: 'Civic Hub' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/name@organisation\.com/i), {
+    fireEvent.change(screen.getByPlaceholderText(/you@example\.com/i), {
       target: { value: 'not-an-email' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/\+234/i), {
-      target: { value: '+2348091234567' },
-    });
 
-    fireEvent.click(screen.getAllByRole('button', { name: /Contact sales/i })[0]);
+    fireEvent.click(screen.getByRole('button', { name: /Request a conversation/i }));
 
     const alert = await screen.findByRole('alert');
     expect(alert).toHaveTextContent(/valid email address/i);
@@ -135,20 +134,20 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
       </MemoryRouter>
     );
 
-    fireEvent.change(screen.getByPlaceholderText(/Your full name/i), {
+    fireEvent.change(screen.getByLabelText(/What would you like to do/i), {
+      target: { value: 'Book a product demo' },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/^Full name$/i), {
       target: { value: 'Kemi Adebayo' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/Company \/ institution/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Organisation name/i), {
       target: { value: 'Apex Group' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/name@organisation\.com/i), {
+    fireEvent.change(screen.getByPlaceholderText(/you@example\.com/i), {
       target: { value: 'kemi@apexgroup.com' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/\+234/i), {
-      target: { value: '+2348021234567' },
-    });
 
-    fireEvent.click(screen.getAllByRole('button', { name: /Contact sales/i })[0]);
+    fireEvent.click(screen.getByRole('button', { name: /Request a conversation/i }));
 
     const alert = await screen.findByRole('alert');
     expect(alert).toHaveTextContent(/could not complete your registration/i);
@@ -156,9 +155,6 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
   });
 
   test('4. Connects segment DemoSection forms (e.g. /government) to /api/leads with preserved idempotency key on retry', async () => {
-    const govPage = siteContent.government;
-    const govCtaSection = govPage.sections.find((s) => s.id === 'cta');
-
     // First attempt fails with network timeout, second attempt succeeds
     global.fetch = jest
       .fn()
@@ -185,28 +181,28 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
 
     render(
       <MemoryRouter initialEntries={['/government']}>
-        <DemoSection section={govCtaSection} form={govPage.form} route="government" />
+        <DemoSection route="government" />
       </MemoryRouter>
     );
 
-    fireEvent.change(screen.getByPlaceholderText(/Your name/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Full name/i), {
       target: { value: 'Musa Abdullahi' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/Ministry \/ Agency/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Organisation name/i), {
       target: { value: 'NITDA' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/name@institution\.gov/i), {
+    fireEvent.change(screen.getByPlaceholderText(/you@example\.com/i), {
       target: { value: 'musa@nitda.gov.ng' },
     });
 
-    const submitBtn = screen.getByRole('button', { name: /Prepare request/i });
+    const submitBtn = screen.getByRole('button', { name: /Request a government demo/i });
     fireEvent.click(submitBtn);
 
     const errAlert = await screen.findByRole('alert');
     expect(errAlert).toHaveTextContent(/took too long/i);
 
     // Retry without changing inputs -> should send the exact same X-Idempotency-Key
-    fireEvent.click(screen.getByRole('button', { name: /Prepare request/i }));
+    fireEvent.click(screen.getByRole('button', { name: /Request a government demo/i }));
 
     const status = await screen.findByRole('status');
     expect(status).toHaveTextContent(/ODOO-7788/i);
@@ -225,8 +221,64 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText(/Connect on your terms\./i)).toBeInTheDocument();
-    expect(screen.getByText(/Six freedoms\. One connected experience\./i)).toBeInTheDocument();
-    expect(screen.getByText(/Control without making connection difficult\./i)).toBeInTheDocument();
+    expect(screen.getByText(/Connect on/i)).toBeInTheDocument();
+    expect(screen.getByText(/Six freedoms\./i)).toBeInTheDocument();
+    expect(screen.getByText(/Trust is a practical/i)).toBeInTheDocument();
+  });
+
+  test('6. All 6 sector DemoSection forms and ContactSales progressive intents transmit to /api/leads', async () => {
+    const sectorForms = [
+      { route: 'government', submitLabel: /Request a government demo/i, org: 'Federal Ministry of Digital Economy' },
+      { route: 'associations', submitLabel: /Request an association demo/i, org: 'Nigerian Bar Association' },
+      { route: 'education', submitLabel: /Book an education demo/i, org: 'University of Lagos' },
+      { route: 'faith', submitLabel: /Book a faith-community demo/i, org: 'Grace Assembly Network' },
+      { route: 'corporates', submitLabel: /Book an enterprise demo/i, org: 'Newwaves Enterprise Ltd' },
+      { route: 'events-community', submitLabel: /Request an event consultation/i, org: 'Lagos Tech Summit' },
+    ];
+
+    for (let i = 0; i < sectorForms.length; i += 1) {
+      const { route, submitLabel, org } = sectorForms[i];
+      const leadRef = `ODOO-SECTOR-${i + 1}`;
+      global.fetch = jest.fn().mockResolvedValueOnce({
+        ok: true,
+        status: 201,
+        json: async () => ({
+          ok: true,
+          deliveryStatus: 'crm_created',
+          leadReference: leadRef,
+          classification: 'Konn3ct Demo Request',
+          message: `Thank you. Your Konn3ct Demo Request has been registered (Ref: ${leadRef}).`,
+        }),
+      });
+
+      const { unmount } = render(
+        <MemoryRouter initialEntries={[`/${route}`]}>
+          <DemoSection route={route} />
+        </MemoryRouter>
+      );
+
+      fireEvent.change(screen.getByPlaceholderText(/Full name/i), {
+        target: { value: `Lead Tester ${i + 1}` },
+      });
+      fireEvent.change(screen.getByPlaceholderText(/Organisation name/i), {
+        target: { value: org },
+      });
+      fireEvent.change(screen.getByPlaceholderText(/you@example\.com/i), {
+        target: { value: `tester${i + 1}@konn3ct.org` },
+      });
+
+      fireEvent.click(screen.getByRole('button', { name: submitLabel }));
+
+      const status = await screen.findByRole('status');
+      expect(status).toHaveTextContent(leadRef);
+      expect(global.fetch).toHaveBeenCalledTimes(1);
+
+      const sentBody = JSON.parse(global.fetch.mock.calls[0][1].body);
+      expect(sentBody.route).toBe(route);
+      expect(sentBody.organisation).toBe(org);
+      expect(sentBody.email).toBe(`tester${i + 1}@konn3ct.org`);
+
+      unmount();
+    }
   });
 });

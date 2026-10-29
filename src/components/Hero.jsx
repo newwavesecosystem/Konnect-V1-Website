@@ -1,78 +1,133 @@
 import React from 'react'
-import { ArrowRight, CheckIcon } from './Icons'
+import { Link } from 'react-router-dom'
 import MediaPlaceholder from './MediaPlaceholder'
-import { solutionMeta } from '../data/metadata'
+import { REGISTER_URL, sectorProposals, solutionMeta } from '../data/metadata'
 
-export default function Hero({ route, hero, onPrimary, onSecondary }) {
-  const meta = solutionMeta[route]
-  const actions = hero.actions?.length ? hero.actions : [route === 'home' ? 'Start free' : 'Request a demo', 'Explore Konn3ct']
-  return (
-    <section id="home" className="relative overflow-hidden bg-[linear-gradient(180deg,#fff_0%,#F7FAFF_75%,#fff_100%)] py-16 sm:py-20 lg:py-24">
-      <div className="pointer-events-none absolute -right-40 top-6 h-[520px] w-[520px] rounded-full border border-brand-blue/5 shadow-[0_0_0_80px_rgba(0,40,130,.018),0_0_0_160px_rgba(34,116,81,.016)]" />
-      <div className="container-k3 relative grid items-center gap-12 lg:grid-cols-[1.02fr_.98fr] lg:gap-16">
-        <div>
-          <div className="mb-5 flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-brand-blueTint px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.08em] text-brand-blue">{hero.eyebrow || meta.eyebrow}</span>
-            <span className="rounded-full border border-brand-line bg-white px-3 py-2 text-[11px] font-extrabold text-brand-navy">AI powered · Human governed</span>
+export default function Hero({ route = 'home', hero, onPrimary, onSecondary, onAction }) {
+  const sector = sectorProposals[route]
+  const meta = solutionMeta[route] || solutionMeta.home
+
+  if (route === 'home') {
+    return (
+      <section className="hero" id="home">
+        <div className="wrap hero-grid">
+          <div>
+            <div className="eyebrow">{hero?.eyebrow || 'Connection Freedom by Design'}</div>
+            <h1>
+              Connect on
+              <br />
+              <em>your terms.</em>
+            </h1>
+            <p>
+              Bring your people together for meetings, learning and collaboration with Konn3ct.
+            </p>
+            <div className="hero-actions">
+              <a className="button" href={REGISTER_URL}>
+                Start your 7-day free trial <span aria-hidden="true">↗</span>
+              </a>
+              <button
+                type="button"
+                className="button outline"
+                onClick={() => (onAction ? onAction('purchase') : onSecondary?.())}
+              >
+                Buy a plan <span aria-hidden="true">↗</span>
+              </button>
+            </div>
+            <div className="reassurance">
+              <span>No credit card required</span>
+              <span>Buy immediately if you prefer</span>
+            </div>
+            <Link className="text-link" to="/contact-sales">
+              Buying for an organisation? Book a demo.
+            </Link>
           </div>
-          <h1 className="max-w-[780px] font-display text-[44px] font-extrabold leading-[1.01] tracking-[-0.05em] text-brand-navy sm:text-[58px] lg:text-[74px]">
-            {hero.title}
-          </h1>
-          <p className="mt-6 max-w-[690px] text-lg leading-8 text-slate-600 sm:text-xl sm:leading-9">{hero.description}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <button onClick={() => onPrimary(actions[0])} className="btn-primary min-h-[54px] gap-2 px-6">{actions[0]} <ArrowRight className="h-4 w-4" /></button>
-            {actions[1] && <button onClick={onSecondary || (() => document.getElementById(route === 'home' ? 'product' : 'capabilities')?.scrollIntoView({ behavior: 'smooth' }))} className="btn-secondary min-h-[54px] px-6">{actions[1]}</button>}
-          </div>
-          <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3">
-            {(hero.proof?.length ? hero.proof : ['Low-bandwidth ready', 'Mobile & desktop', 'TrustLock™ controls']).slice(0,4).map((p, i) => (
-              <span key={i} className="inline-flex items-center gap-2 text-xs font-bold text-slate-600"><span className="grid h-5 w-5 place-items-center rounded-full bg-brand-greenTint text-brand-green"><CheckIcon className="h-3.5 w-3.5" /></span>{p.replace(/^✓\s*/, '')}</span>
-            ))}
-          </div>
+          <MediaPlaceholder variant="home" />
         </div>
-        <MediaPlaceholder variant={route} label={meta.short} />
+      </section>
+    )
+  }
+
+  const eyebrow = sector?.eyebrow || hero?.eyebrow || meta.eyebrow
+  const titleHtml = sector?.titleHtml || hero?.title || meta.label
+  const intro = sector?.intro || hero?.description || meta.description
+  const ctaLabel = sector?.cta || hero?.actions?.[0] || 'Request a demo'
+  const altLabel = sector?.alt || hero?.actions?.[1] || 'Explore capabilities'
+  const isBusiness = route === 'corporates'
+  const isEducationTrial = route === 'education' && sector?.action === 'trial'
+  const altAnchor = sector?.anchor || 'request'
+
+  const handleAltClick = (e) => {
+    if (isEducationTrial) {
+      return
+    }
+    e.preventDefault()
+    if (onSecondary) {
+      onSecondary()
+      return
+    }
+    document.getElementById(altAnchor)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  const handlePrimaryClick = (e) => {
+    if (isBusiness) {
+      return
+    }
+    e.preventDefault()
+    if (onPrimary) {
+      onPrimary(ctaLabel)
+      return
+    }
+    document.getElementById('request')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  return (
+    <section className="hero" id="home">
+      <div className="wrap hero-grid">
+        <div>
+          <div className="eyebrow">{eyebrow}</div>
+          <h1 dangerouslySetInnerHTML={{ __html: titleHtml }} />
+          <p>{intro}</p>
+          <div className="hero-actions">
+            {isBusiness ? (
+              <a className="button" href={REGISTER_URL}>
+                {ctaLabel} <span aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <a className="button" href="#request" onClick={handlePrimaryClick}>
+                {ctaLabel} <span aria-hidden="true">↗</span>
+              </a>
+            )}
+
+            {isEducationTrial ? (
+              <a className="button outline" href={REGISTER_URL}>
+                {altLabel} <span aria-hidden="true">↗</span>
+              </a>
+            ) : (
+              <a
+                className="button outline"
+                href={`#${altAnchor}`}
+                onClick={handleAltClick}
+              >
+                {altLabel} <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </div>
+          <div className="reassurance">
+            <span>People-first connection</span>
+            <span>Clear host controls</span>
+          </div>
+          {isBusiness && (
+            <button
+              type="button"
+              className="text-link"
+              onClick={() => onAction?.('purchase')}
+            >
+              Ready to begin? Buy a plan
+            </button>
+          )}
+        </div>
+        <MediaPlaceholder variant={sector?.visual || route} />
       </div>
     </section>
   )
 }
-
-
-
-
-
-
-// import React from 'react'
-// import { ArrowRight, CheckIcon } from './Icons'
-// import MediaPlaceholder from './MediaPlaceholder'
-// import { solutionMeta } from '../data/metadata'
-
-// export default function Hero({ route, hero, onPrimary }) {
-//   const meta = solutionMeta[route]
-//   const actions = hero.actions?.length ? hero.actions : [route === 'home' ? 'Start free' : 'Request a demo', 'Explore Konn3ct']
-//   return (
-//     <section id="home" className="relative overflow-hidden bg-[linear-gradient(180deg,#fff_0%,#F7FAFF_75%,#fff_100%)] py-16 sm:py-20 lg:py-24">
-//       <div className="pointer-events-none absolute -right-40 top-6 h-[520px] w-[520px] rounded-full border border-brand-blue/5 shadow-[0_0_0_80px_rgba(0,40,130,.018),0_0_0_160px_rgba(34,116,81,.016)]" />
-//       <div className="container-k3 relative grid items-center gap-12 lg:grid-cols-[1.02fr_.98fr] lg:gap-16">
-//         <div>
-//           <div className="mb-5 flex flex-wrap items-center gap-2">
-//             <span className="rounded-full bg-brand-blueTint px-3 py-2 text-[11px] font-extrabold uppercase tracking-[0.08em] text-brand-blue">{hero.eyebrow || meta.eyebrow}</span>
-//             <span className="rounded-full border border-brand-line bg-white px-3 py-2 text-[11px] font-extrabold text-brand-navy">AI-powered · Human-governed</span>
-//           </div>
-//           <h1 className="max-w-[780px] font-display text-[44px] font-extrabold leading-[1.01] tracking-[-0.05em] text-brand-navy sm:text-[58px] lg:text-[74px]">
-//             {hero.title}
-//           </h1>
-//           <p className="mt-6 max-w-[690px] text-lg leading-8 text-slate-600 sm:text-xl sm:leading-9">{hero.description}</p>
-//           <div className="mt-8 flex flex-wrap gap-3">
-//             <button onClick={() => onPrimary(actions[0])} className="btn-primary min-h-[54px] gap-2 px-6">{actions[0]} <ArrowRight className="h-4 w-4" /></button>
-//             {actions[1] && <button onClick={() => document.getElementById(route === 'home' ? 'product' : 'capabilities')?.scrollIntoView({ behavior: 'smooth' })} className="btn-secondary min-h-[54px] px-6">{actions[1]}</button>}
-//           </div>
-//           <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3">
-//             {(hero.proof?.length ? hero.proof : ['Low-bandwidth ready', 'Mobile & desktop', 'TrustLock™ controls']).slice(0,4).map((p, i) => (
-//               <span key={i} className="inline-flex items-center gap-2 text-xs font-bold text-slate-600"><span className="grid h-5 w-5 place-items-center rounded-full bg-brand-greenTint text-brand-green"><CheckIcon className="h-3.5 w-3.5" /></span>{p.replace(/^✓\s*/, '')}</span>
-//             ))}
-//           </div>
-//         </div>
-//         <MediaPlaceholder variant={route} label={meta.short} />
-//       </div>
-//     </section>
-//   )
-// }

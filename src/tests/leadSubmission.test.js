@@ -8,7 +8,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import ContactSales from '../pages/ContactSales';
-import { DemoSection, SplitSection, PricingSection } from '../components/Sections';
+import { SplitSection } from '../components/Sections';
 import siteContent from '../data/siteContent.json';
 import { landingPageRegistry, getRouteConversionMeta } from '../data/metadata';
 import { submitLead } from '../services/leads';
@@ -220,20 +220,20 @@ describe('MK-004-DEV-001 — Complete Acceptance Test Matrix (DEV-AT-01 to DEV-A
       </MemoryRouter>
     );
 
-    fireEvent.change(screen.getByPlaceholderText(/Your full name/i), {
+    fireEvent.change(screen.getByLabelText(/What would you like to do/i), {
+      target: { value: 'Book a product demo' },
+    });
+    fireEvent.change(screen.getByPlaceholderText(/^Full name$/i), {
       target: { value: 'Damilola Ojo' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/Company \/ institution/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Organisation name/i), {
       target: { value: 'Ojo Holdings' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/name@organisation\.com/i), {
+    fireEvent.change(screen.getByPlaceholderText(/you@example\.com/i), {
       target: { value: 'damilola@ojoholdings.com' },
     });
-    fireEvent.change(screen.getByPlaceholderText(/\+234/i), {
-      target: { value: '+2348039998877' },
-    });
 
-    fireEvent.click(screen.getAllByRole('button', { name: /Contact sales/i })[0]);
+    fireEvent.click(screen.getByRole('button', { name: /Request a conversation/i }));
 
     const alert = await screen.findByRole('alert');
     expect(alert).toHaveTextContent(/could not complete your registration/i);

@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
-import { ArrowRight, CheckIcon, DeviceIcon, GlobeIcon, ShieldIcon, SparkIcon, UsersIcon, WifiIcon } from '../components/Icons'
+import { REGISTER_URL } from '../data/metadata'
 import {
   captureUtmParameters,
   createSubmissionAttemptId,
@@ -11,67 +11,48 @@ import {
 import { trackConfirmedLead, trackPageView } from '../analytics/events'
 import { getExperimentAssignment } from '../experiments/abTest'
 
-const featureOptions = [
-  'Meetings & team collaboration',
-  'Webinars & large events',
-  'Training, learning & enablement',
-  'AI meeting intelligence & productivity',
-  'TrustLock™ governance & administration',
-  'Low-bandwidth & mobile resilience',
-  'Recording, replay & knowledge',
-  'Community, member & customer engagement',
-]
-
-const enquiryTypeOptions = [
-  { value: 'demo_request', label: 'Sales & Product Demo Request' },
-  { value: 'early_access', label: 'Early Access Registration' },
-  { value: 'waitlist', label: 'Join Konn3ct Waitlist' },
-  { value: 'partnership', label: 'Partnership & Ecosystem Enquiry' },
-  { value: 'general', label: 'General Contact & Enquiry' },
-]
-
-const featureCards = [
+const INTENT_OPTIONS = [
   {
-    title: 'Meetings & collaboration',
-    description: 'Run secure team, executive, customer and partner meetings across devices and locations.',
-    Icon: UsersIcon,
+    value: 'Book a product demo',
+    enquiryType: 'demo_request',
+    label: 'Book a product demo',
   },
   {
-    title: 'Webinars & large events',
-    description: 'Host town halls, conferences, launches, public forums and large audience experiences.',
-    Icon: GlobeIcon,
+    value: 'Discuss an organisation deployment',
+    enquiryType: 'demo_request',
+    label: 'Discuss an organisation deployment',
   },
   {
-    title: 'AI productivity',
-    description: 'Support captions, transcripts, summaries, Q&A and reusable meeting knowledge.',
-    Icon: SparkIcon,
+    value: 'Discuss an association trial',
+    enquiryType: 'early_access',
+    label: 'Discuss an association trial',
   },
   {
-    title: 'TrustLock™ governance',
-    description: 'Control participant roles, permissions, recording, moderation and institutional policies.',
-    Icon: ShieldIcon,
+    value: 'Explore a partnership',
+    enquiryType: 'partnership',
+    label: 'Explore a partnership',
   },
   {
-    title: 'Resilient connection',
-    description: 'Keep people connected across changing bandwidth conditions and real-world networks.',
-    Icon: WifiIcon,
-  },
-  {
-    title: 'Mobile-first access',
-    description: 'Give people a consistent Konn3ct experience across desktop and mobile devices.',
-    Icon: DeviceIcon,
+    value: 'Ask a general question',
+    enquiryType: 'general',
+    label: 'Ask a general question',
   },
 ]
 
-export default function ContactSales({ onToast }) {
+function resolveEnquiryType(intentValue) {
+  const matched = INTENT_OPTIONS.find(
+    (opt) => opt.value === intentValue || opt.enquiryType === intentValue
+  )
+  return matched ? matched.enquiryType : 'demo_request'
+}
+
+export default function ContactSales({ onToast, onAction }) {
   const location = useLocation()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submissionResult, setSubmissionResult] = useState(null)
   const [errorMessage, setErrorMessage] = useState('')
   const [fieldErrors, setFieldErrors] = useState({})
-  const [interest, setInterest] = useState(featureOptions[0])
-  const [enquiryType, setEnquiryType] = useState('demo_request')
-  const [consentAccepted, setConsentAccepted] = useState(true)
+  const [intent, setIntent] = useState('')
   const [marketingOptIn, setMarketingOptIn] = useState(false)
   const attemptIdRef = useRef(createSubmissionAttemptId('contact-sales'))
 
@@ -80,26 +61,25 @@ export default function ContactSales({ onToast }) {
     []
   )
 
-  const selectedFeature = useMemo(
-    () => (featureOptions.includes(interest) ? interest : featureOptions[0]),
-    [interest]
-  )
-
   useEffect(() => {
-    document.title = 'Contact Sales | Konn3ct'
+    document.title = 'Contact sales · Konn3ct'
     window.scrollTo({ top: 0 })
     captureUtmParameters(location.search)
     trackPageView({ route: 'contact-sales', page_path: '/contact-sales' })
 
     const requestedType =
       location.state?.enquiryType || new URLSearchParams(location.search).get('type')
-    if (requestedType && enquiryTypeOptions.some((o) => o.value === requestedType)) {
-      setEnquiryType(requestedType)
+    if (requestedType) {
+      const matched = INTENT_OPTIONS.find(
+        (o) => o.enquiryType === requestedType || o.value === requestedType
+      )
+      if (matched) {
+        setIntent(matched.value)
+      }
     }
   }, [location.search, location.state])
 
   const handleFieldChange = () => {
-    // Generate a fresh attempt ID when the user modifies form inputs after a completed submission
     if (submissionResult) {
       setSubmissionResult(null)
       attemptIdRef.current = createSubmissionAttemptId('contact-sales')
@@ -115,30 +95,65 @@ export default function ContactSales({ onToast }) {
 
     const formEl = event.currentTarget
     const formData = new FormData(formEl)
+    const rawIntent = formData.get('intent') || intent
+    if (!rawIntent) {
+      setFieldErrors({ intent: 'Please select what you would like to do.' })
+      setErrorMessage('Please complete the highlighted fields before continuing.')
+      return
+    }
+
+    const nameVal = (formData.get('name') || '').trim()
+    const emailVal = (formData.get('email') || '').trim()
+    const orgVal = (formData.get('organisation') || formData.get('company') || '').trim()
+    const roleVal = (formData.get('role') || '').trim()
+    const contextVal = (formData.get('context') || formData.get('goal') || formData.get('message') || '').trim()
+    const deploymentVal = (formData.get('deployment') || '').trim()
+    const pilotVal = (formData.get('pilot') || formData.get('pilot_session') || '').trim()
+    const partnershipVal = (formData.get('partnership') || formData.get('partner_focus') || '').trim()
+
+    const extraNotes = [
+      rawIntent ? `Selected Intent: ${rawIntent}` : '',
+      deploymentVal ? `Deployment / Governance Requirements: ${deploymentVal}` : '',
+      pilotVal ? `Proposed Member Session: ${pilotVal}` : '',
+      partnershipVal ? `Partnership Focus: ${partnershipVal}` : '',
+      contextVal,
+    ]
+      .filter(Boolean)
+      .join('\n')
+
+    const resolvedEnquiryType = resolveEnquiryType(rawIntent)
+
     const payload = {
       route: 'contact-sales',
       landing_page_id: 'contact-sales',
       conversion_goal_id: 'sales-enquiry',
       page_path: location.pathname || '/contact-sales',
       submission_reference: attemptIdRef.current,
-      enquiryType,
-      name: formData.get('name') || '',
-      company: formData.get('company') || '',
-      email: formData.get('email') || '',
-      phone: formData.get('phone') || '',
-      role: formData.get('role') || '',
-      organisationType: formData.get('organisationType') || 'Corporate / SME',
-      interest: selectedFeature,
-      scale: formData.get('scale') || 'Up to 100',
-      message: formData.get('message') || '',
+      enquiryType: resolvedEnquiryType,
+      name: nameVal,
+      company: orgVal || 'Individual / Unspecified',
+      email: emailVal,
+      phone: (formData.get('phone') || '').trim(),
+      role: roleVal,
+      organisationType: rawIntent.includes('association')
+        ? 'Professional Association / Membership Organisation'
+        : rawIntent.includes('deployment')
+        ? 'Enterprise / Institutional Deployment'
+        : 'Corporate / SME',
+      interest: rawIntent,
+      scale: 'Up to 100',
+      message: extraNotes,
       website_url: formData.get('website_url') || '',
-      consentAccepted,
+      consentAccepted: true,
       marketingOptIn,
       experiment_id: experiment.experiment_id,
       variant_id: experiment.variant_id,
     }
 
-    const validation = validateClientLeadForm(payload, { requirePhone: true })
+    const validation = validateClientLeadForm(payload, {
+      requirePhone: false,
+      requireCompany: false,
+    })
     if (!validation.valid) {
       setFieldErrors(validation.errors)
       setErrorMessage(validation.firstError)
@@ -151,16 +166,14 @@ export default function ContactSales({ onToast }) {
 
     try {
       const response = await submitLead(payload)
-
       setSubmissionResult(response)
 
-      // MK-004 DEV-AT-08 & DEV-AT-09: Emit GA4 `generate_lead` ONLY after confirmed backend success
       trackConfirmedLead(response, {
         landing_page_id: 'contact-sales',
         conversion_goal_id: 'sales-enquiry',
         page_path: location.pathname || '/contact-sales',
-        enquiryType,
-        consentAccepted,
+        enquiryType: resolvedEnquiryType,
+        consentAccepted: true,
         experiment_id: experiment.experiment_id,
         variant_id: experiment.variant_id,
       })
@@ -183,249 +196,275 @@ export default function ContactSales({ onToast }) {
 
   return (
     <div className="min-h-screen bg-white text-brand-ink">
-      <main>
-        <section className="relative overflow-hidden bg-[linear-gradient(180deg,#fff_0%,#F7FAFF_78%,#fff_100%)] py-14 sm:py-20 lg:py-24">
-          <div className="pointer-events-none absolute -right-40 top-12 h-[520px] w-[520px] rounded-full border border-brand-blue/5 shadow-[0_0_0_80px_rgba(0,40,130,.018),0_0_0_160px_rgba(34,116,81,.016)]" />
-          <div className="container-k3 relative grid items-start gap-12 lg:grid-cols-[.88fr_1.12fr] lg:gap-16">
-            <div className="lg:sticky lg:top-[118px]">
-              <div className="eyebrow">Talk to Konn3ct</div>
-              <h1 className="mt-5 max-w-[620px] font-display text-[42px] font-extrabold leading-[1.03] tracking-[-0.045em] text-brand-navy sm:text-[54px] lg:text-[64px]">
-                Contact our Sales team
-              </h1>
-              <p className="mt-6 max-w-[610px] text-lg leading-8 text-slate-600">
-                Tell us how your organisation connects today and what you want to improve. We will help you design the right Konn3ct setup for your people, use cases, scale, network conditions and governance needs.
-              </p>
-              <p className="mt-4 max-w-[590px] text-sm leading-7 text-slate-500">
-                Complete the form and a member of the Konn3ct team can follow up on meetings, webinars, training, enterprise administration, AI productivity, TrustLock™ controls, resilient connection and deployment options.
-              </p>
-
-              <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-                {['Government & public institutions','Corporates & SMEs','Associations & membership','Education & training','Faith organisations','Events & communities'].map((item) => (
-                  <div key={item} className="flex items-center gap-3 rounded-2xl border border-brand-line bg-white px-4 py-3 shadow-soft">
-                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand-greenTint text-brand-green"><CheckIcon className="h-4 w-4" /></span>
-                    <span className="text-xs font-extrabold leading-5 text-brand-navy">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <form
-              onSubmit={handleSubmit}
-              onChange={handleFieldChange}
-              noValidate
-              aria-busy={isSubmitting}
-              className="rounded-[28px] border border-brand-line bg-white p-6 shadow-float sm:p-8 lg:p-9"
-            >
-              <div className="mb-7 border-b border-brand-line pb-6">
-                <p className="text-[11px] font-extrabold uppercase tracking-[0.12em] text-brand-green">Sales enquiry</p>
-                <h2 className="mt-2 font-display text-2xl font-extrabold text-brand-navy sm:text-3xl">Tell us about your organisation</h2>
-                <p className="mt-3 text-sm leading-6 text-slate-500">A few details help us route your request to the right Konn3ct team.</p>
-              </div>
-
-              {/* Honeypot anti-spam trap (hidden from human users and screen readers) */}
-              <div className="sr-only" aria-hidden="true">
-                <label>
-                  Website URL
-                  <input type="text" name="website_url" tabIndex={-1} autoComplete="off" />
-                </label>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <label className="grid gap-2 sm:col-span-2">
-                  <span className="text-xs font-extrabold text-slate-700">Enquiry type</span>
-                  <select
-                    name="enquiryType"
-                    value={enquiryType}
-                    onChange={(e) => setEnquiryType(e.target.value)}
-                    className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
-                  >
-                    {enquiryTypeOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value}>
-                        {opt.label}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-
-                <label className="grid gap-2">
-                  <span className="text-xs font-extrabold text-slate-700">Full name</span>
-                  <input
-                    required
-                    name="name"
-                    maxLength={120}
-                    aria-invalid={Boolean(fieldErrors.name)}
-                    placeholder="Your full name"
-                    className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
-                  />
-                </label>
-                <label className="grid gap-2">
-                  <span className="text-xs font-extrabold text-slate-700">Organisation name</span>
-                  <input
-                    required
-                    name="company"
-                    maxLength={160}
-                    aria-invalid={Boolean(fieldErrors.company)}
-                    placeholder="Company / institution"
-                    className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
-                  />
-                </label>
-                <label className="grid gap-2">
-                  <span className="text-xs font-extrabold text-slate-700">Work email</span>
-                  <input
-                    required
-                    name="email"
-                    type="email"
-                    maxLength={160}
-                    aria-invalid={Boolean(fieldErrors.email)}
-                    placeholder="name@organisation.com"
-                    className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
-                  />
-                </label>
-                <label className="grid gap-2">
-                  <span className="text-xs font-extrabold text-slate-700">Phone number</span>
-                  <input
-                    required
-                    name="phone"
-                    type="tel"
-                    maxLength={25}
-                    aria-invalid={Boolean(fieldErrors.phone)}
-                    placeholder="+234 ..."
-                    className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
-                  />
-                </label>
-
-                <label className="grid gap-2 sm:col-span-2">
-                  <span className="text-xs font-extrabold text-slate-700">Organisation type</span>
-                  <select name="organisationType" className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10">
-                    <option>Corporate / SME</option>
-                    <option>Government / Public Institution</option>
-                    <option>Professional Association / Membership Organisation</option>
-                    <option>University / School / Training Organisation</option>
-                    <option>Church / Faith Organisation</option>
-                    <option>Event / Community Organisation</option>
-                    <option>Other</option>
-                  </select>
-                </label>
-
-                <label className="grid gap-2 sm:col-span-2">
-                  <span className="text-xs font-extrabold text-slate-700">What are you interested in?</span>
-                  <select name="interest" value={interest} onChange={(e) => setInterest(e.target.value)} className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10">
-                    {featureOptions.map(option => <option key={option}>{option}</option>)}
-                  </select>
-                </label>
-
-                <label className="grid gap-2 sm:col-span-2">
-                  <span className="text-xs font-extrabold text-slate-700">Expected participant / user scale</span>
-                  <select name="scale" className="h-12 rounded-xl border border-slate-300 bg-white px-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10">
-                    <option>Up to 100</option>
-                    <option>101–500</option>
-                    <option>501–2,000</option>
-                    <option>2,001–10,000</option>
-                    <option>10,000+</option>
-                    <option>Not sure yet</option>
-                  </select>
-                </label>
-
-                <label className="grid gap-2 sm:col-span-2">
-                  <span className="text-xs font-extrabold text-slate-700">Tell us what you want Konn3ct to help you achieve</span>
-                  <textarea
-                    name="message"
-                    rows="5"
-                    maxLength={2000}
-                    placeholder="Share your current tools, audience, meeting or event needs, deployment requirements, governance concerns or network challenges."
-                    className="rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none focus:border-brand-blue focus:ring-4 focus:ring-brand-blue/10"
-                  />
-                </label>
-              </div>
-
-              <div className="mt-5 space-y-2.5">
-                <label className="flex items-start gap-2.5 text-xs leading-5 text-slate-600">
-                  <input
-                    type="checkbox"
-                    name="consentAccepted"
-                    checked={consentAccepted}
-                    onChange={(e) => setConsentAccepted(e.target.checked)}
-                    className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-brand-blue focus:ring-brand-blue"
-                  />
-                  <span>
-                    I agree that Konn3ct (Newwaves Ecosystem Limited) may process these details to register and respond to my enquiry in line with applicable data protection laws.
-                  </span>
-                </label>
-                <label className="flex items-start gap-2.5 text-xs leading-5 text-slate-500">
-                  <input
-                    type="checkbox"
-                    name="marketingOptIn"
-                    checked={marketingOptIn}
-                    onChange={(e) => setMarketingOptIn(e.target.checked)}
-                    className="mt-1 h-4 w-4 shrink-0 rounded border-slate-300 text-brand-blue focus:ring-brand-blue"
-                  />
-                  <span>
-                    Keep me informed about Konn3ct product updates, early-access releases and events (optional).
-                  </span>
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-primary mt-6 w-full gap-2 disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {isSubmitting ? 'Submitting to Konn3ct...' : 'Contact sales'}{' '}
-                <ArrowRight className="h-4 w-4" />
-              </button>
-
-              {errorMessage && (
-                <div
-                  role="alert"
-                  aria-live="assertive"
-                  className="mt-3 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs font-semibold leading-5 text-red-700"
-                >
-                  {errorMessage}
-                </div>
-              )}
-
-              {submissionResult && !errorMessage && (
-                <div
-                  role="status"
-                  aria-live="polite"
-                  className="mt-3 rounded-xl border border-brand-green/30 bg-brand-greenTint px-3.5 py-2.5 text-xs font-bold leading-5 text-brand-green"
-                >
-                  {submissionResult.message}
-                </div>
-              )}
-
-              {!submissionResult && !errorMessage && (
-                <p className="mt-3 text-xs leading-5 text-slate-500">
-                  By submitting this form, you agree that Konn3ct may use these details to respond to your sales enquiry.
-                </p>
-              )}
-            </form>
+      <main id="main">
+        <section className="contact-hero">
+          <div className="wrap">
+            <div className="eyebrow">Talk to Konn3ct</div>
+            <h1>
+              Book a demo.
+              <br />
+              Discuss <em style={{ fontStyle: 'normal', color: '#227451' }}>what matters.</em>
+            </h1>
+            <p>
+              Tell us what you want to achieve. We will confirm the capabilities, package and
+              support available for your use case.
+            </p>
           </div>
         </section>
 
-        <section className="border-y border-brand-line bg-brand-cloud py-16 sm:py-20">
-          <div className="container-k3">
-            <div className="mx-auto max-w-3xl text-center">
-              <div className="eyebrow">What we can design with you</div>
-              <h2 className="section-title mt-3">One conversation. The right Konn3ct configuration.</h2>
-              <p className="section-copy mx-auto mt-5">Your sales conversation can be shaped around the parts of Konn3ct that matter most to your organisation.</p>
+        <section className="section" style={{ paddingTop: '30px' }}>
+          <div className="wrap request-grid">
+            <div>
+              <div className="eyebrow">A conversation with a purpose</div>
+              <h2>
+                The right next step
+                <br />
+                for your people.
+              </h2>
+              <p>
+                Whether you are planning a member training, an institutional rollout or a community
+                gathering, start with the outcome you need.
+              </p>
+
+              <ul className="sector-list">
+                <li>
+                  <span>01</span>A relevant demonstration
+                </li>
+                <li>
+                  <span>02</span>Clear scope and package discussion
+                </li>
+                <li>
+                  <span>03</span>A practical follow-up plan
+                </li>
+              </ul>
+
+              <div className="contact-help">
+                <h3 style={{ fontSize: '19px' }}>Ready to start on your own?</h3>
+                <p>Trials and purchases have their own journeys.</p>
+                <div className="hero-actions">
+                  <a className="button small" href={REGISTER_URL}>
+                    Start 7-day trial <span aria-hidden="true">↗</span>
+                  </a>
+                  <button
+                    className="button small outline"
+                    type="button"
+                    onClick={() => onAction?.('purchase')}
+                  >
+                    Buy a plan <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              </div>
+
+              <div className="proof-slot" style={{ marginTop: '30px' }}>
+                <div className="evidence-title">Service design placement</div>
+                <h3 style={{ fontSize: '18px' }}>Keep human help close.</h3>
+                <p>
+                  Insert the verified, staffed WhatsApp/support route and accurate response
+                  expectation here before implementation.
+                </p>
+              </div>
             </div>
-            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {featureCards.map(({ title, description, Icon }, index) => (
-                <article key={title} className="rounded-[20px] border border-brand-line bg-white p-6 shadow-soft">
-                  <div className={`grid h-11 w-11 place-items-center rounded-xl ${index % 2 ? 'bg-brand-greenTint text-brand-green' : 'bg-brand-blueTint text-brand-blue'}`}>
-                    <Icon className="h-5 w-5" />
+
+            <div className="request-panel">
+              <div className="micro-label">Your enquiry</div>
+              <h3>Request a conversation</h3>
+
+              {submissionResult && !errorMessage ? (
+                <div className="form-message show" role="status" aria-live="polite">
+                  <strong>Your request has been received</strong>
+                  <p>
+                    {submissionResult.message ||
+                      'Your request has been registered with the Konn3ct team.'}
+                  </p>
+                  <button
+                    className="button outline small"
+                    type="button"
+                    onClick={() => {
+                      setSubmissionResult(null)
+                      attemptIdRef.current = createSubmissionAttemptId('contact-sales')
+                    }}
+                  >
+                    Back to the form
+                  </button>
+                </div>
+              ) : (
+                <form
+                  id="request-form"
+                  onSubmit={handleSubmit}
+                  onChange={handleFieldChange}
+                  noValidate
+                  aria-busy={isSubmitting}
+                >
+                  {/* Honeypot anti-spam trap */}
+                  <div className="sr-only" aria-hidden="true">
+                    <label>
+                      Website URL
+                      <input type="text" name="website_url" tabIndex={-1} autoComplete="off" />
+                    </label>
                   </div>
-                  <h3 className="mt-5 font-display text-lg font-extrabold text-brand-navy">{title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{description}</p>
-                </article>
-              ))}
+
+                  <div className="form-grid">
+                    <label className="full">
+                      What would you like to do? *
+                      <select
+                        name="intent"
+                        required
+                        id="intent"
+                        value={intent}
+                        onChange={(e) => setIntent(e.target.value)}
+                        aria-invalid={Boolean(fieldErrors.intent)}
+                      >
+                        <option value="">Select an enquiry type</option>
+                        {INTENT_OPTIONS.map((opt) => (
+                          <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </option>
+                        ))}
+                      </select>
+                    </label>
+
+                    <label>
+                      Your name *
+                      <input
+                        name="name"
+                        type="text"
+                        required
+                        placeholder="Full name"
+                        autoComplete="name"
+                        maxLength={120}
+                        aria-invalid={Boolean(fieldErrors.name)}
+                      />
+                    </label>
+
+                    <label>
+                      Email *
+                      <input
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="you@example.com"
+                        autoComplete="email"
+                        maxLength={160}
+                        aria-invalid={Boolean(fieldErrors.email)}
+                      />
+                    </label>
+
+                    <label>
+                      Organisation or community <span className="optional">Optional</span>
+                      <input
+                        name="organisation"
+                        type="text"
+                        placeholder="Organisation name"
+                        autoComplete="organization"
+                        maxLength={160}
+                      />
+                    </label>
+
+                    <label>
+                      Your role <span className="optional">Optional</span>
+                      <input
+                        name="role"
+                        type="text"
+                        placeholder="Role or responsibility"
+                        maxLength={120}
+                      />
+                    </label>
+
+                    <label className="full">
+                      What would you like to improve? <span className="optional">Optional</span>
+                      <textarea
+                        name="context"
+                        maxLength={2000}
+                        placeholder="A short description helps us prepare the conversation."
+                      />
+                    </label>
+
+                    <div className="full" id="intent-extra">
+                      {intent.includes('deployment') && (
+                        <label>
+                          Deployment or governance requirements{' '}
+                          <span className="optional">Optional</span>
+                          <textarea
+                            name="deployment"
+                            placeholder="Data location, provisioning, reporting or integration needs"
+                          />
+                        </label>
+                      )}
+                      {intent.includes('association') && (
+                        <label>
+                          Proposed member session <span className="optional">Optional</span>
+                          <input
+                            name="pilot"
+                            placeholder="Training topic, intended audience or preferred timing"
+                          />
+                        </label>
+                      )}
+                      {intent.includes('partnership') && (
+                        <label>
+                          Partnership focus <span className="optional">Optional</span>
+                          <input
+                            name="partnership"
+                            placeholder="Tell us about the opportunity you want to explore"
+                          />
+                        </label>
+                      )}
+                    </div>
+                  </div>
+
+                  {errorMessage && (
+                    <div
+                      role="alert"
+                      aria-live="assertive"
+                      style={{
+                        marginTop: '12px',
+                        padding: '10px 12px',
+                        borderRadius: '6px',
+                        border: '1px solid #fecaca',
+                        background: '#fef2f2',
+                        color: '#b91c1c',
+                        fontSize: '11px',
+                        fontWeight: 600,
+                      }}
+                    >
+                      {errorMessage}
+                    </div>
+                  )}
+
+                  <p className="privacy-note">
+                    We use these details to respond to your enquiry. Read our{' '}
+                    <button type="button" onClick={() => onAction?.('policy:Privacy')}>
+                      privacy information
+                    </button>
+                    .
+                  </p>
+
+                  <label className="consent">
+                    <input
+                      name="marketing"
+                      type="checkbox"
+                      checked={marketingOptIn}
+                      onChange={(e) => setMarketingOptIn(e.target.checked)}
+                    />
+                    <span>Keep me informed about Konn3ct updates and events. Optional.</span>
+                  </label>
+
+                  <button className="button" type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? 'Submitting to Konn3ct...' : 'Request a conversation'}{' '}
+                    <span aria-hidden="true">↗</span>
+                  </button>
+
+                  <p className="fine">
+                    Your details are transmitted securely to the Konn3ct team via Newwaves Ecosystem
+                    CRM.
+                  </p>
+                </form>
+              )}
             </div>
           </div>
         </section>
       </main>
 
-      <Footer />
+      <Footer onAction={onAction} />
     </div>
   )
 }

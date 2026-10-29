@@ -120,11 +120,8 @@ function validateLeadSubmission(rawBody) {
     errors.company = `Organisation name must be between ${FIELD_LIMITS.organization.min} and ${FIELD_LIMITS.organization.max} characters.`;
   }
 
-  // 4. Validate Phone Number (required on contact-sales, optional on segment forms where phone field is omitted)
-  const phoneRequiredRoutes = ['contact-sales'];
-  if (phoneRequiredRoutes.includes(normalized.route) && !normalized.phone) {
-    errors.phone = 'Phone number is required.';
-  } else if (normalized.phone && !PHONE_REGEX.test(normalized.phone)) {
+  // 4. Validate Phone Number (validated when provided, optional when omitted on streamlined forms)
+  if (normalized.phone && !PHONE_REGEX.test(normalized.phone)) {
     errors.phone = 'Please enter a valid phone number (e.g. +234 800 000 0000).';
   }
 

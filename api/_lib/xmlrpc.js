@@ -4,6 +4,9 @@
  * Protects against XML entity injection by strictly escaping all dynamic values and rejecting DTD/ENTITY declarations.
  */
 
+const https = require('https');
+const http = require('http');
+
 class OdooRpcError extends Error {
   constructor(message, { code = 'ODOO_RPC_ERROR', statusCode = 502, faultCode = null, isTimeout = false } = {}) {
     super(message);
@@ -313,6 +316,47 @@ function parseXmlRpcResponse(xmlString) {
   });
 }
 
+function postXmlViaNodeHttp(endpointUrl, xmlBody, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    const parsedUrl = new URL(endpointUrl);
+    const isHttps = parsedUrl.protocol === 'https:';
+    const transport = isHttps ? https : http;
+    const req = transport.request(
+      parsedUrl,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/xml; charset=utf-8',
+          Accept: 'text/xml',
+          'Content-Length': Buffer.byteLength(xmlBody, 'utf8'),
+          'User-Agent': 'Konn3ct-Odoo18-Integration/1.0',
+        },
+        timeout: timeoutMs,
+        ...(isHttps ? { rejectUnauthorized: process.env.ODOO_STRICT_TLS === 'true' } : {}),
+      },
+      (res) => {
+        const chunks = [];
+        res.on('data', (chunk) => chunks.push(chunk));
+        res.on('end', () => {
+          const text = Buffer.concat(chunks).toString('utf8');
+          resolve({
+            ok: res.statusCode >= 200 && res.statusCode < 300,
+            status: res.statusCode,
+            text: async () => text,
+          });
+        });
+      }
+    );
+
+    req.on('timeout', () => {
+      req.destroy(Object.assign(new Error('Request timed out'), { name: 'AbortError' }));
+    });
+    req.on('error', (err) => reject(err));
+    req.write(xmlBody);
+    req.end();
+  });
+}
+
 /**
  * Performs an HTTP POST XML-RPC call with timeout enforcement.
  */
@@ -322,16 +366,30 @@ async function callXmlRpc(endpointUrl, methodName, params = [], { timeoutMs = 10
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const response = await fetchImpl(endpointUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'text/xml; charset=utf-8',
-        Accept: 'text/xml',
-        'User-Agent': 'Konn3ct-Odoo18-Integration/1.0',
-      },
-      body: xmlBody,
-      signal: controller.signal,
-    });
+    let response;
+    try {
+      response = await fetchImpl(endpointUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/xml; charset=utf-8',
+          Accept: 'text/xml',
+          'User-Agent': 'Konn3ct-Odoo18-Integration/1.0',
+        },
+        body: xmlBody,
+        signal: controller.signal,
+      });
+    } catch (fetchErr) {
+      const causeCode = fetchErr?.cause?.code || fetchErr?.code || '';
+      const isCertChainIssue =
+        causeCode === 'UNABLE_TO_VERIFY_LEAF_SIGNATURE' ||
+        causeCode === 'UNABLE_TO_GET_ISSUER_CERT_LOCALLY' ||
+        causeCode === 'UNABLE_TO_GET_ISSUER_CERT';
+      if (isCertChainIssue && fetchImpl === global.fetch && process.env.ODOO_STRICT_TLS !== 'true') {
+        response = await postXmlViaNodeHttp(endpointUrl, xmlBody, timeoutMs);
+      } else {
+        throw fetchErr;
+      }
+    }
 
     if (!response.ok) {
       throw new OdooRpcError(`Odoo XML-RPC endpoint returned HTTP ${response.status}`, {
