@@ -334,4 +334,15 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
       screen.getByText(/Clear voice across everyday environments/i)
     ).toBeInTheDocument();
   });
+
+  test('9. Privacy link in the footer points directly to /Konn3ct-Privacy-Policy.pdf', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    const privacyLink = screen.getByRole('link', { name: /^Privacy$/i });
+    expect(privacyLink).toHaveAttribute('href', '/Konn3ct-Privacy-Policy.pdf');
+  });
 });

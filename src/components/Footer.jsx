@@ -50,15 +50,21 @@ export default function Footer({ onAction }) {
 
           <div>
             <h4>Trust &amp; support</h4>
-            {policies.map((item) => (
-              <a
-                key={item}
-                href={`#policy-${item.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                onClick={(e) => handlePolicyClick(e, item)}
-              >
-                {item}
-              </a>
-            ))}
+            {policies.map((item) =>
+              item === 'Privacy' ? (
+                <a key={item} href="/Konn3ct-Privacy-Policy.pdf">
+                  {item}
+                </a>
+              ) : (
+                <a
+                  key={item}
+                  href={`#policy-${item.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                  onClick={(e) => handlePolicyClick(e, item)}
+                >
+                  {item}
+                </a>
+              )
+            )}
           </div>
         </div>
 

@@ -1017,13 +1017,7 @@ export function DemoSection({ section, form, route = 'demo', onSubmitted, onToas
 
             <p className="privacy-note">
               We use these details to respond to your enquiry. Read our{' '}
-              <button
-                type="button"
-                onClick={() => onAction?.('policy:Privacy')}
-              >
-                privacy information
-              </button>
-              .
+              <a href="/Konn3ct-Privacy-Policy.pdf">privacy information</a>.
             </p>
 
             <div className="sr-only">
