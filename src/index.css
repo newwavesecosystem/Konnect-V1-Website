@@ -2287,3 +2287,97 @@ textarea {
   .btn-secondary { @apply inline-flex min-h-12 items-center justify-center rounded-xl border border-[#d9e1ef] bg-white px-5 text-sm font-extrabold text-brand-blue transition hover:-translate-y-0.5 hover:border-brand-blue hover:bg-[#f6f9ff] focus:outline-none; }
   .surface-card { @apply rounded-2xl border border-brand-line bg-white shadow-soft; }
 }
+
+.features-carousel-section {
+  border-top: 1px solid #e4eaf2;
+}
+
+.features-marquee-viewport {
+  position: relative;
+  overflow: hidden;
+  padding: 8px 0 22px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 5%, #000 95%, transparent 100%);
+}
+
+@keyframes k3FeaturesMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.features-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  animation: k3FeaturesMarquee 24s linear infinite;
+  will-change: transform;
+}
+
+.feature-tile {
+  width: 164px;
+  margin-right: 16px;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid #e4eaf2;
+  border-radius: 14px;
+  padding: 22px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  color: #0c1f3f;
+  box-shadow: 0 8px 22px rgba(12, 31, 63, 0.04);
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.feature-tile:hover {
+  transform: translateY(-3px);
+  border-color: #b7c8e6;
+  box-shadow: 0 14px 30px rgba(12, 31, 63, 0.08);
+}
+
+.feature-tile.is-active {
+  border-color: #18428c;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%);
+  box-shadow: 0 14px 32px rgba(24, 66, 140, 0.12);
+  transform: translateY(-3px);
+}
+
+.feature-tile-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #eef4ff;
+  color: #18428c;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.feature-tile.is-active .feature-tile-icon {
+  background: #18428c;
+  color: #fff;
+}
+
+.feature-tile-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.feature-tile-title {
+  font-family: 'Plus Jakarta Sans', Inter, sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0c1f3f;
+}
+
+.feature-spotlight {
+  margin-top: 8px;
+}

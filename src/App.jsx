@@ -62,6 +62,316 @@ const HOME_SIX_FREEDOMS = [
   ['Create value', 'Turn a useful conversation into learning and action.'],
 ]
 
+const HOME_FEATURES = [
+  {
+    key: 'meeting-summary',
+    title: 'Meeting Summary',
+    tagline: 'AI-assisted recaps & clear next steps',
+    description:
+      'Capture the key discussion points, decisions, and action items from your session so every participant leaves aligned without manual note-taking.',
+    highlights: [
+      'Structured session highlights and key takeaways',
+      'Clear follow-up action items for teams and committees',
+      'Easy sharing with authorised meeting participants',
+    ],
+    previewItems: [
+      ['Session overview', 'Structured recap generated after the call'],
+      ['Decisions captured', 'Key outcomes highlighted for review'],
+      ['Action follow-through', 'Next steps organised by topic'],
+    ],
+  },
+  {
+    key: 'scheduling',
+    title: 'Scheduling',
+    tagline: 'Plan sessions with clarity and control',
+    description:
+      'Set up one-off or recurring meetings, configure access codes and host permissions in advance, and give invitees a straightforward joining route.',
+    highlights: [
+      'Customizable meeting rooms and recurring schedules',
+      'Access code and waiting-room preparation',
+      'Clear invitation links for guests and members',
+    ],
+    previewItems: [
+      ['Session date & time', 'Scheduled with automatic reminders'],
+      ['Room & access setup', 'Access code and host roles configured'],
+      ['Participant invite link', 'Ready to share across channels'],
+    ],
+  },
+  {
+    key: 'reactions',
+    title: 'Reactions',
+    tagline: 'Real-time non-verbal participation',
+    description:
+      'Let participants express agreement, celebrate milestones, or raise their hand to speak without interrupting the flow of the speaker.',
+    highlights: [
+      'Live emoji reactions during presentations and town halls',
+      'Ordered hand-raising queue for structured Q&A',
+      'Keeps large sessions interactive and orderly',
+    ],
+    previewItems: [
+      ['Raise hand queue', 'Speakers called in clear order'],
+      ['Live audience pulse', 'Instant visual feedback for hosts'],
+      ['Uninterrupted audio', 'Engage without talking over presenters'],
+    ],
+  },
+  {
+    key: 'polls',
+    title: 'Polls',
+    tagline: 'Instant group decisions & pulse checks',
+    description:
+      'Launch live polls during your meeting to gather votes, test understanding in training sessions, or capture immediate feedback from your audience.',
+    highlights: [
+      'Quick single-choice and multiple-choice questions',
+      'Live response tally visible to the host and room',
+      'Ideal for AGMs, classrooms, and interactive webinars',
+    ],
+    previewItems: [
+      ['Launch live question', 'Prepared before or during the session'],
+      ['Real-time participation', 'Instant responses from attendees'],
+      ['Publish results', 'Share outcomes with the room on the spot'],
+    ],
+  },
+  {
+    key: 'dashboard',
+    title: 'Dashboard',
+    tagline: 'Unified room, host & attendance management',
+    description:
+      'Manage your persistent meeting rooms, review auto-attendance logs, and oversee your organisation’s scheduled sessions from one clean workspace.',
+    highlights: [
+      'Centralised view of active and upcoming sessions',
+      'Automatic attendance tracking for meetings and classes',
+      'Host seat and room configuration in one place',
+    ],
+    previewItems: [
+      ['Persistent rooms', 'Launch or configure custom rooms'],
+      ['Auto attendance', 'Downloadable participant attendance records'],
+      ['Account overview', 'Plan entitlements and host seats'],
+    ],
+  },
+  {
+    key: 'doc',
+    title: 'Doc',
+    tagline: 'Shared notes & session documentation',
+    description:
+      'Keep agendas, briefing papers, and collaborative meeting notes right alongside the live conversation so everyone works from the same page.',
+    highlights: [
+      'In-session shared documentation and agenda view',
+      'Supporting file sharing for presenters and attendees',
+      'Structured material ready for post-meeting review',
+    ],
+    previewItems: [
+      ['Meeting agenda', 'Visible to participants during the call'],
+      ['Shared reference docs', 'Distribute handouts and briefing files'],
+      ['Collaborative notes', 'Document outcomes in real time'],
+    ],
+  },
+  {
+    key: 'audio-boost',
+    title: 'Audio Boost',
+    tagline: 'Clear voice across everyday environments',
+    description:
+      'Enhance speech clarity and reduce distracting background noise so every voice comes through clearly, even in busy environments or on variable networks.',
+    highlights: [
+      'Voice clarity enhancement for speakers and panels',
+      'Background noise reduction for clearer listening',
+      'Reliable audio prioritisation on low-bandwidth links',
+    ],
+    previewItems: [
+      ['Voice isolation', 'Balances speaker volume automatically'],
+      ['Noise suppression', 'Filters ambient room distractions'],
+      ['Low-bandwidth resilience', 'Keeps speech clear when networks dip'],
+    ],
+  },
+  {
+    key: 'playback',
+    title: 'Playback',
+    tagline: 'On-demand recordings & authorised replay',
+    description:
+      'Record authorised sessions and make replays available to your team, students, or event attendees—including support for paid replay on eligible plans.',
+    highlights: [
+      'Cloud recording with host-controlled access permissions',
+      'On-demand playback for members who missed the live call',
+      'Paid replay support for workshops, courses, and events',
+    ],
+    previewItems: [
+      ['Authorised recording', 'Captured with clear session indicators'],
+      ['On-demand replay', 'Stream or download with permission'],
+      ['Paid replay option', 'Monetise premium workshops and events'],
+    ],
+  },
+]
+
+function FeatureCardIcon({ featureKey }) {
+  switch (featureKey) {
+    case 'meeting-summary':
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="4" y="3" width="16" height="18" rx="2.5" />
+          <path d="M8 8h8M8 12h8M8 16h5" />
+        </svg>
+      )
+    case 'scheduling':
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M4 7l2 2 3.5-3.5" />
+          <path d="M12 7h8" />
+          <path d="M4 14l2 2 3.5-3.5" />
+          <path d="M12 14h8" />
+          <path d="M12 19h8" />
+        </svg>
+      )
+    case 'reactions':
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M8.5 14.5c1 1.4 2.2 2 3.5 2s2.5-.6 3.5-2" />
+          <circle cx="9" cy="9.5" r="0.8" fill="currentColor" />
+          <circle cx="15" cy="9.5" r="0.8" fill="currentColor" />
+        </svg>
+      )
+    case 'polls':
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <rect x="4" y="3" width="16" height="18" rx="2.5" />
+          <path d="M8 8h8" />
+          <path d="M8 12l1.8 1.8L13 10.5" />
+          <path d="M8 16.5l1.8 1.8L13 15" />
+        </svg>
+      )
+    case 'dashboard':
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M4.5 16.5a8.5 8.5 0 1 1 15 0" />
+          <path d="M12 13l3.5-3.5" />
+          <circle cx="12" cy="13.5" r="1.4" />
+          <path d="M6 19h12" />
+        </svg>
+      )
+    case 'doc':
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+          <path d="M14 3v6h6" />
+          <path d="M8 13h8M8 17h5" />
+        </svg>
+      )
+    case 'audio-boost':
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M4 10v4M7.5 7v10M11 4v16M14.5 8v8M18 6v12M21 10v4" />
+        </svg>
+      )
+    case 'playback':
+    default:
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <path d="M6 5v14" />
+          <polygon points="18 5 9 12 18 19 18 5" />
+        </svg>
+      )
+  }
+}
+
+function FeaturesCarouselSection() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % HOME_FEATURES.length)
+    }, 3500)
+    return () => window.clearInterval(timer)
+  }, [])
+
+  const activeFeature = HOME_FEATURES[activeIndex] || HOME_FEATURES[0]
+  const infiniteItems = [...HOME_FEATURES, ...HOME_FEATURES]
+
+  return (
+    <section
+      className="section soft features-carousel-section"
+      id="features"
+    >
+      <div className="wrap">
+        <div className="section-head">
+          <div>
+            <div className="eyebrow">Features</div>
+            <h2>
+              Every feature your team
+              <br />
+              needs to work faster.
+            </h2>
+          </div>
+        </div>
+
+        <div className="features-marquee-viewport">
+          <div
+            className="features-marquee-track"
+            role="tablist"
+            aria-label="Konn3ct features"
+          >
+            {infiniteItems.map((item, idx) => {
+              const realIndex = idx % HOME_FEATURES.length
+              const isClone = idx >= HOME_FEATURES.length
+              const isSelected = realIndex === activeIndex
+              return (
+                <button
+                  key={`${item.key}-${idx}`}
+                  type="button"
+                  role={isClone ? undefined : 'tab'}
+                  aria-hidden={isClone ? 'true' : undefined}
+                  tabIndex={isClone ? -1 : 0}
+                  id={isClone ? undefined : `feature-tab-${item.key}`}
+                  aria-selected={isClone ? undefined : isSelected}
+                  aria-controls={isClone ? undefined : 'feature-spotlight-panel'}
+                  className={`feature-tile ${isSelected ? 'is-active' : ''}`}
+                  onClick={() => setActiveIndex(realIndex)}
+                >
+                  <span className="feature-tile-icon">
+                    <FeatureCardIcon featureKey={item.key} />
+                  </span>
+                  <span className="feature-tile-title">{item.title}</span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+
+        <div
+          className="tab-panel feature-spotlight"
+          id="feature-spotlight-panel"
+          role="tabpanel"
+          aria-labelledby={`feature-tab-${activeFeature.key}`}
+        >
+          <div>
+            <div className="board-label" style={{ color: '#227451', marginBottom: '8px' }}>
+              0{activeIndex + 1} · {activeFeature.tagline.toUpperCase()}
+            </div>
+            <h3>{activeFeature.title}</h3>
+            <p>{activeFeature.description}</p>
+            <ul className="check-list">
+              {activeFeature.highlights.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="feature-card">
+            <div className="board-label">IN-SESSION WORKFLOW</div>
+            <h4>{activeFeature.title}</h4>
+            {activeFeature.previewItems.map(([rowTitle, rowSub], j) => (
+              <div className="mini-row" key={rowTitle}>
+                <div>
+                  <strong style={{ display: 'block', color: '#0c1f3f' }}>{rowTitle}</strong>
+                  <small style={{ color: '#566174', fontSize: '12.5px' }}>{rowSub}</small>
+                </div>
+                <span>0{j + 1}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function HomePage({ onAction }) {
   const location = useLocation()
 
@@ -114,6 +424,8 @@ function HomePage({ onAction }) {
             </div>
           </div>
         </section>
+
+        <FeaturesCarouselSection />
 
         <section className="section navy">
           <div className="wrap workflow">

@@ -7,7 +7,7 @@
 import { getRouteConversionMeta, solutionMeta } from '../data/metadata';
 
 const UTM_STORAGE_KEY = 'konn3ct_utm_params';
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+$/;
 const PHONE_REGEX = /^[+\d][\d\s().-]{5,24}$/;
 
 const STATIC_CLASSIFICATIONS = {
@@ -122,9 +122,9 @@ export function validateClientLeadForm(
   }
 
   if (!email) {
-    errors.email = 'Please enter your work email address.';
+    errors.email = 'Please enter your email address.';
   } else if (!EMAIL_REGEX.test(email) || email.length > 160) {
-    errors.email = 'Please enter a valid email address (e.g. name@organisation.com).';
+    errors.email = 'Please enter a valid email address (e.g. you@example.com).';
   }
 
   if (requirePhone && !phone) {

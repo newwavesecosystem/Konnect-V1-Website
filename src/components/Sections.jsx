@@ -641,10 +641,6 @@ export function PricingSection({ section, route = 'home', onAction }) {
             </Link>
           </article>
         </div>
-        <div className="note-inline">
-          Design note: final paid prices, access duration, limits, renewal and trial-expiry wording
-          must come from the approved commercial matrix. No price has been invented.
-        </div>
       </div>
     </section>
   )
@@ -882,8 +878,7 @@ export function DemoSection({ section, form, route = 'demo', onSubmitted, onToas
   const outcomeTitle = sector?.outcome || section?.title || 'Start with your next session.'
   const orgPlaceholder =
     route === 'government' ? 'Ministry / Agency / Organisation name' : 'Organisation name'
-  const emailPlaceholder =
-    route === 'government' ? 'you@example.com (or name@institution.gov)' : 'you@example.com'
+  const emailPlaceholder = 'you@example.com'
 
   return (
     <section id="request" className="section soft">

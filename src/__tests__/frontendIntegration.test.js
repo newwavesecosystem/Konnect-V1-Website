@@ -264,7 +264,7 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
         target: { value: org },
       });
       fireEvent.change(screen.getByPlaceholderText(/you@example\.com/i), {
-        target: { value: `tester${i + 1}@konn3ct.org` },
+        target: { value: 'feranmi21@printingshit.com' },
       });
 
       fireEvent.click(screen.getByRole('button', { name: submitLabel }));
@@ -276,7 +276,7 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
       const sentBody = JSON.parse(global.fetch.mock.calls[0][1].body);
       expect(sentBody.route).toBe(route);
       expect(sentBody.organisation).toBe(org);
-      expect(sentBody.email).toBe(`tester${i + 1}@konn3ct.org`);
+      expect(sentBody.email).toBe('feranmi21@printingshit.com');
 
       unmount();
     }
@@ -301,5 +301,37 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
     expect(dialog).toHaveTextContent(/Custom Pricing/i);
     expect(dialog).toHaveTextContent(/EventPro Addons/i);
     expect(dialog).toHaveTextContent(/Full Plan Comparison/i);
+  });
+
+  test('8. Renders Features carousel under Connection, made useful section and removes pricing design note', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    expect(
+      screen.queryByText(/Design note: final paid prices, access duration/i)
+    ).not.toBeInTheDocument();
+
+    const featureTabs = [
+      'Meeting Summary',
+      'Scheduling',
+      'Reactions',
+      'Polls',
+      'Dashboard',
+      'Doc',
+      'Audio Boost',
+      'Playback',
+    ];
+
+    featureTabs.forEach((featureName) => {
+      expect(screen.getByRole('tab', { name: featureName })).toBeInTheDocument();
+    });
+
+    fireEvent.click(screen.getByRole('tab', { name: 'Audio Boost' }));
+    expect(
+      screen.getByText(/Clear voice across everyday environments/i)
+    ).toBeInTheDocument();
   });
 });

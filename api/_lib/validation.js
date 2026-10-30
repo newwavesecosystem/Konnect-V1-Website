@@ -5,12 +5,12 @@
 const { normalizeSubmissionFields, resolveClassification } = require('./classification');
 
 const MAX_PAYLOAD_BYTES = 16 * 1024; // 16 KB strict payload ceiling
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+$/;
 const PHONE_REGEX = /^[+\d][\d\s().-]{5,24}$/;
 
 const FIELD_LIMITS = {
   contactName: { min: 2, max: 120 },
-  email: { min: 5, max: 160 },
+  email: { min: 3, max: 160 },
   phone: { min: 6, max: 25 },
   organization: { min: 2, max: 160 },
   jobTitle: { min: 0, max: 120 },
@@ -102,7 +102,7 @@ function validateLeadSubmission(rawBody) {
 
   // 2. Validate Email Address
   if (!normalized.email) {
-    errors.email = 'Work email address is required.';
+    errors.email = 'Email address is required.';
   } else if (
     normalized.email.length > FIELD_LIMITS.email.max ||
     !EMAIL_REGEX.test(normalized.email)
