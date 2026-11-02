@@ -301,6 +301,12 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
     expect(dialog).toHaveTextContent(/Custom Pricing/i);
     expect(dialog).toHaveTextContent(/EventPro Addons/i);
     expect(dialog).toHaveTextContent(/Full Plan Comparison/i);
+
+    const toggleButtons = screen.getAllByRole('button', { name: /Switch currency/i });
+    fireEvent.click(toggleButtons[toggleButtons.length - 1]);
+    expect(dialog).toHaveTextContent(/\$2\/mo/i);
+    expect(dialog).toHaveTextContent(/\$7\/mo/i);
+    expect(dialog).toHaveTextContent(/\$135\/yr/i);
   });
 
   test('8. Renders Features carousel under Connection, made useful section and removes pricing design note', () => {
@@ -335,7 +341,7 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
     ).toBeInTheDocument();
   });
 
-  test('9. Privacy link in the footer points directly to /Konn3ct-Privacy-Policy.pdf', () => {
+  test('9. Privacy and Terms links in the footer navigate to dedicated /privacy and /terms pages', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
@@ -343,6 +349,18 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
     );
 
     const privacyLink = screen.getByRole('link', { name: /^Privacy$/i });
-    expect(privacyLink).toHaveAttribute('href', '/Konn3ct-Privacy-Policy.pdf');
+    const termsLink = screen.getByRole('link', { name: /^Terms$/i });
+    expect(privacyLink).toHaveAttribute('href', '/privacy');
+    expect(termsLink).toHaveAttribute('href', '/terms');
+
+    fireEvent.click(privacyLink);
+    expect(
+      screen.getByRole('heading', { name: /Konn3ct V1 Privacy Policy/i })
+    ).toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('link', { name: /^Terms of Service$/i }));
+    expect(
+      screen.getByRole('heading', { name: /Konn3ct V1 Terms of Service/i })
+    ).toBeInTheDocument();
   });
 });

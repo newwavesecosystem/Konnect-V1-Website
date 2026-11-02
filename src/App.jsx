@@ -8,6 +8,7 @@ import {
   BrandLine,
   CapabilitiesSection,
   CTASection,
+  CurrencyToggleButton,
   DemoSection,
   DeploymentSection,
   FAQSection,
@@ -26,6 +27,8 @@ import {
   sectorProposals,
 } from './data/metadata'
 import ContactSales from './pages/ContactSales'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import TermsOfService from './pages/TermsOfService'
 import { captureUtmParameters } from './services/leadService'
 import { trackPageView } from './analytics/events'
 
@@ -372,7 +375,7 @@ function FeaturesCarouselSection() {
   )
 }
 
-function HomePage({ onAction }) {
+function HomePage({ onAction, currency, onCurrencyChange }) {
   const location = useLocation()
 
   useEffect(() => {
@@ -537,7 +540,11 @@ function HomePage({ onAction }) {
 
         <ScopeOverviewSection />
         <TrustSection onAction={onAction} />
-        <PricingSection onAction={onAction} />
+        <PricingSection
+          onAction={onAction}
+          currency={currency}
+          onCurrencyChange={onCurrencyChange}
+        />
         <FAQSection />
         <CTASection route="home" onAction={onAction} />
       </main>
@@ -597,6 +604,8 @@ const PRICING_PLANS_MODAL = [
     kicker: 'For individuals',
     priceMain: 'NGN 0/yr',
     priceSub: '₦0/mo · ₦0/yr',
+    priceMainUsd: '$0/yr',
+    priceSubUsd: '$0/mo · $0/yr',
     ctaLabel: 'Start free',
     ctaHref: REGISTER_URL,
     highlight: false,
@@ -615,6 +624,8 @@ const PRICING_PLANS_MODAL = [
     kicker: 'For individuals',
     priceMain: 'NGN 2,500/mo',
     priceSub: 'NGN 27,500/yr',
+    priceMainUsd: '$2/mo',
+    priceSubUsd: '$20/yr',
     ctaLabel: 'Choose Starter',
     ctaHref: REGISTER_URL,
     highlight: false,
@@ -636,6 +647,8 @@ const PRICING_PLANS_MODAL = [
     kicker: 'For individuals · Popular',
     priceMain: 'NGN 10,000/mo',
     priceSub: 'NGN 100,000/yr',
+    priceMainUsd: '$7/mo',
+    priceSubUsd: '$70/yr',
     ctaLabel: 'Choose Professional',
     ctaHref: REGISTER_URL,
     highlight: true,
@@ -659,6 +672,8 @@ const PRICING_PLANS_MODAL = [
     kicker: 'For teams and growing organisations',
     priceMain: 'NGN 200,000/yr',
     priceSub: '₦20,000/mo* · 4 host seats included',
+    priceMainUsd: '$135/yr',
+    priceSubUsd: '$14/mo* · 4 host seats included',
     ctaLabel: 'Choose Business',
     ctaHref: REGISTER_URL,
     highlight: false,
@@ -684,6 +699,8 @@ const PRICING_PLANS_MODAL = [
     kicker: 'For large organisations, government & regulated institutions',
     priceMain: 'Custom Pricing',
     priceSub: 'Contract · 20 host seats included',
+    priceMainUsd: 'Custom Pricing',
+    priceSubUsd: 'Contract · 20 host seats included',
     ctaLabel: 'Contact sales',
     ctaRoute: '/contact-sales',
     highlight: false,
@@ -711,14 +728,14 @@ const PRICING_PLANS_MODAL = [
 ]
 
 const EVENTPRO_ADDONS = [
-  ['500 Participants', '₦5,000/Monthly'],
-  ['1,000 Participants', '₦10,000/Monthly'],
-  ['2,000 Participants', '₦35,000/Monthly'],
-  ['5,000 Participants', '₦500,000/Monthly'],
-  ['10,000 Participants', '₦1,000,000/Monthly'],
+  ['500 Participants', '₦5,000/Monthly', '$3.50/Monthly'],
+  ['1,000 Participants', '₦10,000/Monthly', '$7/Monthly'],
+  ['2,000 Participants', '₦35,000/Monthly', '$24/Monthly'],
+  ['5,000 Participants', '₦500,000/Monthly', '$335/Monthly'],
+  ['10,000 Participants', '₦1,000,000/Monthly', '$670/Monthly'],
 ]
 
-const PRICING_COMPARISON_ROWS = [
+const PRICING_COMPARISON_ROWS_NGN = [
   ['Price', '₦0', '₦2,500/mo', '₦10,000/mo', '₦20,000/mo*', 'Custom'],
   ['Annual', '₦0', '₦27,500*', '₦100,000', '₦200,000', 'Contract'],
   ['Participants', '150', '200', '500', '1,000', '1,000 interactive + EventPro'],
@@ -739,7 +756,13 @@ const PRICING_COMPARISON_ROWS = [
   ['EventPro', 'Add-on', 'Add-on', 'Add-on', 'Add-on', 'Contract/add-on'],
 ]
 
-function Konn3ctModal({ action, onClose, onAction }) {
+const PRICING_COMPARISON_ROWS_USD = [
+  ['Price', '$0', '$2/mo', '$7/mo', '$14/mo*', 'Custom'],
+  ['Annual', '$0', '$20*', '$70', '$135', 'Contract'],
+  ...PRICING_COMPARISON_ROWS_NGN.slice(2),
+]
+
+function Konn3ctModal({ action, onClose, onAction, currency = 'NGN', onCurrencyChange }) {
   useEffect(() => {
     if (!action) return undefined
     const handleKeyDown = (e) => {
@@ -750,6 +773,9 @@ function Konn3ctModal({ action, onClose, onAction }) {
   }, [action, onClose])
 
   if (!action) return null
+
+  const isUsd = currency === 'USD'
+  const comparisonRows = isUsd ? PRICING_COMPARISON_ROWS_USD : PRICING_COMPARISON_ROWS_NGN
 
   if (action === 'purchase') {
     return (
@@ -769,17 +795,23 @@ function Konn3ctModal({ action, onClose, onAction }) {
             ×
           </button>
 
-          <div className="pricing-modal-head">
-            <div className="eyebrow" style={{ marginBottom: '12px' }}>
-              Konn3ct Pricing
+          <div className="pricing-modal-head pricing-modal-head-row">
+            <div>
+              <div className="eyebrow" style={{ marginBottom: '12px' }}>
+                Konn3ct Pricing
+              </div>
+              <h2 id="modal-title" style={{ marginTop: 0 }}>
+                Choose the plan that fits how you connect.
+              </h2>
+              <p>
+                Start with a free or individual plan, scale up for your team, or talk to sales for
+                enterprise and sovereign deployments.
+              </p>
             </div>
-            <h2 id="modal-title" style={{ marginTop: 0 }}>
-              Choose the plan that fits how you connect.
-            </h2>
-            <p>
-              Start with a free or individual plan, scale up for your team, or talk to sales for
-              enterprise and sovereign deployments.
-            </p>
+            <div className="pricing-currency-bar">
+              <span className="currency-bar-label">Currency</span>
+              <CurrencyToggleButton currency={currency} onToggle={onCurrencyChange} />
+            </div>
           </div>
 
           <div className="pricing-modal-grid">
@@ -790,8 +822,10 @@ function Konn3ctModal({ action, onClose, onAction }) {
               >
                 <span className="kicker">{tier.kicker}</span>
                 <h3>{tier.name}</h3>
-                <div className="price">{tier.priceMain}</div>
-                <small className="pricing-tier-sub">{tier.priceSub}</small>
+                <div className="price">{isUsd ? tier.priceMainUsd : tier.priceMain}</div>
+                <small className="pricing-tier-sub">
+                  {isUsd ? tier.priceSubUsd : tier.priceSub}
+                </small>
 
                 <ul className="check-list pricing-tier-list">
                   {tier.features.map((feat) => (
@@ -836,10 +870,10 @@ function Konn3ctModal({ action, onClose, onAction }) {
               </p>
             </div>
             <div className="pricing-addons-grid">
-              {EVENTPRO_ADDONS.map(([capacity, price]) => (
+              {EVENTPRO_ADDONS.map(([capacity, priceNgn, priceUsd]) => (
                 <div className="pricing-addon-pill" key={capacity}>
                   <strong>{capacity}</strong>
-                  <span>{price}</span>
+                  <span>{isUsd ? priceUsd : priceNgn}</span>
                 </div>
               ))}
             </div>
@@ -863,7 +897,7 @@ function Konn3ctModal({ action, onClose, onAction }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {PRICING_COMPARISON_ROWS.map(([feature, free, starter, pro, biz, ent]) => (
+                  {comparisonRows.map(([feature, free, starter, pro, biz, ent]) => (
                     <tr key={feature}>
                       <th>{feature}</th>
                       <td>{free}</td>
@@ -1005,6 +1039,7 @@ function Konn3ctModal({ action, onClose, onAction }) {
 function SiteShell() {
   const [toast, setToast] = useState('')
   const [modalAction, setModalAction] = useState(null)
+  const [currency, setCurrency] = useState('NGN')
 
   useEffect(() => {
     const clearButtonFocus = (e) => {
@@ -1044,7 +1079,17 @@ function SiteShell() {
     <div className="min-h-screen bg-white text-brand-ink">
       <Header onToast={showToast} onAction={handleAction} />
       <Routes>
-        <Route path="/" element={<HomePage onAction={handleAction} onToast={showToast} />} />
+        <Route
+          path="/"
+          element={
+            <HomePage
+              onAction={handleAction}
+              onToast={showToast}
+              currency={currency}
+              onCurrencyChange={setCurrency}
+            />
+          }
+        />
         <Route
           path="/government"
           element={<SectorPage route="government" onAction={handleAction} onToast={showToast} />}
@@ -1075,6 +1120,14 @@ function SiteShell() {
           path="/contact-sales"
           element={<ContactSales onToast={showToast} onAction={handleAction} />}
         />
+        <Route
+          path="/privacy"
+          element={<PrivacyPolicy onAction={handleAction} />}
+        />
+        <Route
+          path="/terms"
+          element={<TermsOfService onAction={handleAction} />}
+        />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
@@ -1082,6 +1135,8 @@ function SiteShell() {
         action={modalAction}
         onClose={() => setModalAction(null)}
         onAction={handleAction}
+        currency={currency}
+        onCurrencyChange={setCurrency}
       />
 
       <div

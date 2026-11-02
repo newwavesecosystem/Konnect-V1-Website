@@ -52,9 +52,13 @@ export default function Footer({ onAction }) {
             <h4>Trust &amp; support</h4>
             {policies.map((item) =>
               item === 'Privacy' ? (
-                <a key={item} href="/Konn3ct-Privacy-Policy.pdf">
+                <Link key={item} to="/privacy">
                   {item}
-                </a>
+                </Link>
+              ) : item === 'Terms' ? (
+                <Link key={item} to="/terms">
+                  {item}
+                </Link>
               ) : (
                 <a
                   key={item}

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { REGISTER_URL } from '../data/metadata'
 import {
@@ -432,10 +432,7 @@ export default function ContactSales({ onToast, onAction }) {
 
                   <p className="privacy-note">
                     We use these details to respond to your enquiry. Read our{' '}
-                    <button type="button" onClick={() => onAction?.('policy:Privacy')}>
-                      privacy information
-                    </button>
-                    .
+                    <Link to="/privacy">privacy information</Link>.
                   </p>
 
                   <label className="consent">

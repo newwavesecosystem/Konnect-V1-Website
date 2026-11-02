@@ -518,8 +518,40 @@ export function ScopeOverviewSection() {
   )
 }
 
-export function PricingSection({ section, route = 'home', onAction }) {
+export function CurrencyToggleButton({ currency = 'NGN', onToggle }) {
+  const isUsd = currency === 'USD'
+  return (
+    <button
+      type="button"
+      className="currency-toggle-btn"
+      onClick={() => onToggle?.(isUsd ? 'NGN' : 'USD')}
+      aria-label={`Switch currency (currently ${currency})`}
+      title="Switch between Naira (₦) and US Dollar ($)"
+    >
+      <span className={`currency-icon-pill ${!isUsd ? 'is-active' : ''}`} aria-hidden="true">
+        ₦
+      </span>
+      <span className={`currency-icon-pill ${isUsd ? 'is-active' : ''}`} aria-hidden="true">
+        $
+      </span>
+    </button>
+  )
+}
+
+export function PricingSection({
+  section,
+  route = 'home',
+  onAction,
+  currency: propCurrency,
+  onCurrencyChange,
+}) {
   const navigate = useNavigate()
+  const [localCurrency, setLocalCurrency] = useState('NGN')
+  const currency = propCurrency || localCurrency
+  const handleCurrencyToggle = (next) => {
+    setLocalCurrency(next)
+    onCurrencyChange?.(next)
+  }
 
   const handlePlanSelect = (index, label) => {
     if (index === 0 || String(label || '').toLowerCase().includes('trial') || String(label || '').toLowerCase() === 'start free') {
@@ -561,16 +593,19 @@ export function PricingSection({ section, route = 'home', onAction }) {
               Or start with a plan.
             </h2>
           </div>
-          <p>
-            Seven days to explore. No credit card required. You can choose to purchase immediately.
-          </p>
+          <div className="pricing-head-side">
+            <p>
+              Seven days to explore. No credit card required. You can choose to purchase immediately.
+            </p>
+            <CurrencyToggleButton currency={currency} onToggle={handleCurrencyToggle} />
+          </div>
         </div>
         <div className="plans">
           <article className="plan">
             <span className="kicker">Explore Konn3ct</span>
             <h3>7-day free trial</h3>
             <div className="price">
-              ₦0 <span>for 7 days</span>
+              {currency === 'USD' ? '$0' : '₦0'} <span>for 7 days</span>
             </div>
             <p>Start with your first useful meeting.</p>
             <ul className="check-list">
@@ -1017,7 +1052,7 @@ export function DemoSection({ section, form, route = 'demo', onSubmitted, onToas
 
             <p className="privacy-note">
               We use these details to respond to your enquiry. Read our{' '}
-              <a href="/Konn3ct-Privacy-Policy.pdf">privacy information</a>.
+              <Link to="/privacy">privacy information</Link>.
             </p>
 
             <div className="sr-only">
