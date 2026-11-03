@@ -282,7 +282,7 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
     }
   });
 
-  test('7. Clicking Choose a plan opens the full Konn3ct Pricing popup overlay', () => {
+  test('7. Clicking Choose a plan navigates to the dedicated /pricing full page', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
@@ -292,21 +292,30 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
     const choosePlanBtn = screen.getByRole('button', { name: /Choose a plan/i });
     fireEvent.click(choosePlanBtn);
 
-    const dialog = screen.getByRole('dialog');
-    expect(dialog).toBeInTheDocument();
-    expect(dialog).toHaveTextContent(/Choose the plan that fits how you connect/i);
-    expect(dialog).toHaveTextContent(/NGN 2,500\/mo/i);
-    expect(dialog).toHaveTextContent(/NGN 10,000\/mo/i);
-    expect(dialog).toHaveTextContent(/NGN 200,000\/yr/i);
-    expect(dialog).toHaveTextContent(/Custom Pricing/i);
-    expect(dialog).toHaveTextContent(/EventPro Addons/i);
-    expect(dialog).toHaveTextContent(/Full Plan Comparison/i);
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: /Your people\.\s*Your plan\./i })
+    ).toBeInTheDocument();
+    expect(screen.getAllByText(/₦2,500/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/₦10,000/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/₦20,000/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/Let’s talk/i)).toBeInTheDocument();
+    expect(screen.getByText(/A clearer comparison\./i)).toBeInTheDocument();
+    expect(screen.getByText(/Plan your event/i)).toBeInTheDocument();
 
-    const toggleButtons = screen.getAllByRole('button', { name: /Switch currency/i });
-    fireEvent.click(toggleButtons[toggleButtons.length - 1]);
-    expect(dialog).toHaveTextContent(/\$2\/mo/i);
-    expect(dialog).toHaveTextContent(/\$7\/mo/i);
-    expect(dialog).toHaveTextContent(/\$135\/yr/i);
+    // Switch to Annual billing
+    const annualBtn = screen.getByRole('button', { name: /^Annual$/i });
+    fireEvent.click(annualBtn);
+    expect(screen.getAllByText(/₦27,500/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/₦100,000/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/₦200,000/i).length).toBeGreaterThan(0);
+
+    // Switch to USD currency
+    const toggleBtn = screen.getByRole('button', { name: /Switch currency/i });
+    fireEvent.click(toggleBtn);
+    expect(screen.getAllByText(/\$20/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/\$70/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/\$135/i).length).toBeGreaterThan(0);
   });
 
   test('8. Renders Features carousel under Connection, made useful section and removes pricing design note', () => {

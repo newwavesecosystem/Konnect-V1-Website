@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import konn3ctLogo from '../assets/konn3ct-logo.png'
-import { EVENTS_URL, LOGIN_URL, REGISTER_URL, proposalSolutions, routePaths } from '../data/metadata'
+import { EVENTS_URL, LOGIN_URL, REGISTER_URL } from '../data/metadata'
 
 function navToAnchor(navigate, location, anchor) {
   if (location.pathname !== '/') {
@@ -83,6 +83,9 @@ export default function Header() {
           <a href="/#experience" onClick={(e) => handleAnchorClick(e, 'experience')}>
             Experience
           </a>
+          <a href="/#solutions" onClick={(e) => handleAnchorClick(e, 'solutions')}>
+            Solutions
+          </a>
           <a href="/#plans" onClick={(e) => handleAnchorClick(e, 'plans')}>
             Pricing
           </a>
@@ -92,16 +95,10 @@ export default function Header() {
           <a href={EVENTS_URL} onClick={() => setMobileOpen(false)}>
             Events
           </a>
-          {proposalSolutions.map(([routeKey, label]) => (
-            <Link key={routeKey} to={routePaths[routeKey]} onClick={() => setMobileOpen(false)}>
-              {label}
-            </Link>
-          ))}
           <Link to="/contact-sales" onClick={() => setMobileOpen(false)}>
             Contact sales
           </Link>
           <a href={LOGIN_URL}>Log in</a>
-          <a href={REGISTER_URL}>Start 7-day trial</a>
         </nav>
       </header>
     </>

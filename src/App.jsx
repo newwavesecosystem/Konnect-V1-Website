@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Footer from './components/Footer'
@@ -8,7 +8,6 @@ import {
   BrandLine,
   CapabilitiesSection,
   CTASection,
-  CurrencyToggleButton,
   DemoSection,
   DeploymentSection,
   FAQSection,
@@ -27,6 +26,7 @@ import {
   sectorProposals,
 } from './data/metadata'
 import ContactSales from './pages/ContactSales'
+import Pricing from './pages/Pricing'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
 import { captureUtmParameters } from './services/leadService'
@@ -597,172 +597,7 @@ function SectorPage({ route, onAction, onToast }) {
   )
 }
 
-const PRICING_PLANS_MODAL = [
-  {
-    key: 'free',
-    name: 'Free',
-    kicker: 'For individuals',
-    priceMain: 'NGN 0/yr',
-    priceSub: '₦0/mo · ₦0/yr',
-    priceMainUsd: '$0/yr',
-    priceSubUsd: '$0/mo · $0/yr',
-    ctaLabel: 'Start free',
-    ctaHref: REGISTER_URL,
-    highlight: false,
-    features: [
-      'Recording: No',
-      'Duration: 60 minutes',
-      'Participants: 150',
-      'Breakout Rooms: No',
-      'Auto Attendance for Meetings: Yes',
-      'Access Code: Yes',
-    ],
-  },
-  {
-    key: 'starter',
-    name: 'Starter',
-    kicker: 'For individuals',
-    priceMain: 'NGN 2,500/mo',
-    priceSub: 'NGN 27,500/yr',
-    priceMainUsd: '$2/mo',
-    priceSubUsd: '$20/yr',
-    ctaLabel: 'Choose Starter',
-    ctaHref: REGISTER_URL,
-    highlight: false,
-    features: [
-      'Recording: Yes',
-      'Duration: 180 minutes/Meeting',
-      'Participants: 200',
-      'Rooms: 1 customizable meeting rooms',
-      'Event Ticketing: 1 event/Month',
-      'AI summaries',
-      'Breakout Rooms: Yes',
-      'Auto Attendance for Meetings: Yes',
-      'Access Code: Yes',
-    ],
-  },
-  {
-    key: 'professional',
-    name: 'Professional',
-    kicker: 'For individuals · Popular',
-    priceMain: 'NGN 10,000/mo',
-    priceSub: 'NGN 100,000/yr',
-    priceMainUsd: '$7/mo',
-    priceSubUsd: '$70/yr',
-    ctaLabel: 'Choose Professional',
-    ctaHref: REGISTER_URL,
-    highlight: true,
-    features: [
-      'Recording: Yes',
-      'Duration: 1440 minutes/Meeting',
-      'Participants: 500',
-      'Rooms: 5 customizable meeting rooms',
-      'Streaming: 5 events/Month',
-      'Event Ticketing: 3 events/Month',
-      'AI summaries, paid replay',
-      'Accept Donations',
-      'Breakout Rooms: Yes',
-      'Auto Attendance for Meetings: Yes',
-      'Access Code: Yes',
-    ],
-  },
-  {
-    key: 'business',
-    name: 'Business',
-    kicker: 'For teams and growing organisations',
-    priceMain: 'NGN 200,000/yr',
-    priceSub: '₦20,000/mo* · 4 host seats included',
-    priceMainUsd: '$135/yr',
-    priceSubUsd: '$14/mo* · 4 host seats included',
-    ctaLabel: 'Choose Business',
-    ctaHref: REGISTER_URL,
-    highlight: false,
-    features: [
-      'Recording: Yes',
-      'Duration: 1440 minutes/Meeting',
-      'Participants: 1000',
-      'Rooms: 15 customizable meeting rooms',
-      'Streaming: 15 events/Month',
-      'Event Ticketing: 10 events/Month',
-      'AI summaries, paid replay',
-      'Accept Donations',
-      '4 licensed hosts included (1 Professional & 3 Starter Account)',
-      'Breakout Rooms: Yes',
-      'Auto Attendance for Meetings: Yes',
-      'Access Code: Yes',
-      'TrustLock™ controls',
-    ],
-  },
-  {
-    key: 'enterprise',
-    name: 'Enterprise',
-    kicker: 'For large organisations, government & regulated institutions',
-    priceMain: 'Custom Pricing',
-    priceSub: 'Contract · 20 host seats included',
-    priceMainUsd: 'Custom Pricing',
-    priceSubUsd: 'Contract · 20 host seats included',
-    ctaLabel: 'Contact sales',
-    ctaRoute: '/contact-sales',
-    highlight: false,
-    features: [
-      '1,000 interactive participants included',
-      'EventPro large-event capacity available up to 10,000+',
-      'Up to 24-hour meetings',
-      '50 persistent/customisable meeting rooms included',
-      '50 streaming events/month included',
-      '50 ticketed events/month included',
-      '20 host seats included',
-      'Recording and replay',
-      'AI summaries',
-      'Paid replay',
-      'Donations/commerce capabilities',
-      'Advanced TrustLock™ controls',
-      'Enterprise administration',
-      'Audit and governance controls',
-      'Dial-in capability',
-      'Priority support / contracted SLA',
-      'Private/cloud/on-premise deployment options',
-      'White-label deployment available',
-    ],
-  },
-]
-
-const EVENTPRO_ADDONS = [
-  ['500 Participants', '₦5,000/Monthly', '$3.50/Monthly'],
-  ['1,000 Participants', '₦10,000/Monthly', '$7/Monthly'],
-  ['2,000 Participants', '₦35,000/Monthly', '$24/Monthly'],
-  ['5,000 Participants', '₦500,000/Monthly', '$335/Monthly'],
-  ['10,000 Participants', '₦1,000,000/Monthly', '$670/Monthly'],
-]
-
-const PRICING_COMPARISON_ROWS_NGN = [
-  ['Price', '₦0', '₦2,500/mo', '₦10,000/mo', '₦20,000/mo*', 'Custom'],
-  ['Annual', '₦0', '₦27,500*', '₦100,000', '₦200,000', 'Contract'],
-  ['Participants', '150', '200', '500', '1,000', '1,000 interactive + EventPro'],
-  ['Meeting duration', '60 min', '3 hrs', '24 hrs', '24 hrs', '24 hrs'],
-  ['Recording', '—', '✓', '✓', '✓', '✓'],
-  ['AI summaries', '—', '✓', '✓', '✓', '✓'],
-  ['Persistent rooms', '—', '1', '5', '15', '50/custom'],
-  ['Streaming/month', '—', '—', '5', '15', '50/custom'],
-  ['Paid Ticketed events/month', '—', '—', '3', '10', '50/custom'],
-  ['Paid replay', '—', '—', '✓', '✓', '✓'],
-  ['Donations', '—', '—', '✓', '✓', '✓/optional'],
-  ['Host seats', '1', '1', '1', '4', '20/custom'],
-  ['Breakout rooms', '—', '✓', '✓', '✓', '✓'],
-  ['Auto attendance', '✓', '✓', '✓', '✓', '✓'],
-  ['TrustLock™', '—', '—', 'Core', 'Organisation', 'Advanced'],
-  ['White label', '—', '—', '—', '—', 'Available'],
-  ['Dial-in', '—', '—', '—', '—', 'Available'],
-  ['EventPro', 'Add-on', 'Add-on', 'Add-on', 'Add-on', 'Contract/add-on'],
-]
-
-const PRICING_COMPARISON_ROWS_USD = [
-  ['Price', '$0', '$2/mo', '$7/mo', '$14/mo*', 'Custom'],
-  ['Annual', '$0', '$20*', '$70', '$135', 'Contract'],
-  ...PRICING_COMPARISON_ROWS_NGN.slice(2),
-]
-
-function Konn3ctModal({ action, onClose, onAction, currency = 'NGN', onCurrencyChange }) {
+function Konn3ctModal({ action, onClose, onAction }) {
   useEffect(() => {
     if (!action) return undefined
     const handleKeyDown = (e) => {
@@ -773,148 +608,6 @@ function Konn3ctModal({ action, onClose, onAction, currency = 'NGN', onCurrencyC
   }, [action, onClose])
 
   if (!action) return null
-
-  const isUsd = currency === 'USD'
-  const comparisonRows = isUsd ? PRICING_COMPARISON_ROWS_USD : PRICING_COMPARISON_ROWS_NGN
-
-  if (action === 'purchase') {
-    return (
-      <div
-        className="k3-modal-backdrop"
-        onClick={(e) => {
-          if (e.target === e.currentTarget) onClose()
-        }}
-      >
-        <div
-          className="k3-modal pricing-modal"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-        >
-          <button className="modal-close" type="button" aria-label="Close dialog" onClick={onClose}>
-            ×
-          </button>
-
-          <div className="pricing-modal-head pricing-modal-head-row">
-            <div>
-              <div className="eyebrow" style={{ marginBottom: '12px' }}>
-                Konn3ct Pricing
-              </div>
-              <h2 id="modal-title" style={{ marginTop: 0 }}>
-                Choose the plan that fits how you connect.
-              </h2>
-              <p>
-                Start with a free or individual plan, scale up for your team, or talk to sales for
-                enterprise and sovereign deployments.
-              </p>
-            </div>
-            <div className="pricing-currency-bar">
-              <span className="currency-bar-label">Currency</span>
-              <CurrencyToggleButton currency={currency} onToggle={onCurrencyChange} />
-            </div>
-          </div>
-
-          <div className="pricing-modal-grid">
-            {PRICING_PLANS_MODAL.map((tier) => (
-              <article
-                key={tier.key}
-                className={`plan pricing-tier-card ${tier.highlight ? 'highlight' : ''}`}
-              >
-                <span className="kicker">{tier.kicker}</span>
-                <h3>{tier.name}</h3>
-                <div className="price">{isUsd ? tier.priceMainUsd : tier.priceMain}</div>
-                <small className="pricing-tier-sub">
-                  {isUsd ? tier.priceSubUsd : tier.priceSub}
-                </small>
-
-                <ul className="check-list pricing-tier-list">
-                  {tier.features.map((feat) => (
-                    <li
-                      key={feat}
-                      className={feat.endsWith(': No') ? 'is-excluded' : ''}
-                    >
-                      {feat}
-                    </li>
-                  ))}
-                </ul>
-
-                {tier.ctaRoute ? (
-                  <Link
-                    to={tier.ctaRoute}
-                    className="button outline"
-                    onClick={onClose}
-                  >
-                    {tier.ctaLabel} <span aria-hidden="true">↗</span>
-                  </Link>
-                ) : (
-                  <a
-                    href={tier.ctaHref}
-                    className={`button ${tier.highlight ? 'light' : 'outline'}`}
-                  >
-                    {tier.ctaLabel} <span aria-hidden="true">↗</span>
-                  </a>
-                )}
-              </article>
-            ))}
-          </div>
-
-          <div className="pricing-addons-box">
-            <div>
-              <div className="eyebrow" style={{ marginBottom: '8px' }}>
-                EventPro Addons
-              </div>
-              <h3>Monthly One-off Meetings / Webinar</h3>
-              <p>
-                Expand your session capacity whenever you host large town halls, conferences, or
-                webinars.
-              </p>
-            </div>
-            <div className="pricing-addons-grid">
-              {EVENTPRO_ADDONS.map(([capacity, priceNgn, priceUsd]) => (
-                <div className="pricing-addon-pill" key={capacity}>
-                  <strong>{capacity}</strong>
-                  <span>{isUsd ? priceUsd : priceNgn}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="pricing-matrix-section">
-            <div className="eyebrow" style={{ marginBottom: '8px' }}>
-              Commercial Architecture
-            </div>
-            <h3>Full Plan Comparison</h3>
-            <div className="pricing-table-wrap">
-              <table className="pricing-matrix-table">
-                <thead>
-                  <tr>
-                    <th>Feature</th>
-                    <th>Free</th>
-                    <th>Starter</th>
-                    <th className="is-popular">Professional</th>
-                    <th>Business</th>
-                    <th>Enterprise</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparisonRows.map(([feature, free, starter, pro, biz, ent]) => (
-                    <tr key={feature}>
-                      <th>{feature}</th>
-                      <td>{free}</td>
-                      <td>{starter}</td>
-                      <td className="is-popular">{pro}</td>
-                      <td>{biz}</td>
-                      <td>{ent}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
 
   let title = 'Information'
   let body = null
@@ -1001,6 +694,25 @@ function Konn3ctModal({ action, onClose, onAction, currency = 'NGN', onCurrencyC
         </p>
       </>
     )
+  } else if (action.startsWith('plan:')) {
+    const planName = action.slice(5)
+    title = `${planName} plan`
+    body = (
+      <>
+        <p>
+          Confirm the current price, billing period and released entitlements before continuing to
+          the authorised account and checkout journey.
+        </p>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '18px' }}>
+          <a className="button" href={REGISTER_URL}>
+            Continue with {planName} <span aria-hidden="true">↗</span>
+          </a>
+          <Link className="button outline" to="/contact-sales" onClick={onClose}>
+            Discuss this plan <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+      </>
+    )
   } else if (action.startsWith('policy:')) {
     title = action.split(':').slice(1).join(':') || 'Information'
     body = (
@@ -1037,6 +749,7 @@ function Konn3ctModal({ action, onClose, onAction, currency = 'NGN', onCurrencyC
 }
 
 function SiteShell() {
+  const navigate = useNavigate()
   const [toast, setToast] = useState('')
   const [modalAction, setModalAction] = useState(null)
   const [currency, setCurrency] = useState('NGN')
@@ -1059,7 +772,7 @@ function SiteShell() {
   const showToast = (message) => {
     setToast(message)
     window.clearTimeout(window.__k3Toast)
-    window.__k3Toast = window.setTimeout(() => setToast(''), 2200)
+    window.setTimeout(() => setToast(''), 2200)
   }
 
   const handleAction = (action) => {
@@ -1070,6 +783,10 @@ function SiteShell() {
     }
     if (action === 'login') {
       window.location.href = LOGIN_URL
+      return
+    }
+    if (action === 'purchase') {
+      navigate('/pricing')
       return
     }
     setModalAction(action)
@@ -1087,6 +804,16 @@ function SiteShell() {
               onToast={showToast}
               currency={currency}
               onCurrencyChange={setCurrency}
+            />
+          }
+        />
+        <Route
+          path="/pricing"
+          element={
+            <Pricing
+              currency={currency}
+              onCurrencyChange={setCurrency}
+              onAction={handleAction}
             />
           }
         />
@@ -1135,8 +862,6 @@ function SiteShell() {
         action={modalAction}
         onClose={() => setModalAction(null)}
         onAction={handleAction}
-        currency={currency}
-        onCurrencyChange={setCurrency}
       />
 
       <div

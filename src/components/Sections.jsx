@@ -563,13 +563,13 @@ export function PricingSection({
       window.location.href = REGISTER_URL
       return
     }
-    if (index === 1 && onAction) {
+    if (index === 1) {
       trackCtaClick({
         landing_page_id: route,
         cta_label: label,
-        target_destination: 'purchase-modal',
+        target_destination: '/pricing',
       })
-      onAction('purchase')
+      navigate('/pricing')
       return
     }
     const enquiryType = index === 0 ? 'early_access' : 'demo_request'
