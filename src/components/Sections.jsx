@@ -698,10 +698,6 @@ const defaultHomeFaqs = [
     q: 'Can recordings be shared or downloaded?',
     a: 'Recording, sharing and download are in the approved V1 scope. Availability, permissions and package limits must be confirmed for your plan.',
   },
-  {
-    q: 'Are AI, language and advanced event tools included?',
-    a: 'They are not assumed to be included. Their availability must be confirmed against the released capabilities and package.',
-  },
 ]
 
 export function FAQSection({ section }) {
