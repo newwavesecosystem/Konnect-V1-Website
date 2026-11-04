@@ -282,15 +282,15 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
     }
   });
 
-  test('7. Clicking Choose a plan navigates to the dedicated /pricing full page', () => {
+  test('7. Clicking Compare plans navigates to the dedicated /pricing full page', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>
     );
 
-    const choosePlanBtn = screen.getByRole('button', { name: /Choose a plan/i });
-    fireEvent.click(choosePlanBtn);
+    const comparePlansLink = screen.getByRole('link', { name: /Compare plans/i });
+    fireEvent.click(comparePlansLink);
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     expect(
@@ -393,5 +393,26 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
     expect(screen.getByRole('heading', { name: /Recording choices/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Organisation requirements/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Keep help close\./i })).toBeInTheDocument();
+  });
+
+  test('11. Customer Support link in the footer navigates to /support and renders the support request form', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    const supportFooterLink = screen.getByRole('link', { name: /^Customer Support$/i });
+    expect(supportFooterLink).toHaveAttribute('href', '/support');
+    fireEvent.click(supportFooterLink);
+
+    expect(
+      screen.getByRole('heading', { name: /We’re here to help\.\s*Let’s put things right\./i })
+    ).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /What can we help with\?/i })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/Your full name/i)).toBeInTheDocument();
+    expect(
+      screen.getByPlaceholderText(/A short, clear summary of the problem/i)
+    ).toBeInTheDocument();
   });
 });

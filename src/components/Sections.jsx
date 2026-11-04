@@ -405,21 +405,6 @@ export function TrustSection({ onAction }) {
             Start with clear expectations. Confirm the supported device, access route and package.
             Keep help within reach.
           </p>
-          <button
-            type="button"
-            className="text-link"
-            onClick={() => onAction?.('policy:Recording & sharing')}
-          >
-            Recording &amp; sharing guidance
-          </button>
-          <br />
-          <button
-            type="button"
-            className="text-link"
-            onClick={() => onAction?.('policy:Help & joining guidance')}
-          >
-            Help with joining a meeting
-          </button>
         </div>
       </div>
     </section>
@@ -538,143 +523,50 @@ export function CurrencyToggleButton({ currency = 'NGN', onToggle }) {
   )
 }
 
-export function PricingSection({
-  section,
-  route = 'home',
-  onAction,
-  currency: propCurrency,
-  onCurrencyChange,
-}) {
-  const navigate = useNavigate()
-  const [localCurrency, setLocalCurrency] = useState('NGN')
-  const currency = propCurrency || localCurrency
-  const handleCurrencyToggle = (next) => {
-    setLocalCurrency(next)
-    onCurrencyChange?.(next)
-  }
-
-  const handlePlanSelect = (index, label) => {
-    if (index === 0 || String(label || '').toLowerCase().includes('trial') || String(label || '').toLowerCase() === 'start free') {
-      trackCtaClick({
-        landing_page_id: route,
-        cta_label: label,
-        target_destination: REGISTER_URL,
-      })
-      window.location.href = REGISTER_URL
-      return
-    }
-    if (index === 1) {
-      trackCtaClick({
-        landing_page_id: route,
-        cta_label: label,
-        target_destination: '/pricing',
-      })
-      navigate('/pricing')
-      return
-    }
-    const enquiryType = index === 0 ? 'early_access' : 'demo_request'
-    trackCtaClick({
-      landing_page_id: route,
-      cta_label: label,
-      target_destination: '/contact-sales',
-    })
-    navigate('/contact-sales', { state: { enquiryType } })
-  }
-
+export function PricingSection({ section, route = 'home' }) {
   return (
-    <section className="section soft" id={section?.id || 'plans'}>
+    <section className="section plans-section" id={section?.id || 'plans'}>
       <div className="wrap">
         <div className="section-head">
           <div>
-            <div className="eyebrow">A clear way to begin</div>
+            <div className="eyebrow">Find your fit</div>
             <h2>
-              Try it first.
+              One conversation.
               <br />
-              Or start with a plan.
+              A world of possibilities.
             </h2>
           </div>
-          <div className="pricing-head-side">
-            <p>
-              Seven days to explore. No credit card required. You can choose to purchase immediately.
-            </p>
-            <CurrencyToggleButton currency={currency} onToggle={handleCurrencyToggle} />
-          </div>
+          <p>
+            Explore plans for individuals, teams and organisations on our dedicated pricing page.
+          </p>
         </div>
-        <div className="plans">
-          <article className="plan">
-            <span className="kicker">Explore Konn3ct</span>
-            <h3>7-day trial</h3>
-            <div className="price">
-              {currency === 'USD' ? '$0' : '₦0'} <span>for 7 days</span>
-            </div>
-            <p>Start with your first useful meeting.</p>
-            <ul className="check-list">
-              <li>No credit card collection</li>
-              <li>Guided first-meeting path</li>
-              <li>Choose to buy at any time</li>
-            </ul>
-            <a
-              className="button outline"
-              href={REGISTER_URL}
-              onClick={() =>
-                trackCtaClick({
-                  landing_page_id: route,
-                  cta_label: 'Start 7-day trial',
-                  target_destination: REGISTER_URL,
-                })
-              }
-            >
-              Start 7-day trial <span aria-hidden="true">↗</span>
-            </a>
-          </article>
-
-          <article className="plan highlight">
-            <span className="kicker">Prefer to begin now?</span>
-            <h3>Buy a plan</h3>
-            <div className="price" style={{ fontSize: '28px' }}>
-              Your next step
-            </div>
-            <p>Go directly to the approved plan and payment journey.</p>
-            <ul className="check-list">
-              <li>No trial required</li>
-              <li>Clear package entitlements</li>
-              <li>Activation after verified payment</li>
-            </ul>
-            <button
-              type="button"
-              className="button light"
-              onClick={() => handlePlanSelect(1, 'Choose a plan')}
-            >
-              Choose a plan <span aria-hidden="true">↗</span>
-            </button>
-          </article>
-
-          <article className="plan">
-            <span className="kicker">For organisations</span>
-            <h3>Discuss your needs</h3>
-            <div className="price" style={{ fontSize: '28px' }}>
-              Built around you
-            </div>
-            <p>Assess an organisation package and deployment requirements.</p>
-            <ul className="check-list">
-              <li>A tailored demonstration</li>
-              <li>Scope and package review</li>
-              <li>Agreed support requirements</li>
-            </ul>
-            <Link
-              className="button outline"
-              to="/contact-sales"
-              onClick={() =>
-                trackCtaClick({
-                  landing_page_id: route,
-                  cta_label: 'Contact sales',
-                  target_destination: '/contact-sales',
-                })
-              }
-            >
-              Contact sales <span aria-hidden="true">↗</span>
-            </Link>
-          </article>
+        <div className="hero-actions">
+          <Link
+            className="button"
+            to="/pricing"
+            onClick={() =>
+              trackCtaClick({
+                landing_page_id: route,
+                cta_label: 'Compare plans',
+                target_destination: '/pricing',
+              })
+            }
+          >
+            Compare plans <span aria-hidden="true">↗</span>
+          </Link>
+          <Link
+            className="button outline"
+            to="/contact-sales"
+            onClick={() =>
+              trackCtaClick({
+                landing_page_id: route,
+                cta_label: 'Discuss organisation needs',
+                target_destination: '/contact-sales',
+              })
+            }
+          >
+            Discuss organisation needs <span aria-hidden="true">↗</span>
+          </Link>
         </div>
       </div>
     </section>

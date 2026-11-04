@@ -55,6 +55,7 @@ export default function Footer() {
 
           <div>
             <h4>Trust &amp; support</h4>
+            <Link to="/support">Customer Support</Link>
             <Link to="/trust">Trust &amp; controls</Link>
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/terms">Terms of Service</Link>

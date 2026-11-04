@@ -26,6 +26,7 @@ import {
   sectorProposals,
 } from './data/metadata'
 import ContactSales from './pages/ContactSales'
+import CustomerSupport from './pages/CustomerSupport'
 import Pricing from './pages/Pricing'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
@@ -647,11 +648,7 @@ function HomePage({ onAction, currency, onCurrencyChange }) {
 
         <ScopeOverviewSection />
         <TrustSection onAction={onAction} />
-        <PricingSection
-          onAction={onAction}
-          currency={currency}
-          onCurrencyChange={onCurrencyChange}
-        />
+        <PricingSection />
         <FAQSection />
         <CTASection route="home" onAction={onAction} />
       </main>
@@ -937,6 +934,10 @@ function SiteShell() {
               onAction={handleAction}
             />
           }
+        />
+        <Route
+          path="/support"
+          element={<CustomerSupport onAction={handleAction} />}
         />
         <Route
           path="/trust"
