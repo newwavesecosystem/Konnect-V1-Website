@@ -603,7 +603,7 @@ export function PricingSection({
         <div className="plans">
           <article className="plan">
             <span className="kicker">Explore Konn3ct</span>
-            <h3>7-day free trial</h3>
+            <h3>7-day trial</h3>
             <div className="price">
               {currency === 'USD' ? '$0' : '₦0'} <span>for 7 days</span>
             </div>
@@ -619,12 +619,12 @@ export function PricingSection({
               onClick={() =>
                 trackCtaClick({
                   landing_page_id: route,
-                  cta_label: 'Start your 7-day trial',
+                  cta_label: 'Start 7-day trial',
                   target_destination: REGISTER_URL,
                 })
               }
             >
-              Start your 7-day trial <span aria-hidden="true">↗</span>
+              Start 7-day trial <span aria-hidden="true">↗</span>
             </a>
           </article>
 
@@ -741,10 +741,10 @@ export function CTASection({ section, onAction, route = 'home' }) {
               <br />
               connection starts here.
             </h2>
-            <p>Seven-day free trial. No credit card required.</p>
+            <p>Seven-day trial. No credit card required.</p>
           </div>
           <a className="button green" href={REGISTER_URL}>
-            Start your 7-day trial <span aria-hidden="true">↗</span>
+            Start 7-day trial <span aria-hidden="true">↗</span>
           </a>
         </div>
       </section>

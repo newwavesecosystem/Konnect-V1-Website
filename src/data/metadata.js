@@ -463,7 +463,7 @@ export const landingPageRegistry = {
     path: "/",
     landing_page_id: "home",
     conversion_goal_id: "platform-trial-or-sales",
-    primaryCtaLabel: "Start your 7-day free trial",
+    primaryCtaLabel: "Start 7-day trial",
     secondaryCtaLabel: "Buy a plan",
     ownerTeam: "Konn3ct Growth & Partnerships",
   },

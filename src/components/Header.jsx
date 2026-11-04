@@ -46,12 +46,12 @@ export default function Header() {
             <a href="/#solutions" onClick={(e) => handleAnchorClick(e, 'solutions')}>
               Solutions
             </a>
-            <a href="/#plans" onClick={(e) => handleAnchorClick(e, 'plans')}>
+            <Link to="/pricing">
               Pricing
-            </a>
-            <a href="/#trust" onClick={(e) => handleAnchorClick(e, 'trust')}>
+            </Link>
+            <Link to="/trust">
               Trust
-            </a>
+            </Link>
             <a href={EVENTS_URL}>
               Events
             </a>
@@ -86,12 +86,12 @@ export default function Header() {
           <a href="/#solutions" onClick={(e) => handleAnchorClick(e, 'solutions')}>
             Solutions
           </a>
-          <a href="/#plans" onClick={(e) => handleAnchorClick(e, 'plans')}>
+          <Link to="/pricing" onClick={() => setMobileOpen(false)}>
             Pricing
-          </a>
-          <a href="/#trust" onClick={(e) => handleAnchorClick(e, 'trust')}>
+          </Link>
+          <Link to="/trust" onClick={() => setMobileOpen(false)}>
             Trust
-          </a>
+          </Link>
           <a href={EVENTS_URL} onClick={() => setMobileOpen(false)}>
             Events
           </a>

@@ -23,7 +23,7 @@ export default function Hero({ route = 'home', hero, onPrimary, onSecondary, onA
             </p>
             <div className="hero-actions">
               <a className="button" href={REGISTER_URL}>
-                Start your 7-day free trial <span aria-hidden="true">↗</span>
+                Start 7-day trial <span aria-hidden="true">↗</span>
               </a>
               <button
                 type="button"

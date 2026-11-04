@@ -29,8 +29,66 @@ import ContactSales from './pages/ContactSales'
 import Pricing from './pages/Pricing'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
+import Trust from './pages/Trust'
 import { captureUtmParameters } from './services/leadService'
 import { trackPageView } from './analytics/events'
+import solGovernmentImg from './assets/solutions/government.png'
+import solAssociationsImg from './assets/solutions/associations.png'
+import solEducationImg from './assets/solutions/education.png'
+import solFaithImg from './assets/solutions/faith.png'
+import solBusinessImg from './assets/solutions/business.png'
+import solEventsImg from './assets/solutions/events.png'
+
+const SOLUTION_CARD_MEDIA = {
+  government: { image: solGovernmentImg, theme: 'navy' },
+  associations: { image: solAssociationsImg, theme: 'green' },
+  education: { image: solEducationImg, theme: 'navy' },
+  faith: { image: solFaithImg, theme: 'green' },
+  corporates: { image: solBusinessImg, theme: 'navy' },
+  'events-community': { image: solEventsImg, theme: 'green' },
+}
+
+function SolutionCardIcon({ routeKey }) {
+  switch (routeKey) {
+    case 'government':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2L2 7v2h20V7L12 2zm-7 9v7H3v2h18v-2h-2v-7h-2v7h-4v-7H9v7H7v-7H5z" />
+        </svg>
+      )
+    case 'associations':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+        </svg>
+      )
+    case 'education':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm-7 9.18v4L12 20l7-3.82v-4L12 16l-7-3.82z" />
+        </svg>
+      )
+    case 'faith':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M18 12.22V9l-5-2.5V5h2V3h-2V1h-2v2H9v2h2v1.5L6 9v3.22L2 14v8h8v-4c0-1.1.9-2 2-2s2 .9 2 2v4h8v-8l-4-1.78zM12 11.5c-.83 0-1.5-.67-1.5-1.5S11.17 8.5 12 8.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+        </svg>
+      )
+    case 'corporates':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
+        </svg>
+      )
+    case 'events-community':
+    default:
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm-7-8l1.45 2.94 3.25.47-2.35 2.29.55 3.24L12 19.41l-2.9 1.53.55-3.24-2.35-2.29 3.25-.47L12 12z" />
+        </svg>
+      )
+  }
+}
 
 const HOME_BENEFITS = [
   [
@@ -526,14 +584,63 @@ function HomePage({ onAction, currency, onCurrencyChange }) {
               <p>Explore a path designed around what your people need to achieve.</p>
             </div>
             <div className="solution-cards">
-              {proposalSolutions.map(([key, title, desc, sym]) => (
-                <Link key={key} className="solution-card" to={routePaths[key] || `/${key}`}>
-                  <span className="symbol">{sym}</span>
-                  <h3>{title}</h3>
-                  <p>{desc}</p>
-                  <span className="arrow">↗</span>
-                </Link>
-              ))}
+              {proposalSolutions.map(([key, title, desc]) => {
+                const media = SOLUTION_CARD_MEDIA[key] || SOLUTION_CARD_MEDIA.government
+                return (
+                  <Link
+                    key={key}
+                    className="solution-card"
+                    to={routePaths[key] || `/${key}`}
+                  >
+                    <div className="solution-card-media">
+                      <img src={media.image} alt={title} loading="lazy" />
+                      <svg
+                        className="solution-card-wave"
+                        viewBox="0 0 400 50"
+                        preserveAspectRatio="none"
+                        aria-hidden="true"
+                      >
+                        <defs>
+                          <linearGradient id={`wave-${key}`} x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stopColor="#14793e" />
+                            <stop offset="100%" stopColor="#26b35f" />
+                          </linearGradient>
+                        </defs>
+                        <path
+                          d="M150,43 C225,45 295,8 400,6 L400,50 L150,50 Z"
+                          fill={`url(#wave-${key})`}
+                        />
+                        <path
+                          d="M0,25 C85,17 155,43 235,39 C305,35 345,17 400,19 L400,50 L0,50 Z"
+                          fill="#ffffff"
+                        />
+                      </svg>
+                    </div>
+                    <div className="solution-card-body">
+                      <span className={`solution-card-icon is-${media.theme}`}>
+                        <SolutionCardIcon routeKey={key} />
+                      </span>
+                      <span className="solution-card-divider" aria-hidden="true" />
+                      <div className="solution-card-copy">
+                        <h3>{title}</h3>
+                        <p>{desc}</p>
+                      </div>
+                      <span className="solution-card-arrow" aria-hidden="true">
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -613,7 +720,7 @@ function Konn3ctModal({ action, onClose, onAction }) {
   let body = null
 
   if (action === 'trial') {
-    title = 'Start your 7-day free trial'
+    title = 'Start 7-day trial'
     body = (
       <>
         <p>No credit card required. Choose the path that matches how you want to begin.</p>
@@ -644,7 +751,7 @@ function Konn3ctModal({ action, onClose, onAction }) {
           <li>Create a meeting and invite your people</li>
         </ul>
         <div className="callout">
-          Ready to begin? Continue to the Konn3ct registration page to start your 7-day free trial.
+          Ready to begin? Continue to the Konn3ct registration page to start your 7-day trial.
         </div>
         <a className="button outline" href={REGISTER_URL} style={{ marginTop: '16px' }}>
           Continue to registration <span aria-hidden="true">↗</span>
@@ -789,6 +896,20 @@ function SiteShell() {
       navigate('/pricing')
       return
     }
+    if (action === 'trust') {
+      navigate('/trust')
+      return
+    }
+    if (action.startsWith('policy:')) {
+      const policyMap = {
+        Privacy: '/privacy',
+        Terms: '/terms',
+        'Recording & sharing': '/recordings',
+        'Help & joining guidance': '/help',
+      }
+      navigate(policyMap[action.slice(7)] || '/help')
+      return
+    }
     setModalAction(action)
   }
 
@@ -816,6 +937,18 @@ function SiteShell() {
               onAction={handleAction}
             />
           }
+        />
+        <Route
+          path="/trust"
+          element={<Trust pageKey="trust" onAction={handleAction} />}
+        />
+        <Route
+          path="/recordings"
+          element={<Trust pageKey="recordings" onAction={handleAction} />}
+        />
+        <Route
+          path="/help"
+          element={<Trust pageKey="help" onAction={handleAction} />}
         />
         <Route
           path="/government"

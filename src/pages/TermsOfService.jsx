@@ -36,14 +36,6 @@ export default function TermsOfService({ onAction }) {
             <div className="eyebrow" style={{ marginBottom: 0 }}>
               Service Agreement
             </div>
-            <div className="legal-switch" role="navigation" aria-label="Legal documents">
-              <Link to="/privacy" className="legal-switch-pill">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="legal-switch-pill is-active">
-                Terms of Service
-              </Link>
-            </div>
           </div>
 
           <h1>Konn3ct V1 Terms of Service</h1>
@@ -287,11 +279,11 @@ export default function TermsOfService({ onAction }) {
         <div className="wrap cta-grid">
           <div>
             <h2>Ready to connect on your terms?</h2>
-            <p className="sub">Seven-day free trial. No credit card required.</p>
+            <p className="sub">Seven-day trial. No credit card required.</p>
           </div>
           <div>
             <a className="button green" href={REGISTER_URL}>
-              Start your 7-day trial <span aria-hidden="true">↗</span>
+              Start 7-day trial <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>

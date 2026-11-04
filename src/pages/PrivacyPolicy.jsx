@@ -47,14 +47,6 @@ export default function PrivacyPolicy({ onAction }) {
             <div className="eyebrow" style={{ marginBottom: 0 }}>
               Privacy &amp; Data Protection
             </div>
-            <div className="legal-switch" role="navigation" aria-label="Legal documents">
-              <Link to="/privacy" className="legal-switch-pill is-active">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="legal-switch-pill">
-                Terms of Service
-              </Link>
-            </div>
           </div>
 
           <h1>Konn3ct V1 Privacy Policy</h1>

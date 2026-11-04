@@ -350,15 +350,15 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
     ).toBeInTheDocument();
   });
 
-  test('9. Privacy and Terms links in the footer navigate to dedicated /privacy and /terms pages', () => {
+  test('9. Privacy Policy and Terms of Service links in the footer navigate to dedicated /privacy and /terms pages', () => {
     render(
       <MemoryRouter initialEntries={['/']}>
         <App />
       </MemoryRouter>
     );
 
-    const privacyLink = screen.getByRole('link', { name: /^Privacy$/i });
-    const termsLink = screen.getByRole('link', { name: /^Terms$/i });
+    const privacyLink = screen.getByRole('link', { name: /^Privacy Policy$/i });
+    const termsLink = screen.getByRole('link', { name: /^Terms of Service$/i });
     expect(privacyLink).toHaveAttribute('href', '/privacy');
     expect(termsLink).toHaveAttribute('href', '/terms');
 
@@ -367,9 +367,31 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
       screen.getByRole('heading', { name: /Konn3ct V1 Privacy Policy/i })
     ).toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('link', { name: /^Terms of Service$/i }));
+    const termsLinksOnPage = screen.getAllByRole('link', { name: /^Terms of Service$/i });
+    fireEvent.click(termsLinksOnPage[0]);
     expect(
       screen.getByRole('heading', { name: /Konn3ct V1 Terms of Service/i })
     ).toBeInTheDocument();
+  });
+
+  test('10. Trust link in the navbar navigates to the dedicated /trust page matching the standalone design', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>
+    );
+
+    const trustNavLinks = screen.getAllByRole('link', { name: /^Trust$/i });
+    expect(trustNavLinks[0]).toHaveAttribute('href', '/trust');
+    fireEvent.click(trustNavLinks[0]);
+
+    expect(
+      screen.getByRole('heading', { name: /Freedom needs\s*understandable controls\./i })
+    ).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Joining & access/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Host responsibilities/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Recording choices/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Organisation requirements/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Keep help close\./i })).toBeInTheDocument();
   });
 });
