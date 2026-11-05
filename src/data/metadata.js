@@ -68,8 +68,7 @@ export const REGISTER_URL =
 export const LOGIN_URL =
   process.env.REACT_APP_LOGIN_URL || "https://dashboard.konn3ct.ng/login";
 
-export const EVENTS_URL =
-  process.env.REACT_APP_EVENTS_URL || "https://www.konn3ct.com/EventsPage";
+export const EVENTS_URL = "/events";
 
 export const proposalSolutions = [
   ["government", "Government", "Public missions. Clear institutional control.", "⌂"],

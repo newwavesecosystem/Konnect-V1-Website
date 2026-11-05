@@ -30,6 +30,8 @@ import CustomerSupport from './pages/CustomerSupport'
 import Pricing from './pages/Pricing'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfService from './pages/TermsOfService'
+import Events from './pages/Events'
+import EventDetails from './pages/EventDetails'
 import Trust from './pages/Trust'
 import { captureUtmParameters } from './services/leadService'
 import { trackPageView } from './analytics/events'
@@ -977,6 +979,8 @@ function SiteShell() {
             <SectorPage route="events-community" onAction={handleAction} onToast={showToast} />
           }
         />
+        <Route path="/events" element={<Events onAction={handleAction} />} />
+        <Route path="/event/:ref" element={<EventDetails onAction={handleAction} />} />
         <Route
           path="/contact-sales"
           element={<ContactSales onToast={showToast} onAction={handleAction} />}
