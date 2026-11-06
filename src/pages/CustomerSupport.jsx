@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { trackPageView } from '../analytics/events'
+import { jsPDF } from 'jspdf'
 
 const REQUEST_TYPES = [
   'Technical problem',
@@ -159,18 +160,86 @@ export default function CustomerSupport({ onAction }) {
     })
   }
 
+  // const handleDownload = () => {
+  //   if (!submittedDraft) return
+  //   const blob = new Blob([JSON.stringify(submittedDraft, null, 2)], {
+  //     type: 'application/json',
+  //   })
+  //   const url = URL.createObjectURL(blob)
+  //   const a = document.createElement('a')
+  //   a.href = url
+  //   a.download = 'Konn3ct-Support-Request.json'
+  //   a.click()
+  //   window.setTimeout(() => URL.revokeObjectURL(url), 1000)
+  // }
+
   const handleDownload = () => {
-    if (!submittedDraft) return
-    const blob = new Blob([JSON.stringify(submittedDraft, null, 2)], {
-      type: 'application/json',
+  if (!submittedDraft) return
+
+  const pdf = new jsPDF()
+
+  const pageWidth = pdf.internal.pageSize.getWidth()
+  const pageHeight = pdf.internal.pageSize.getHeight()
+  const margin = 20
+  const maxWidth = pageWidth - margin * 2
+
+  let y = 20
+
+  // Title
+  pdf.setFont('helvetica', 'bold')
+  pdf.setFontSize(18)
+  pdf.text('Konn3ct Support Request', margin, y)
+
+  y += 12
+
+  pdf.setDrawColor(0, 40, 130)
+  pdf.line(margin, y, pageWidth - margin, y)
+
+  y += 12
+
+  pdf.setFontSize(11)
+
+  Object.entries(submittedDraft).forEach(([key, value]) => {
+    const label = key
+      .replace(/([A-Z])/g, ' $1')
+      .replace(/_/g, ' ')
+      .replace(/^./, (char) => char.toUpperCase())
+
+    const displayValue =
+      typeof value === 'object'
+        ? JSON.stringify(value, null, 2)
+        : String(value ?? '')
+
+    // Add new page when required
+    if (y > pageHeight - 30) {
+      pdf.addPage()
+      y = 20
+    }
+
+    pdf.setFont('helvetica', 'bold')
+    pdf.text(`${label}:`, margin, y)
+
+    y += 7
+
+    pdf.setFont('helvetica', 'normal')
+
+    const lines = pdf.splitTextToSize(displayValue, maxWidth)
+
+    lines.forEach((line) => {
+      if (y > pageHeight - 20) {
+        pdf.addPage()
+        y = 20
+      }
+
+      pdf.text(line, margin, y)
+      y += 6
     })
-    const url = URL.createObjectURL(blob)
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'Konn3ct-Support-Request.json'
-    a.click()
-    window.setTimeout(() => URL.revokeObjectURL(url), 1000)
-  }
+
+    y += 5
+  })
+
+  pdf.save('Konn3ct-Support-Request.pdf')
+}
 
   return (
     <>
