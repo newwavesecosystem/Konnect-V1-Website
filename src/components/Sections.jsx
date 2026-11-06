@@ -16,6 +16,23 @@ import {
 } from '../services/leads'
 import { trackConfirmedLead, trackCtaClick } from '../analytics/events'
 import { getExperimentAssignment } from '../experiments/abTest'
+import workflowGovernmentImg from '../assets/workflow/workflow-government.png'
+import workflowAssociationsImg from '../assets/workflow/workflow-associations.png'
+import workflowEducationImg from '../assets/workflow/workflow-education.png'
+import workflowFaithImg from '../assets/workflow/workflow-faith.png'
+import workflowCorporatesImg from '../assets/workflow/workflow-corporates.png'
+import workflowEventsImg from '../assets/workflow/workflow-events.png'
+import workflowHomeImg from '../assets/workflow/workflow-home.png'
+
+const WORKFLOW_IMAGES = {
+  home: workflowHomeImg,
+  government: workflowGovernmentImg,
+  associations: workflowAssociationsImg,
+  education: workflowEducationImg,
+  faith: workflowFaithImg,
+  corporates: workflowCorporatesImg,
+  'events-community': workflowEventsImg,
+}
 
 const iconSet = [UsersIcon, ShieldIcon, GlobeIcon, WifiIcon, SparkIcon, DeviceIcon]
 
@@ -182,32 +199,12 @@ export function WorkflowSection({
             </div>
           )}
         </div>
-        <div>
-          <div className="workboard">
-            <div className="board-header">
-              <div>
-                <div className="board-label">{boardLabel}</div>
-                <h3>{resolvedBoardTitle}</h3>
-              </div>
-              <span className="badge">Plan</span>
-            </div>
-            {[
-              ['People & purpose', 'Who needs to join and why?'],
-              ['Participation & control', 'Who hosts, contributes and records?'],
-              ['Useful follow-through', 'What may be shared afterwards?'],
-            ].map(([rowTitle, subtitle], i) => (
-              <div className="board-row" key={rowTitle}>
-                <div>
-                  <strong>{rowTitle}</strong>
-                  <small>{subtitle}</small>
-                </div>
-                <span className="check-dot">{i + 1}</span>
-              </div>
-            ))}
-          </div>
-          <span className="concept-label" style={{ color: '#93a7c4' }}>
-            Illustrative preparation checklist
-          </span>
+        <div className="workflow-visual">
+          <img
+            src={WORKFLOW_IMAGES[route] || workflowGovernmentImg}
+            alt={resolvedBoardTitle}
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
@@ -494,10 +491,6 @@ export function ScopeOverviewSection() {
             </p>
           </article>
         </div>
-        <p className="fine">
-          Design proposal based on approved V1 scope categories. Package entitlements and actual
-          release availability require confirmation.
-        </p>
       </div>
     </section>
   )

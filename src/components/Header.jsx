@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import konn3ctLogo from '../assets/konn3ct-logo.png'
-import { LOGIN_URL, REGISTER_URL } from '../data/metadata'
+import { LOGIN_URL, REGISTER_URL, proposalSolutions, routePaths } from '../data/metadata'
 
 function navToAnchor(navigate, location, anchor) {
   if (location.pathname !== '/') {
@@ -15,16 +15,45 @@ function navToAnchor(navigate, location, anchor) {
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const dropRef = useRef(null)
   const location = useLocation()
   const navigate = useNavigate()
 
+  const closeDropdown = () => {
+    if (dropRef.current) {
+      dropRef.current.removeAttribute('open')
+    }
+  }
+
   useEffect(() => {
     setMobileOpen(false)
+    closeDropdown()
   }, [location.pathname])
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setMobileOpen(false)
+        closeDropdown()
+      }
+    }
+    const handleClickOutside = (e) => {
+      if (dropRef.current && dropRef.current.hasAttribute('open') && !dropRef.current.contains(e.target)) {
+        closeDropdown()
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('click', handleClickOutside)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [])
 
   const handleAnchorClick = (e, anchor) => {
     e.preventDefault()
     setMobileOpen(false)
+    closeDropdown()
     navToAnchor(navigate, location, anchor)
   }
 
@@ -43,9 +72,21 @@ export default function Header() {
             <a href="/#experience" onClick={(e) => handleAnchorClick(e, 'experience')}>
               Experience
             </a>
-            <a href="/#solutions" onClick={(e) => handleAnchorClick(e, 'solutions')}>
-              Solutions
-            </a>
+            <details className="nav-drop" ref={dropRef}>
+              <summary>Solutions</summary>
+              <div className="drop-panel">
+                {proposalSolutions.map(([key, title, desc]) => (
+                  <Link
+                    key={key}
+                    to={routePaths[key] || `/${key}`}
+                    onClick={closeDropdown}
+                  >
+                    <strong>{title}</strong>
+                    <small>{desc}</small>
+                  </Link>
+                ))}
+              </div>
+            </details>
             <Link to="/pricing">
               Pricing
             </Link>
@@ -83,9 +124,6 @@ export default function Header() {
           <a href="/#experience" onClick={(e) => handleAnchorClick(e, 'experience')}>
             Experience
           </a>
-          <a href="/#solutions" onClick={(e) => handleAnchorClick(e, 'solutions')}>
-            Solutions
-          </a>
           <Link to="/pricing" onClick={() => setMobileOpen(false)}>
             Pricing
           </Link>
@@ -95,6 +133,16 @@ export default function Header() {
           <Link to="/events" onClick={() => setMobileOpen(false)}>
             Events
           </Link>
+          <div className="menu-label">Solutions for your people</div>
+          {proposalSolutions.map(([key, title]) => (
+            <Link
+              key={key}
+              to={routePaths[key] || `/${key}`}
+              onClick={() => setMobileOpen(false)}
+            >
+              {title} <span aria-hidden="true">↗</span>
+            </Link>
+          ))}
           <Link to="/contact-sales" onClick={() => setMobileOpen(false)}>
             Contact sales
           </Link>

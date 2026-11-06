@@ -41,6 +41,7 @@ import solEducationImg from './assets/solutions/education.png'
 import solFaithImg from './assets/solutions/faith.png'
 import solBusinessImg from './assets/solutions/business.png'
 import solEventsImg from './assets/solutions/events.png'
+import workflowHomeImg from './assets/workflow/workflow-home.png'
 
 const SOLUTION_CARD_MEDIA = {
   government: { image: solGovernmentImg, theme: 'navy' },
@@ -496,7 +497,9 @@ function HomePage({ onAction, currency, onCurrencyChange }) {
             <div className="workflow-copy">
               <div className="eyebrow">Your first successful meeting</div>
               <h2>
-                From “Can you hear me?”
+                From
+                <br />
+                “Can you hear me?”
                 <br />
                 to a useful next step.
               </h2>
@@ -516,32 +519,12 @@ function HomePage({ onAction, currency, onCurrencyChange }) {
                 Preview the first-meeting journey <span aria-hidden="true">↗</span>
               </a>
             </div>
-            <div>
-              <div className="workboard">
-                <div className="board-label">PROPOSED FIRST-SESSION GUIDE</div>
-                <h3>
-                  Ready for your
-                  <br />
-                  first conversation?
-                </h3>
-                {[
-                  ['Choose your joining route', 'Account or approved guest access'],
-                  ['Check your device', 'Audio, video and supported browser'],
-                  ['Know your controls', 'Host, chat, files and recording'],
-                  ['Keep help close', 'Joining and recovery guidance'],
-                ].map(([title, subtitle], i) => (
-                  <div className="board-row" key={title}>
-                    <div>
-                      <strong>{title}</strong>
-                      <small>{subtitle}</small>
-                    </div>
-                    <span className="check-dot">{i + 1}</span>
-                  </div>
-                ))}
-              </div>
-              <span className="concept-label" style={{ color: '#a4b4cd' }}>
-                Illustrative onboarding concept
-              </span>
+            <div className="workflow-visual">
+              <img
+                src={workflowHomeImg}
+                alt="Ready for your first conversation? 01 Start or join, 02 Check your device, 03 Find your controls, 04 Keep help close"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>

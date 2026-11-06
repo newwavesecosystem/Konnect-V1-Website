@@ -154,6 +154,75 @@ img {
   font-weight: 700;
 }
 
+.nav-drop {
+  position: relative;
+}
+
+.nav-drop summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+}
+
+.nav-drop summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-drop summary::after {
+  content: '⌄';
+  margin-left: 6px;
+}
+
+.drop-panel {
+  position: absolute;
+  top: 35px;
+  left: -140px;
+  width: 550px;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #d9e1ef;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px #0a1b3d20;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  z-index: 80;
+}
+
+.drop-panel a {
+  padding: 12px;
+  border-radius: 10px;
+  display: block;
+}
+
+.drop-panel a:hover {
+  background: #f2f6fc;
+}
+
+.drop-panel strong {
+  display: block;
+  color: #0a1b3d;
+  font-weight: 700;
+}
+
+.drop-panel small {
+  display: block;
+  line-height: 1.5;
+  color: #60718b;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.menu-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #227451;
+  padding: 20px 12px 6px;
+  font-weight: 700;
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
@@ -647,6 +716,10 @@ img {
   grid-template-columns: 0.85fr 1.15fr;
   gap: 60px;
   align-items: center;
+}
+
+.workflow-copy h2 {
+  font-size: clamp(29px, 3.2vw, 40px);
 }
 
 .workflow-copy p {
@@ -4420,4 +4493,16 @@ textarea {
   min-height: inherit;
   object-fit: cover;
   object-position: center;
+}
+
+.workflow-visual {
+  width: 100%;
+}
+
+.workflow-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
 }
