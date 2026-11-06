@@ -49,7 +49,7 @@ export default function PrivacyPolicy({ onAction }) {
             </div>
           </div>
 
-          <h1>Konn3ct V1 Privacy Policy</h1>
+          <h1>Konn3ct Privacy Policy</h1>
           <p>
             We are committed to protecting personal information and processing it lawfully, fairly,
             transparently and securely whenever you access or use Konn3ct.

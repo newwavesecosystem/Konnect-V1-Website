@@ -145,7 +145,7 @@ export const sectorProposals = {
     formTitle: "Request a government demo",
     usecase: "Briefings & coordination",
     outcome: "A session designed around your public mission.",
-    note: "Dedicated and sovereign environments are assessment-led proposals, not assumed V1 entitlements.",
+    // note: "Dedicated and sovereign environments are assessment-led proposals, not assumed V1 entitlements.",
   },
   associations: {
     name: "Associations",
@@ -209,7 +209,6 @@ export const sectorProposals = {
     formTitle: "Request an association demo",
     usecase: "Member meetings & training",
     outcome: "Start with your next member gathering.",
-    note: "Polls, where verified, are participation tools. No CPD accreditation or certified election capability is implied.",
   },
   education: {
     name: "Education",
@@ -274,7 +273,6 @@ export const sectorProposals = {
     formTitle: "Book an education demo",
     usecase: "Live classes & training",
     outcome: "A learning experience that starts with people.",
-    note: "This is a communication platform proposal. LMS, examination, certification and AI-language capabilities are not implied.",
   },
   faith: {
     name: "Faith communities",
@@ -336,7 +334,6 @@ export const sectorProposals = {
     formTitle: "Book a faith-community demo",
     usecase: "Teaching & fellowship",
     outcome: "Plan your first gathering with confidence.",
-    note: "Giving, translation and AI media functions require separate scope and release confirmation.",
   },
   corporates: {
     name: "Business",
@@ -395,7 +392,6 @@ export const sectorProposals = {
     formTitle: "Book an enterprise demo",
     usecase: "Team & customer collaboration",
     outcome: "Start small. Grow around a clear need.",
-    note: "AI summaries, searchable transcripts and SSO are not presented as released V1 capabilities.",
   },
   "events-community": {
     name: "Events & community",
@@ -449,7 +445,6 @@ export const sectorProposals = {
     formTitle: "Request an event consultation",
     usecase: "Event & gathering requirements",
     outcome: "Design a gathering people can take part in.",
-    note: "Your audience estimate helps us assess requirements. Capacity is confirmed in the agreed event scope. Ticketing, sponsorship and breakouts require separate confirmation.",
   },
 };
 

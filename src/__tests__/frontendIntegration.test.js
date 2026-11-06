@@ -364,13 +364,13 @@ describe('Phase 11 — Frontend Integration & Regression Test Suite', () => {
 
     fireEvent.click(privacyLink);
     expect(
-      screen.getByRole('heading', { name: /Konn3ct V1 Privacy Policy/i })
+      screen.getByRole('heading', { name: /Konn3ct Privacy Policy/i })
     ).toBeInTheDocument();
 
     const termsLinksOnPage = screen.getAllByRole('link', { name: /^Terms of Service$/i });
     fireEvent.click(termsLinksOnPage[0]);
     expect(
-      screen.getByRole('heading', { name: /Konn3ct V1 Terms of Service/i })
+      screen.getByRole('heading', { name: /Konn3ct Terms of Service/i })
     ).toBeInTheDocument();
   });
 

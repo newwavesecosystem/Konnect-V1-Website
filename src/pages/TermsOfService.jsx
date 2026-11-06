@@ -38,7 +38,7 @@ export default function TermsOfService({ onAction }) {
             </div>
           </div>
 
-          <h1>Konn3ct V1 Terms of Service</h1>
+          <h1>Konn3ct Terms of Service</h1>
           <p>
             These Terms govern access to and use of the Konn3ct communications and collaboration
             platform provided by Newwaves Ecosystem Limited.
