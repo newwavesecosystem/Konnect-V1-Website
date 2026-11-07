@@ -1,5 +1,4 @@
 import React from 'react'
-import homeShowcase from '../assets/showcase/Konn3ct meeting screen showcase.png'
 import governmentShowcase from '../assets/showcase/Konn3ct shared presentation interface.png'
 import associationsShowcase from '../assets/showcase/Konn3ct meeting interface with clean captions.png'
 import educationShowcase from '../assets/showcase/Connected learning in action.png'
@@ -9,7 +8,7 @@ import eventsShowcase from '../assets/showcase/Konn3ct community event session.p
 
 const SHOWCASE_BY_VARIANT = {
   home: {
-    src: homeShowcase,
+    src: '/hero-home.jpg',
     alt: 'Konn3ct meeting screen showcase',
   },
   government: {
@@ -59,8 +58,8 @@ export default function MediaPlaceholder({ variant = 'home', type, label }) {
         src={showcase.src}
         alt={label || showcase.alt}
         className="hero-showcase-img"
-        width="690"
-        height="552"
+        width="646"
+        height="517"
         decoding="async"
       />
     </div>

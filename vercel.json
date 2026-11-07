@@ -10,7 +10,7 @@
       ]
     },
     {
-      "source": "/(favicon\\.ico|konn3ct-logo\\.ico|robots\\.txt|llms\\.txt)",
+      "source": "/(favicon\\.ico|konn3ct-logo\\.ico|robots\\.txt|llms\\.txt|\\.well-known/ard\\.json|hero-home\\.jpg)",
       "headers": [
         {
           "key": "Cache-Control",

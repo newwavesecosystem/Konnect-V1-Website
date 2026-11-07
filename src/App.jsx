@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, lazy, useEffect, useState } from 'react'
 import { Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -25,14 +25,6 @@ import {
   routePaths,
   sectorProposals,
 } from './data/metadata'
-import ContactSales from './pages/ContactSales'
-import CustomerSupport from './pages/CustomerSupport'
-import Pricing from './pages/Pricing'
-import PrivacyPolicy from './pages/PrivacyPolicy'
-import TermsOfService from './pages/TermsOfService'
-import Events from './pages/Events'
-import EventDetails from './pages/EventDetails'
-import Trust from './pages/Trust'
 import { captureUtmParameters } from './services/leadService'
 import { trackPageView } from './analytics/events'
 import solGovernmentImg from './assets/solutions/government.png'
@@ -42,6 +34,15 @@ import solFaithImg from './assets/solutions/faith.png'
 import solBusinessImg from './assets/solutions/business.png'
 import solEventsImg from './assets/solutions/events.png'
 import workflowHomeImg from './assets/workflow/workflow-home.png'
+
+const ContactSales = lazy(() => import('./pages/ContactSales'))
+const CustomerSupport = lazy(() => import('./pages/CustomerSupport'))
+const Pricing = lazy(() => import('./pages/Pricing'))
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'))
+const TermsOfService = lazy(() => import('./pages/TermsOfService'))
+const Events = lazy(() => import('./pages/Events'))
+const EventDetails = lazy(() => import('./pages/EventDetails'))
+const Trust = lazy(() => import('./pages/Trust'))
 
 const SOLUTION_CARD_MEDIA = {
   government: { image: solGovernmentImg, theme: 'navy' },
@@ -900,6 +901,7 @@ function SiteShell() {
   return (
     <div className="min-h-screen bg-white text-brand-ink">
       <Header onToast={showToast} onAction={handleAction} />
+      <Suspense fallback={null}>
       <Routes>
         <Route
           path="/"
@@ -980,6 +982,7 @@ function SiteShell() {
         />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      </Suspense>
 
       <Konn3ctModal
         action={modalAction}

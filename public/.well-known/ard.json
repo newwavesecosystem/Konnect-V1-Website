@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:landing.konn3ct.ng:web:konn3ct",
+      "displayName": "Konn3ct Collaboration Platform",
+      "type": "text/markdown; profile=\"urn:air:agent-skills\"",
+      "url": "https://landing.konn3ct.ng/llms.txt",
+      "representativeQueries": [
+        "What collaboration and video conferencing features does Konn3ct offer?",
+        "What pricing plans are available for Konn3ct?",
+        "How does Konn3ct support enterprise, education, healthcare, and public sector teams?"
+      ]
+    }
+  ]
+}
