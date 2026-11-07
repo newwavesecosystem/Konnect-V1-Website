@@ -1,0 +1,26 @@
+# Konn3ct
+
+> Konn3ct is a digital communications and collaboration platform operated by Newwaves Ecosystem Limited — Connection Freedom by Design for meetings, learning, events, and institutional collaboration.
+
+## Core Pages
+
+- [Home](https://landing.konn3ct.ng/): Overview of Konn3ct meetings, features, six freedoms, and segment solutions.
+- [Pricing & Plans](https://landing.konn3ct.ng/pricing): Compare Free, Starter, Professional, Business, and Enterprise plans in NGN and USD.
+- [Trust & Controls](https://landing.konn3ct.ng/trust): TrustLock controls, host responsibilities, and recording and sharing guidance.
+- [Discover Events](https://landing.konn3ct.ng/events): Public events, webinars, and community gatherings hosted on Konn3ct.
+- [Customer Support](https://landing.konn3ct.ng/support): Raise a support request, report an issue, or get help joining a meeting.
+- [Contact Sales](https://landing.konn3ct.ng/contact-sales): Book a product demo or discuss enterprise and institutional deployment requirements.
+
+## Solutions by Sector
+
+- [Government](https://landing.konn3ct.ng/government): Briefings, inter-agency coordination, and sovereign-oriented deployment options.
+- [Associations](https://landing.konn3ct.ng/associations): Member meetings, chapter collaboration, and professional learning pilots.
+- [Education](https://landing.konn3ct.ng/education): Live classes, tutorials, and campus community sessions.
+- [Faith Communities](https://landing.konn3ct.ng/faith): Teaching, fellowship, and leadership gatherings across locations.
+- [Business & Corporates](https://landing.konn3ct.ng/corporates): Team meetings, customer conversations, and enterprise collaboration.
+- [Events & Community](https://landing.konn3ct.ng/events-community): Structured online and hybrid gatherings with registration and follow-through.
+
+## Legal & Policies
+
+- [Privacy Policy](https://landing.konn3ct.ng/privacy): How Newwaves Ecosystem Limited processes and protects personal information.
+- [Terms of Service](https://landing.konn3ct.ng/terms): Service agreement and acceptable use terms for Konn3ct.

@@ -53,9 +53,15 @@ export default function MediaPlaceholder({ variant = 'home', type, label }) {
   return (
     <div className="hero-visual hero-visual-image">
       <img
+        ref={(el) => {
+          if (el) el.setAttribute('fetchpriority', 'high')
+        }}
         src={showcase.src}
         alt={label || showcase.alt}
         className="hero-showcase-img"
+        width="690"
+        height="552"
+        decoding="async"
       />
     </div>
   )

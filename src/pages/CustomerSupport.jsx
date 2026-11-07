@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { trackPageView } from '../analytics/events'
-import { jsPDF } from 'jspdf'
 
 const REQUEST_TYPES = [
   'Technical problem',
@@ -173,10 +172,11 @@ export default function CustomerSupport({ onAction }) {
   //   window.setTimeout(() => URL.revokeObjectURL(url), 1000)
   // }
 
-  const handleDownload = () => {
-  if (!submittedDraft) return
+  const handleDownload = async () => {
+    if (!submittedDraft) return
 
-  const pdf = new jsPDF()
+    const { jsPDF } = await import('jspdf')
+    const pdf = new jsPDF()
 
   const pageWidth = pdf.internal.pageSize.getWidth()
   const pageHeight = pdf.internal.pageSize.getHeight()

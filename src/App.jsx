@@ -523,6 +523,8 @@ function HomePage({ onAction, currency, onCurrencyChange }) {
               <img
                 src={workflowHomeImg}
                 alt="Ready for your first conversation? 01 Start or join, 02 Check your device, 03 Find your controls, 04 Keep help close"
+                width="660"
+                height="440"
                 loading="lazy"
               />
             </div>
@@ -579,7 +581,7 @@ function HomePage({ onAction, currency, onCurrencyChange }) {
                     to={routePaths[key] || `/${key}`}
                   >
                     <div className="solution-card-media">
-                      <img src={media.image} alt={title} loading="lazy" />
+                      <img src={media.image} alt={title} width="660" height="220" loading="lazy" />
                       <svg
                         className="solution-card-wave"
                         viewBox="0 0 400 50"

@@ -203,6 +203,8 @@ export function WorkflowSection({
           <img
             src={WORKFLOW_IMAGES[route] || workflowGovernmentImg}
             alt={resolvedBoardTitle}
+            width="660"
+            height={route === 'faith' ? 338 : 440}
             loading="lazy"
           />
         </div>

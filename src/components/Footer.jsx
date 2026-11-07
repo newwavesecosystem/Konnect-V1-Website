@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4>Explore</h4>
+            <h3>Explore</h3>
             <a href="/#experience" onClick={handleExperienceClick}>
               Experience &amp; features
             </a>
@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4>Solutions</h4>
+            <h3>Solutions</h3>
             {proposalSolutions.map(([routeKey, label]) => (
               <Link key={routeKey} to={routePaths[routeKey]}>
                 {label}
@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4>Trust &amp; support</h4>
+            <h3>Trust &amp; support</h3>
             <Link to="/support">Customer Support</Link>
             <Link to="/trust">Trust &amp; controls</Link>
             <Link to="/privacy">Privacy Policy</Link>
