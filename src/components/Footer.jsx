@@ -32,6 +32,71 @@ export default function Footer() {
               <br />
               Every Connection Must Count.
             </p>
+            <div className="footer-store-wrap">
+              <a
+                href="https://play.google.com/store/apps/details?id=com.konn3ct&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get Konn3ct on Google Play"
+                className="footer-playstore-btn"
+              >
+                <svg
+                  className="footer-playstore-icon"
+                  viewBox="0 0 24 24"
+                  width="22"
+                  height="22"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="#00d2ff"
+                    d="M3.6 2.2c-.3.3-.5.8-.5 1.4v16.8c0 .6.2 1.1.5 1.4l.1.1L13.1 12v-.2L3.7 2.1l-.1.1z"
+                  />
+                  <path
+                    fill="#ffbc00"
+                    d="M16.2 15.2l-3.1-3.1v-.2l3.1-3.1.1.1 3.7 2.1c1.1.6 1.1 1.6 0 2.2l-3.7 2.1-.1-.1z"
+                  />
+                  <path
+                    fill="#ff3a44"
+                    d="M16.3 15.1L13.1 12 3.6 21.5c.4.4.9.4 1.6 0l11.1-6.4z"
+                  />
+                  <path
+                    fill="#00f076"
+                    d="M16.3 8.9L5.2 2.5c-.7-.4-1.2-.4-1.6 0L13.1 12l3.2-3.1z"
+                  />
+                </svg>
+                <span className="footer-playstore-text">
+                  <small>GET IT ON</small>
+                  <strong>Google Play</strong>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3>Explore</h3>
+            <a href="/#experience" onClick={handleExperienceClick}>
+              Experience &amp; features
+            </a>
+            <Link to="/pricing">Pricing</Link>
+            <a href={EVENTS_URL}>Discover events</a>
+            <Link to="/contact-sales">Contact sales</Link>
+          </div>
+
+          <div>
+            <h3>Solutions</h3>
+            {proposalSolutions.map(([routeKey, label]) => (
+              <Link key={routeKey} to={routePaths[routeKey]}>
+                {label}
+              </Link>
+            ))}
+          </div>
+
+          <div>
+            <h3>Trust &amp; support</h3>
+            <Link to="/support">Customer Support</Link>
+            <Link to="/trust">Trust &amp; controls</Link>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
             <div className="footer-socials" aria-label="Konn3ct social media links">
               <a
                 href="https://www.facebook.com/konn3ctapp"
@@ -102,33 +167,6 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-          </div>
-
-          <div>
-            <h3>Explore</h3>
-            <a href="/#experience" onClick={handleExperienceClick}>
-              Experience &amp; features
-            </a>
-            <Link to="/pricing">Pricing</Link>
-            <a href={EVENTS_URL}>Discover events</a>
-            <Link to="/contact-sales">Contact sales</Link>
-          </div>
-
-          <div>
-            <h3>Solutions</h3>
-            {proposalSolutions.map(([routeKey, label]) => (
-              <Link key={routeKey} to={routePaths[routeKey]}>
-                {label}
-              </Link>
-            ))}
-          </div>
-
-          <div>
-            <h3>Trust &amp; support</h3>
-            <Link to="/support">Customer Support</Link>
-            <Link to="/trust">Trust &amp; controls</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms of Service</Link>
           </div>
         </div>
 
