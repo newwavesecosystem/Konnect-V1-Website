@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Footer from '../components/Footer'
 import { CurrencyToggleButton } from '../components/Sections'
+import { REGISTER_URL } from '../data/metadata'
 import { trackPageView } from '../analytics/events'
 
 export const PLAN_DATA = [
@@ -281,13 +282,12 @@ export default function Pricing({
                         Discuss Enterprise <span aria-hidden="true">↗</span>
                       </Link>
                     ) : (
-                      <button
-                        type="button"
+                      <a
                         className={`button ${isRecommended ? '' : 'outline'}`}
-                        onClick={() => onAction?.(`plan:${p.n}`)}
+                        href={REGISTER_URL}
                       >
                         Review {p.n} <span aria-hidden="true">↗</span>
-                      </button>
+                      </a>
                     )}
                   </article>
                 )

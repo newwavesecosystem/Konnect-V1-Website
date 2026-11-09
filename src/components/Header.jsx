@@ -73,7 +73,23 @@ export default function Header() {
               Experience
             </a>
             <details className="nav-drop" ref={dropRef}>
-              <summary>Solutions</summary>
+              <summary>
+                Solutions
+                <svg
+                  className="nav-drop-chevron"
+                  viewBox="0 0 12 12"
+                  width="12"
+                  height="12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M2.5 4.5L6 8l3.5-3.5" />
+                </svg>
+              </summary>
               <div className="drop-panel">
                 {proposalSolutions.map(([key, title, desc]) => (
                   <Link

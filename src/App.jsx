@@ -689,161 +689,9 @@ function SectorPage({ route, onAction, onToast }) {
   )
 }
 
-function Konn3ctModal({ action, onClose, onAction }) {
-  useEffect(() => {
-    if (!action) return undefined
-    const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [action, onClose])
-
-  if (!action) return null
-
-  let title = 'Information'
-  let body = null
-
-  if (action === 'trial') {
-    title = 'Start 7-day trial'
-    body = (
-      <>
-        <p>No credit card required. Choose the path that matches how you want to begin.</p>
-        <div className="modal-progress">
-          <span />
-          <span />
-          <span />
-        </div>
-        <div className="dialog-options">
-          <a href={REGISTER_URL}>
-            <strong>Host my first meeting →</strong>
-            <small>Account → device check → create a meeting</small>
-          </a>
-          <button type="button" onClick={() => onAction('join')}>
-            <strong>Join an existing meeting →</strong>
-            <small>Follow the approved meeting access route</small>
-          </button>
-        </div>
-      </>
-    )
-  } else if (action === 'trial-host') {
-    title = 'Your first-meeting path'
-    body = (
-      <>
-        <ul className="check-list">
-          <li>Create your account</li>
-          <li>Check your audio and video</li>
-          <li>Create a meeting and invite your people</li>
-        </ul>
-        <div className="callout">
-          Ready to begin? Continue to the Konn3ct registration page to start your 7-day trial.
-        </div>
-        <a className="button outline" href={REGISTER_URL} style={{ marginTop: '16px' }}>
-          Continue to registration <span aria-hidden="true">↗</span>
-        </a>
-      </>
-    )
-  } else if (action === 'checkout') {
-    title = 'A clear, verified purchase'
-    body = (
-      <>
-        <ul className="check-list">
-          <li>Review the approved plan and full price</li>
-          <li>Complete payment through the authorised checkout</li>
-          <li>Activate access after verified payment</li>
-          <li>Receive confirmation and support guidance</li>
-        </ul>
-        <div className="callout">
-          Checkout design flow only. No live Paystack connection or financial transaction.
-        </div>
-      </>
-    )
-  } else if (action === 'join') {
-    title = 'Join a meeting'
-    body = (
-      <>
-        <p>
-          Use your meeting link and the approved joining guidance. Anonymous access and host-control
-          behavior must match the ratified scope.
-        </p>
-        <div className="callout">Joining-flow concept only. No live meeting is opened.</div>
-      </>
-    )
-  } else if (action === 'trust') {
-    title = 'Control you can understand'
-    body = (
-      <>
-        <p>TrustLock content will explain the actual released controls in plain language.</p>
-        <ul className="check-list">
-          <li>Who may join and how</li>
-          <li>Who holds host responsibilities</li>
-          <li>How recording and sharing are controlled</li>
-          <li>How to find help</li>
-        </ul>
-        <p className="fine">
-          No certification, encryption specification or sovereign-hosting guarantee is implied by
-          this concept.
-        </p>
-      </>
-    )
-  } else if (action.startsWith('plan:')) {
-    const planName = action.slice(5)
-    title = `${planName} plan`
-    body = (
-      <>
-        <p>
-          Confirm the current price, billing period and released entitlements before continuing to
-          the authorised account and checkout journey.
-        </p>
-        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '18px' }}>
-          <a className="button" href={REGISTER_URL}>
-            Continue with {planName} <span aria-hidden="true">↗</span>
-          </a>
-          <Link className="button outline" to="/contact-sales" onClick={onClose}>
-            Discuss this plan <span aria-hidden="true">↗</span>
-          </Link>
-        </div>
-      </>
-    )
-  } else if (action.startsWith('policy:')) {
-    title = action.split(':').slice(1).join(':') || 'Information'
-    body = (
-      <>
-        <p>
-          This destination is included in the proposed navigation so people can find{' '}
-          {title.toLowerCase()} information.
-        </p>
-        <div className="callout">
-          Content placement only. The approved policy or support guidance must replace this panel
-          before launch. No legal terms have been invented.
-        </div>
-      </>
-    )
-  }
-
-  return (
-    <div
-      className="k3-modal-backdrop"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose()
-      }}
-    >
-      <div className="k3-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button className="modal-close" type="button" aria-label="Close dialog" onClick={onClose}>
-          ×
-        </button>
-        <span className="modal-label">Interactive design preview</span>
-        <h2 id="modal-title">{title}</h2>
-        {body}
-      </div>
-    </div>
-  )
-}
-
 function SiteShell() {
   const navigate = useNavigate()
   const [toast, setToast] = useState('')
-  const [modalAction, setModalAction] = useState(null)
   const [currency, setCurrency] = useState('NGN')
 
   useEffect(() => {
@@ -869,11 +717,16 @@ function SiteShell() {
 
   const handleAction = (action) => {
     if (!action) return
-    if (action === 'trial') {
+    if (
+      action === 'trial' ||
+      action === 'trial-host' ||
+      action === 'checkout' ||
+      action.startsWith('plan:')
+    ) {
       window.location.href = REGISTER_URL
       return
     }
-    if (action === 'login') {
+    if (action === 'login' || action === 'join') {
       window.location.href = LOGIN_URL
       return
     }
@@ -895,7 +748,7 @@ function SiteShell() {
       navigate(policyMap[action.slice(7)] || '/help')
       return
     }
-    setModalAction(action)
+    window.location.href = REGISTER_URL
   }
 
   return (
@@ -983,12 +836,6 @@ function SiteShell() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       </Suspense>
-
-      <Konn3ctModal
-        action={modalAction}
-        onClose={() => setModalAction(null)}
-        onAction={handleAction}
-      />
 
       <div
         className={`fixed bottom-6 left-1/2 z-[100] -translate-x-1/2 rounded-full bg-brand-navy px-4 py-3 text-xs font-extrabold text-white shadow-float transition-all ${

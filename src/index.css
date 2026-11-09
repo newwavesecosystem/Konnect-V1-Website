@@ -162,15 +162,23 @@ img {
   cursor: pointer;
   list-style: none;
   font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .nav-drop summary::-webkit-details-marker {
   display: none;
 }
 
-.nav-drop summary::after {
-  content: '⌄';
-  margin-left: 6px;
+.nav-drop-chevron {
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.nav-drop[open] .nav-drop-chevron {
+  transform: rotate(180deg);
 }
 
 .drop-panel {
