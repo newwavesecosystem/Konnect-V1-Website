@@ -286,7 +286,7 @@ export default function Pricing({
                         className={`button ${isRecommended ? '' : 'outline'}`}
                         href={REGISTER_URL}
                       >
-                        Review {p.n} <span aria-hidden="true">↗</span>
+                        Get {p.n} <span aria-hidden="true">↗</span>
                       </a>
                     )}
                   </article>
